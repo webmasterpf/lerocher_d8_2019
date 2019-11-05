@@ -10,7 +10,7 @@ use Drupal\Core\Cache\CacheableMetadata;
 /**
  * Prepares variables for the html.html.twig template.
  */
-function starterpf_d8_2019_preprocess_html(&$variables) {
+function lerocher_d8_2019_preprocess_html(&$variables) {
   try {
     $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
   }
@@ -49,25 +49,25 @@ function starterpf_d8_2019_preprocess_html(&$variables) {
 /**
  * Prepares variables for the field.html.twig template.
  */
-function starterpf_d8_2019_preprocess_field(&$variables, $hook) {
+function lerocher_d8_2019_preprocess_field(&$variables, $hook) {
   // Make additional variables available to the template.
   $variables['bundle'] = $variables['element']['#bundle'];
 }
-/* ////////////////////////////////// 
+/* //////////////////////////////////
  * --- FONCTIONS PROPRES AU THEME ---
  //////////////////////////////////// */
 
 /* Afficher librement les slogans ou noms du site*/
-function starterpf_d8_2019_preprocess_page(&$variables) {
+function lerocher_d8_2019_preprocess_page(&$variables) {
   $variables['site_name'] = \Drupal::config('system.site')->get('name');
 }
 
 /**
  * Implements hook_theme_suggestions_HOOK_alter().
  * Suggestion de Template de type page--
- * 
+ *
  */
-function starterpf_d8_2019_theme_suggestions_page_alter(&$suggestions, $variables) {
+function lerocher_d8_2019_theme_suggestions_page_alter(&$suggestions, $variables) {
   $path = \Drupal::requestStack()->getCurrentRequest()->getPathInfo();
   if ($path != '/') {
     $path = trim($path, '/');
@@ -80,7 +80,7 @@ function starterpf_d8_2019_theme_suggestions_page_alter(&$suggestions, $variable
     $suggestions[] = 'page__' . $node->bundle();
     $suggestions[] = 'page__node_' . $node->bundle();
   }
-  
+
   #Suggestions pour les types de contenus
    if ($node = \Drupal::routeMatch()->getParameter('node')) {
     $content_type = $node->bundle();
@@ -93,12 +93,12 @@ function starterpf_d8_2019_theme_suggestions_page_alter(&$suggestions, $variable
 /**
 * Implements hook_preprocess_node() for NODE document templates.
 */
-function starterpf_d8_2019_preprocess_node(&$variables) {
+function lerocher_d8_2019_preprocess_node(&$variables) {
   // Allowed view modes
   $view_mode = $variables['view_mode']; // Retrieve view mode
   $allowed_view_modes = ['full']; // Array of allowed view modes (for performance so as to not execute on unneeded nodes)
- 
-  // If view mode is in allowed view modes list, pass to starterpf_d8_2019_add_regions_to_node()
+
+  // If view mode is in allowed view modes list, pass to lerocher_d8_2019_add_regions_to_node()
   if(in_array($view_mode, $allowed_view_modes)) {
     // Allowed regions (for performance so as to not execute for unneeded region)
     // Liste des régions utilisées directement dans les node.html.twig
@@ -106,33 +106,33 @@ function starterpf_d8_2019_preprocess_node(&$variables) {
     'pole_Zone1','pole_Zone2','pole_Zone3','pole_Zone4',
       'region_Zone_1','region_Zone_2','region_Zone_3','region_Zone_4','region_Zone_5'
       ];
-    starterpf_d8_2019_add_regions_to_node($allowed_regions, $variables);
+    lerocher_d8_2019_add_regions_to_node($allowed_regions, $variables);
   }
 }
- 
+
 /**
 * THEME_add_regions_to_node
 */
- 
-function starterpf_d8_2019_add_regions_to_node($allowed_regions, &$variables) {
+
+function lerocher_d8_2019_add_regions_to_node($allowed_regions, &$variables) {
   // Retrieve active theme
   $theme = \Drupal::theme()->getActiveTheme()->getName();
- 
+
   // Retrieve theme regions
   $available_regions = system_region_list($theme, 'REGIONS_ALL');
- 
+
   // Validate allowed regions with available regions
   $regions = array_intersect(array_keys($available_regions), $allowed_regions);
- 
+
   // For each region
   foreach ($regions as $key => $region) {
- 
+
     // Load region blocks
     $blocks = entity_load_multiple_by_properties('block', array('theme' => $theme, 'region' => $region));
- 
+
     // Sort ‘em
     uasort($blocks, 'Drupal\block\Entity\Block::sort');
- 
+
     // Capture viewable blocks and their settings to $build
     $build = array();
     foreach ($blocks as $key => $block) {
@@ -140,31 +140,31 @@ function starterpf_d8_2019_add_regions_to_node($allowed_regions, &$variables) {
         $build[$key] = entity_view($block, 'block');
       }
     }
- 
+
     // Add build to region
     $variables[$region] = $build;
   }
 }
 /** TEMPLATE SUGGESTION pour les template de Regions incluses dans les Template de Node
 http://dannyenglander.com/blog/drupal-8-theming-tutorial-how-craft-custom-theme-hook-suggestions-and-templates
- * 
+ *
  * Fonctionne pas
  *  */
 /**
  * Implements hook_theme_suggestions_HOOK_alter(). REGION
- * 
+ *
  */
-function starterpf_d8_2019_theme_suggestions_region_alter(&$suggestions, $vars, $hook) {
+function lerocher_d8_2019_theme_suggestions_region_alter(&$suggestions, $vars, $hook) {
 // kint($vars);
     // Define a variable for the #region name.
   $region = $vars['elements']['#region'];
-  
+
 
   // Define an array of our postscript regions.Suggestions disponibles pour les régions listées
   $region_postscript = array(
        'pole_Zone1','pole_Zone2','pole_Zone3','pole_Zone4',
       'region_region_Zone_1','region_Zone_2','region_Zone_3','region_Zone_4','region_Zone_5'
-      
+
   );
 
   // If we are in any of these regions, create a theme hook suggestion.
@@ -176,13 +176,13 @@ if (in_array($region, $region_postscript)) {
 }
 /**
  * Implements hook_theme_suggestions_HOOK_alter(). BLOCK
- * 
+ *
  */
 //Besoin de composant Symfony pour 2e code de suggestions
 use Drupal\block\Entity\Block;
-function starterpf_d8_2019_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+function lerocher_d8_2019_theme_suggestions_block_alter(array &$suggestions, array $variables) {
 //    kint($vars);
-    
+
     $block = $variables['elements'];
     $blockType = $block['#configuration']['provider'];
     // Condition sur le type de block pour fournir des suggestions
@@ -197,7 +197,7 @@ function starterpf_d8_2019_theme_suggestions_block_alter(array &$suggestions, ar
 
     // Autre suggestion de template selon la région dans laquelle est le bloc
     // https://drupal.stackexchange.com/questions/192616/how-to-make-a-theme-hook-suggestion-for-blocks-according-to-region
-    
+
     if (!empty($variables['elements']['#id'])) {
     $block = Block::load($variables['elements']['#id']);
     $suggestions[] = 'block__' . $block->getRegion() . '__' . $variables['elements']['#id'];
@@ -206,14 +206,14 @@ function starterpf_d8_2019_theme_suggestions_block_alter(array &$suggestions, ar
   else if (isset($variables['elements']['#configuration']['region'])) {
     $suggestions[] = 'block__page_' . $variables['elements']['#configuration']['region'] . '__' . end(explode(':', $variables['elements']['#plugin_id']));
   }
-  
+
   return $suggestions;
-    
+
 }
 /**
  * Implements hook_preprocess_HOOK().
 */
-function starterpf_d8_2019_preprocess_file_link(&$variables) {
+function lerocher_d8_2019_preprocess_file_link(&$variables) {
   // Add target _blank attribute to all file links.
   $file = $variables['file'];
   $url = file_create_url($file->uri->value);
@@ -231,7 +231,7 @@ function starterpf_d8_2019_preprocess_file_link(&$variables) {
 *  Pour la page de résultats avec custom search module.
 * https://www.drupal.org/project/custom_search/issues/2915553
 */
-function starterpf_d8_2019_theme_registry_alter(&$theme_registry) {
+function lerocher_d8_2019_theme_registry_alter(&$theme_registry) {
   if (isset($theme_registry['item_list__search_results'])) {
     $theme_registry['item_list__search_results']['template'] = 'custom-search-results';
     $theme_registry['item_list__search_results']['path'] = drupal_get_path('theme', 'gasquet_d8_2019') . '/templates';
