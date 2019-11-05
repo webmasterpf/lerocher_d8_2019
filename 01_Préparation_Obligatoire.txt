@@ -1,4 +1,4 @@
-AVANT TOUTE ACTION IL FAUT ADAPTER LES FICHEIRS DE BASES FOURNIS PAR BASIC AU THEME A DEVELOPPER
+AVANT TOUTE ACTION IL FAUT ADAPTER LES FICHIERS DE BASES FOURNIS PAR BASIC AU THEME A DEVELOPPER
 !!! BIEN suivre les instructions sinon risque de WSOD !!!
 
 
@@ -197,7 +197,7 @@ line:
 
   gulp
 
-This will initialize gulp, compile Sass (as .scss files) to CSS, transpile and 
+This will initialize gulp, compile Sass (as .scss files) to CSS, transpile and
 uglify your JS, and start watching changes to your files. Voilà!
 
 
