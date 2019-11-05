@@ -13,6 +13,7 @@ https://www.supinfo.com/articles/single/946-npm-package-manager-nodejs
 
 Installation de Gulp
 :/var/www/drupal-8/themes/custom/dossier_projet$ sudo npm init (création du fichier  package.json + dossier node_modules)
+Si pas sudo pb d'installation de modules par la suite comme gulp-load-plugins ou browserSync
 :/var/www/drupal-8/themes/custom/dossier_projet$ npm install gulp@^3.0.0 --save-dev
 Utilise Gulp 3 car sinon syntaxe change avec Gulp 4 et cause une erreur.
 
