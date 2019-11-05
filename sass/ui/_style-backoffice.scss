@@ -1,0 +1,103 @@
+/*------------------------------------------------------*
+*-- CSS Drupal pour le backoffice --------------*
+*------------------------------------------------------*/
+
+/*------------------------------------------------*
+ *---  Provence Formation 2018--*
+ *------------------------------------------------*/
+
+/*######-------- ||| LAYOUT  PAGES BO ||| --------######*/
+body.not-front.logged-in, body.role--authenticated{
+    section.conteneur{
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+         width: span(10 of $desktopcol);
+        margin-left: span(1 wide);//push
+        @include clearfix;
+          .middle-content  img{
+        width: auto;
+        display: initial;
+    }
+        }
+        header{
+          margin-top: 5em;
+        }
+    }
+}
+
+/*----Navigation backoffice------*/
+
+#block-user-1 {
+  background: url("../images/bg_nav_backoffice.gif") repeat scroll left top;
+  padding: 0;
+  margin: 0;
+  a {
+    color: $orange-fonce;
+    text-decoration: none;
+    background: white;
+    padding: 0 em(2px);
+    &:hover {
+      background: $orange-fonce;
+      color: white;
+    }
+  }
+}
+
+.item-list ul {
+  li {
+    margin: 0 0 0.25em 1.5em;
+    padding: 0;
+  }
+  margin: 0;
+  padding: 0;
+}
+
+/*----page login------*/
+
+#user-login {
+  margin: auto;
+  width: em(450px);
+  padding: em(10px) 0;
+}
+
+/*Workspace*/
+
+.sticky-table {
+  color: #606071;
+  a {
+    color: red;
+  }
+}
+
+/*-- EDIT MODE --D8 --*/
+// Tabs. Remplacer l'ID par celle du thème utilisé si les classes sur UL ne fonctionnent pas.
+
+body.role--authenticated{
+ul.menu,nav.tabs,#block-#{$theme}-local-tasks{
+    @include backgroundImage(('BG/bg_nav_backoffice.gif'),transparent,0 0, repeat);
+
+    padding:em(5px);
+    ul.tabs {
+  width: 100%;
+  margin: 0 0 em(5px);
+  border-bottom: em(1px) solid $gris-clair-moyen;
+}
+  li {
+    display: inline-block;
+  }
+
+  a {
+    display: block;
+    border: em(1px) solid $gris-clair-moyen;
+    border-bottom: 0;
+    border-radius: em(3px) em(3px) 0 0;
+    padding: em(3px);
+    color: $gris-clair;
+    background: $violet;
+    text-decoration: none;
+    &:hover{
+        color: $gris-clair;
+        background: $rose-fushia;
+    }
+  }
+}
+}

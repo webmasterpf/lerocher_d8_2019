@@ -1,0 +1,351 @@
+// Regroupe le style pour le contenu des node.tpl custom
+// créer des fichiers _node-TYPE.scss et les importer dans application.scss
+
+/*-------------------------------------|
+|       CONTENU CUSTOM NODE.TPL        |
+|       PAGE GLOBALE VDL  LISTE      |
+|--------------------------------------*/
+
+//@include breakpoint ($mobile){}
+//@include breakpoint ($desktop){}
+//@include breakpoint ($tablet){}
+
+/*######-------- ||| ORDRE FLEXBOX ||| --------######*/
+body .conteneur .conteneur-flex{
+    #zone-1.type-page-actualites{order:2;}
+    #zone-2.type-page-actualites{order:1;}
+    #zone-3.type-page-actualites{order:3;}
+    @include breakpoint ($desktop){
+        #zone-1.type-page-actualites{order:1;}
+        #zone-2.type-page-actualites{order:2;}
+        #zone-3.type-page-actualites{order:3;}
+    }
+}
+
+/*######-------- ||| BORDURES ||| --------######*/
+body .conteneur {
+    @include breakpoint ($desktop){
+        #zone-2.type-page-actualites{}
+    }
+
+}
+/*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
+#zone-illustration.type-page-actualites{
+    #illustration-pleinepage{
+        min-height: 35vw;
+        max-height: 90vw;
+        overflow: hidden;
+        position:relative;
+        img{
+            transform: translate(0%,0%);
+            @include adaptable-img();
+        }
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+            min-height: 25vw;
+            max-height: 30vw;
+            img{
+                transform: translate(0%,-6%);
+            }
+        }
+    }
+
+}
+// Tableau initial des classes et IDs à créer.
+$typedecontenu: type-page-actualites ;
+$zones: zone-1 ; //, zone-2, zone-3
+@each $zone in $zones {
+  @each $type in $typedecontenu {
+    ##{$zone}.#{$type} {
+      >.content{
+          column-count: 0;
+          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+              column-count: 1;
+              column-fill: balance;
+              white-space: normal;
+              padding: span(0.1);
+          }
+      }
+      aside.liste-vdl{
+
+          .bef-exposed-form{
+              @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                  column-count: 4;
+                  column-fill: balance;
+                  white-space: normal;
+                  padding: span(0.02);
+              }
+              div.form-item{
+                  margin: 0 0 span(0.01) 0;
+                  @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                      @include  txt-colonnes();
+
+                      padding: span(0.35);
+                  }
+              }
+          }
+          .item-list{
+              @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                  /*width: span(12);*/
+              }
+              ul.liste-vdl-lycee{
+                  @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+  /*                                        column-count: 5;
+                                          column-fill: auto;
+                                          white-space: normal;*/
+                      //Flex pour avoir classement horizontal chronologique
+                      display: flex;
+                      flex-wrap:wrap;
+                      padding: 0 0 0 span(0.1);
+                  }
+                  li{
+                      padding: 0;
+                      margin: span(0.1) 0;
+                      @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+
+                          /*@include hack-Edge;*/
+                          @include hack-IE;
+                          @include  txt-colonnes();
+                          /* Définir le nombre de colonnes via flex*/
+                          flex: 0 0 18%; // 21% = 4 col , 18% = 5 col
+
+                          margin: 0 span(0.1) span(0.1) 0;
+                          display: inline-block;
+                          width: span(1.8);
+
+                          :not(img):not(a):not(.complement){
+                              padding: span(0.1);
+
+                          }
+
+                      }
+                      a{
+                          display: block;
+                          overflow: hidden;// Pour empêcher image de sortir
+                      }
+                  }
+              }
+          }
+
+      }
+    }
+  }
+}
+/*######-------- ||| STYLE ||| --------######*/
+//Pour H1 voir _page-lycee.scss
+h1.titre-page-globale{
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+        top: em(10px);
+        left: em(10px);
+    }
+}
+/*¤¤¤ STYLES COMMUNS ¤¤¤*/
+
+#zone-1.type-page-actualites,
+#zone-2.type-page-actualites,
+#zone-3.type-page-actualites{
+  p,ul,li{
+        @include font-size(m);//utilisation de typey
+        padding: em(5px);
+        line-height: 1.5em;
+        list-style-position: inside;
+    }
+    u{
+        font-weight: bold;
+        color: $vert;
+
+    }
+    h2{
+        @include font-size(l);//utilisation de typey
+        color: $violet;
+    }
+    h3{
+        @include font-size(m);//utilisation de typey
+        color: $vert;
+    }
+    a{
+        text-decoration: none;
+        color: $violet;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    strong{
+        color: $vert;
+    }
+}
+
+
+/*------------------------------------
+        ¤¤¤ STYLES PROPRES ¤¤¤
+______________________________*/
+#zone-1.type-page-actualites{
+
+    aside.liste-vdl{
+        //Style du filtrage de la vue
+        .bef-exposed-form{
+            div.form-item{
+                background: $rose-fushia;
+                color: $blanc-casse;
+                text-align: center;
+                cursor: pointer;
+                label{
+                    cursor: pointer;
+                    &:after{
+                        /*                        content: "PôLE";
+                                                color:$orange-fonce;
+                                                @include font-size(l);//utilisation de typey
+                                                font-family: $FontRaleway;*/
+                    }
+                }
+                //&:hover:not(#edit-term-node-tid-depth-limited-All-wrapper),
+                // Exclusion du hover pour le choix Tout - Fonctionnel
+                &:hover:not(:first-child)
+
+                {
+
+                    @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -4vw , no-repeat );
+                    background-size:60%;
+                    background-color: $violet;
+                    label{
+                        @include opacity(0.45);
+                    }
+                }
+            }
+        }
+        .views-exposed-form{
+            //Masquer la roue bleue de drupal
+            .ajax-progress-throbber {
+                display: none;
+            }
+            .views-exposed-widget{
+                padding: 0;
+                margin: 0;
+                float: none;
+            }
+            //Style du bouton de filtrage
+            .views-submit-button{
+                float: none;
+                margin: 0 auto;
+                width:25vw;
+                padding:0;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    width: 10vw;
+                }
+                input[type="submit"] {
+                    background: $orange-fonce;
+                    border: em(1px) dashed $gris-anthracite;
+                    color: $blanc-casse;
+                    @include font-size(l);//utilisation de typey
+                    font-family: $FontArvo;
+                }
+            }
+        }
+        //Masquage du module additionnel du module (bug peut être corrigé via patch)
+        .view-filters{
+            #edit-children-of-wrapper{
+                display: none;
+                visibility: hidden;
+            }
+        }
+        //Style des éléments de la vue
+        ul.liste-vdl-lycee{
+            li{
+                list-style: none;
+                color: $blanc-casse;
+                background: $gris-clair-moyen;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    @include ombrage-bloc(0em,0em,0.5em,$gris-anthracite);
+
+                }
+
+                &.tid-13{//Europe
+                    background: $bleu-turquoise;
+
+                }
+                &.tid-15{//Intervenant
+
+                    background: $jaune;
+                    *{
+                        color: $gris-anthracite;//cas particulier du fond clair
+                    }
+                }
+                &.tid-14{//Innovations
+
+                    background: $violet;
+                }
+                &.tid-16{//Mini-stages
+
+                    background: $rose-fushia;
+                }
+                &.tid-17{//Projets
+
+                    background: $orange;
+                }
+                &.tid-17{//Sorties
+
+                    background: $rouge;
+                }
+                &.tid-25{//Entreprises
+
+                    background: $orange;
+                }
+                &.tid-27{//Développement durable
+                    background: $vert;
+                    *{
+                        color: $gris-anthracite;//cas particulier du fond clair
+                    }
+                }
+                a{
+                    color: $blanc-casse;
+                    text-decoration: none;
+                    font-weight: bold;
+                    @include font-size(l);//utilisation de typey
+
+                }
+                span{
+                    display: block;
+                    font-weight: bold;
+                }
+                span.titre-vdl{
+                    //classe ajoutée dans la vue - réécriture du champ
+                    /*border: em(1px) dashed;//couleur héritée du LI parent*/
+                    text-transform: capitalize;
+                }
+                span.extrait-vdl {
+                    //classe ajoutée dans la vue - réécriture du champ
+                    font-weight:initial; /*we revert back the inherited style*/
+                    @include font-size(s);//utilisation de typey
+                }
+                /*                    &:matches(.complement){
+                                        font-weight: initial;
+                                    }*/
+
+                span.illus-vdl{
+                    img {
+                         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                        transform: translate(0%) scale(1.4);//Position de l'image d'illustration
+                        max-height: 50vh;//limite hauteur image pour mise en page
+                         }
+                    }
+                    a {//uniquement les "a" sur l'image
+                        position:relative;//pour overlay image
+                        &:before{
+
+                            @include image-overlay('motif_img_overlay.png', 0 0, repeat);
+                        }
+
+                    }
+                }
+
+
+            }
+
+        }
+    }
+}
+#zone-2.type-page-actualites{
+
+}
+#zone-3.type-page-actualites{
+
+}

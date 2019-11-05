@@ -1,0 +1,158 @@
+// Regroupe le style pour le contenu des node.tpl custom
+// créer des fichiers _CONTENT-TYPE.scss et les importer dans application.scss
+
+/*-------------------------------------|
+|       CONTENU CUSTOM               |
+|               NODE.TPL                      |
+|               MON TYPE                      |
+|--------------------------------------*/
+
+//@include breakpoint ($mobile){}
+//@include breakpoint ($desktop){}
+//@include breakpoint ($tablet){}
+//@include breakpoint(($desktop,$tablet)){}
+//@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
+
+//Ressources sur Attributs et PseudoElements
+// https://tympanus.net/codrops/2013/07/05/using-custom-data-attributes-and-pseudo-elements/
+
+/*######-------- ||| ORDRE FLEXBOX ||| --------######*/
+body .conteneur .conteneur-flex{
+    #zone-1.CLASS_NAME_CONTENU{order:1;}
+    #zone-2.CLASS_NAME_CONTENU{order:2;}
+    #zone-3.CLASS_NAME_CONTENU{order:3;}
+    #zone-4.CLASS_NAME_CONTENU{}
+    #zone-5.CLASS_NAME_CONTENU{}
+    @include breakpoint ($desktop){}
+}
+
+/*######-------- ||| BORDURES ||| --------######*/
+body .conteneur .conteneur-flex,
+body .conteneur{
+    @include breakpoint(($desktop,$tablet)){
+    }
+
+}
+
+/*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
+article.middle-content{
+    //Empêche les flottants de sortir du conteneur
+    @include clearfixsusy3;
+}
+#zone-illustration.CLASS_NAME_CONTENU1{
+    #illustration-pleinepage{
+        min-height: 35vw;
+        max-height: 90vw;
+        overflow: hidden;
+        position:relative;
+        img{
+            transform: translate(0%,0%);
+            @include adaptable-img();
+        }
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+            min-height: 25vw;
+            max-height: 30vw;
+            img{
+                transform: translate(0%,-6%);
+            }
+        }
+    }
+
+}
+#zone-1.CLASS_NAME_CONTENU1{}
+#zone-2.CLASS_NAME_CONTENU1{}
+#zone-3.CLASS_NAME_CONTENU1{}
+#zone-4.CLASS_NAME_CONTENU1{}
+#zone-5.CLASS_NAME_CONTENU1{}
+
+/*######-------- ||| STYLE ||| --------######*/
+h1.titre-page-globale {
+  @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+    top: em(10px);
+    left: em(10px);
+  }
+}
+
+/*¤¤¤ STYLES COMMUNS ¤¤¤*/
+//https://benfrain.com/working-with-lists-and-each-loops-in-sass-with-the-index-and-nth-function/
+//https://clubmate.fi/lists-in-sass-syntax-and-use-cases-with-examples/
+//Permet de créer facilement les styles communs à des IDs ou/et classes
+
+$typedecontenu: CLASS_NAME_CONTENU1, CLASS_NAME_CONTENU2, CLASS_NAME_CONTENU3;//2e boucle
+$zones: zone-1, zone-2, zone-3;//1ere boucle
+@each $zone in $zones {
+    @each $type in $typedecontenu{
+        ##{$zone}.#{$type}
+        {
+            p,ul,li{
+            @include font-size(m);//utilisation de typey
+            padding: em(5px);
+            line-height: 1.5em;
+            list-style-position: inside;
+        }
+        u{
+            font-weight: bold;
+            color: $vert;
+
+        }
+        h2{
+            @include font-size(l);//utilisation de typey
+            color: $violet;
+        }
+        h3{
+            @include font-size(m);//utilisation de typey
+            color: $vert;
+        }
+        a{
+            text-decoration: none;
+            color: $violet;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        strong{
+            color: $vert;
+        }
+        }
+    }
+}
+
+/*------------------------------------
+        ¤¤¤ STYLES PROPRES ¤¤¤
+______________________________*/
+
+#zone-1.CLASS_NAME_CONTENU{}
+#zone-2.CLASS_NAME_CONTENU{}
+#zone-3.CLASS_NAME_CONTENU{}
+#zone-4.CLASS_NAME_CONTENU{}
+#zone-5.CLASS_NAME_CONTENU{}
+
+/*--------------------------------------
+
+
+*/
+.CLASS_NAME_ITEM{
+            // A utiliser dans le cas de classes nombreuses avec partie variable, et style commun partiellement
+            //Liste dynamique des IDs en Sass pour alléger le code, définition d'une variable qui liste les IDs
+            //Lister les IDs qui nécéssitent une classe auquelles sera appliqué un style commun
+            $idsformations: 98,99,100,101,102,103,106,107;//1ère boucle
+            $idsspecificites: 145,166;//2ème boucle
+            @each $i in $idsformations{
+                div#PARTIE-FIXE-#{$i}-wrapper{
+                    label{
+                        cursor: pointer;
+
+                    }
+                    &:hover:not(#edit-term-node-tid-depth-limited-All-wrapper){
+                                //Style commun sur le hover
+                        &::after{
+                            //abandon solution pseudo élément,ne fonctionne pas
+                        }
+
+                        label{
+                            //Style commun sur le label
+                        }
+                    }
+                }
+            }
+}

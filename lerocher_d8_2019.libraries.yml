@@ -1,0 +1,83 @@
+# nom_theme.libraries.yml (multiple libraries can be added to a libraries.yml file, these would appear below the cuddly-slider libraries added earlier)
+#https://drupal.stackexchange.com/q/274233/8753
+#Transposition du chargement des CSS ou JS depuis le fichier info du D6
+# les CSS et les JS n'utilisent pas la même synthaxe pour le groupement de fichiers.
+global-styling:
+    version: VERSION
+    css:
+        theme:
+           css/application.css: {}
+        #3rdparty:   
+            # Style pour Flexslider
+           3rdparty/flexslider/flexslider.css: {}
+            #Style pour Bxslider
+           3rdparty/bxslider/css/jquery.bxslider.css: {}
+            #Style pour BaguetteBox
+           3rdparty/baguettebox/baguetteBox.min.css: {}
+            #Style pour Chocolat (vignettes zoomables RWD)
+           3rdparty/chocolat/chocolat.css: {}
+            #Style pour Lightslider (galerie RWD)
+           3rdparty/lightslider/css/lightslider.css: {}
+        #js:  
+            #Style pour Responsive Slides (diaporama RWD)
+           js/jquery_plugin/responsiveslides/responsiveslides.css: {}
+            
+global-scripts:
+    version: VERSION
+    js:
+#        js/navmenu.js: {}   //issu de Basic
+#        js/modernizr.js: {} //issu de Basic
+#       chargement des plugins qui utilisent la version de jQuery par défaut du site - exD6
+        js/jquery_plugin/selectnav.min.js: {}
+        js/jquery_plugin/jquery.sticky-kit.js: {}
+#        chargement des scripts qui utilisent la version de jQuery par défaut du site - exD6
+        js/js_jquery_defaut.js: {}
+#     mise en place du noConflict pour utiliser plusieurs versions de jQuery   - exD6
+        js/jquery_init.js: {}
+#       chargement des plugins qui utilisent une version de jQuery plus récente - exD6
+        js/jquery_plugin/jquery.flexslider.js: {}
+        js/jquery_plugin/stacktable.min.js: {}
+        js/jquery_plugin/jquery.floatit.js: {}
+        js/jquery_plugin/stickUp.js: {}
+        js/jquery_plugin/jquery.masonry.min.js: {}
+        js/jquery_plugin/baguettebox/baguetteBox.min.js: {}
+        js/jquery_plugin/chocolat/jquery.chocolat.min.js: {}
+        js/jquery_plugin/responsiveslides/responsiveslides.min.js: {}
+        js/jquery_plugin/lazyload/jquery.lazyloadxt.extra.min.js: {}
+        js/jquery_plugin/stacktable.min.js: {}
+        js/jquery_plugin/vertical-align.min.js: {}  
+        
+        3rdparty/bxslider/js/jquery.bxslider.js: {}
+        3rdparty/lightslider/js/lightslider.js: {}
+     #  *** Utilisation des plugins Jquery  plus récents - Toujours terminer avec ce JS***
+        js/js_jquery_new.js: {}
+    #    //  mise à disposition des 2 versions de jQuery - Voir si utile
+        js/jquery_exit.js: {}
+    dependencies:
+       - core/drupal
+       - core/jquery
+       - core/drupalSettings
+       - core/jquery.once
+       - core/modernizr
+       
+# Uncomment the code above to load scripts.js file on all pages. This file also requires JQuery to be
+  # loaded on all pages. Consider implimenting your scripts through theme libraries if you wish to
+  # avoid this. https://www.drupal.org/developing/api/8/assets
+
+#tabs:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/tabs.css: {}
+#
+#messages:
+#  version: VERSION
+#  css:
+#    component:
+#      css/components/messages.css: {}
+
+#ie8:
+#  version: VERSION
+#  header: true
+#  js:
+#    js/selectivizr-min.js: { browsers: { IE: 'lte IE 8', '!IE': false }, minified: true, preprocess: false }       

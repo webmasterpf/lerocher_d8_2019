@@ -1,0 +1,304 @@
+// Regroupe le style pour le contenu des node.tpl custom
+// créer des fichiers _CONTENT-TYPE.scss et les importer dans application.scss
+
+/*-------------------------------------|
+|       CONTENU CUSTOM               |
+|               NODE.TPL                      |
+|          PAGE FORMATIONS             |
+|--------------------------------------*/
+
+//@include breakpoint ($mobile){}
+//@include breakpoint ($desktop){}
+//@include breakpoint ($tablet){}
+//@include breakpoint(($desktop,$tablet)){}
+//@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
+
+/*######-------- ||| ORDRE FLEXBOX ||| --------######*/
+body .conteneur .conteneur-flex{
+    #zone-1.type-page-pole{order:1;}
+    #zone-2.type-page-pole{order:2;}
+    #zone-3.type-page-pole{order:3;}
+    #zone-4.type-page-pole{}
+    #zone-5.type-page-pole{}
+    @include breakpoint ($desktop){}
+}
+
+/*######-------- ||| BORDURES ||| --------######*/
+body .conteneur .conteneur-flex,
+body .conteneur{
+    @include breakpoint(($desktop,$tablet)){
+    }
+
+}
+
+/*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
+#zone-illustration.type-page-pole{
+    #illustration-pleinepage{
+        min-height: 35vw;
+        max-height: 90vw;
+        overflow: hidden;
+        position:relative;
+        //image par défaut en BG comme secours
+        @include backgroundImage(("defaut/visuel-defaut-Actu-2019.jpg"),transparent,no-repeat, top left);
+        background-size: cover;
+        img{
+            transform: translate(0%,0%);
+            @include adaptable-img();
+        }
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+            min-height: 25vw;
+            max-height: 30vw;
+            img{
+                transform: translate(0%,-6%);
+            }
+        }
+    }
+
+}
+#zone-1.type-page-pole{
+    >.content{
+        column-count: 0;
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+            column-count: 0;
+            column-fill: balance;
+            white-space: normal;
+            padding: span(0.1);
+        }
+    }
+    aside.liste-formations-initiales{
+        .bef-exposed-form{
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                column-count: 4;
+                column-fill: balance;
+                white-space: normal;
+                padding: span(0.02);
+            }
+            div.form-item{
+                margin: 0 0 span(0.01) 0;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    @include  txt-colonnes();//Pour bug webkit avec box shadow et columns - aléatoire
+
+                    padding: span(0.35);
+                }
+            }
+        }
+        ul.formations-initiales{
+            padding: 0;
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                column-count: 4;//adapter selon taille des blocs / images
+                column-fill: balance;//bug FF en colonne résolu
+                white-space: normal;
+                padding: span(0.1);
+            }
+            li{
+                padding: 0;
+                margin: span(0.1) 0;
+                overflow: hidden;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+
+                    @include hack-Edge;
+                    @include hack-IE;
+
+                @include  txt-colonnes();
+                    margin: 0 0 span(0.1) 0;
+
+                    :not(img):not(a):not(.complement){
+                        /*padding: span(0.1);*/
+
+                    }
+                    span.illustration {
+                        overflow: hidden;
+                        img{
+                            transform: scale(1.35);
+                        }
+                    }
+                    span.titre-fiche, span.complement{
+                        padding: span(0.1);
+                    }
+                    span.complement{}
+                }
+                a{
+                    display: block;
+                }
+            }
+        }
+    }
+}
+/*######-------- ||| STYLE ||| --------######*/
+
+/*¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+¤¤¤µ STYLES COMMUNS µ¤¤¤
+¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤*/
+//Pour H1 voir _page-lycee.scss
+h1.titre-page-pole{
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+    top: em(10px);
+    left: em(20px);
+    }
+}
+
+#zone-1.type-page-pole,
+#zone-2.type-page-pole,
+#zone-3.type-page-pole,
+#zone-4.type-page-pole,
+#zone-5.type-page-pole
+{}
+
+/*------------------------------------
+        ¤¤¤ STYLES PROPRES ¤¤¤
+______________________________*/
+
+#zone-1.type-page-pole{
+    aside.liste-formations-initiales{
+        //Style du filtrage de la vue
+       .bef-exposed-form{
+            div.form-item{
+                  background: $rose-fushia;
+                color: $blanc-casse;
+                text-align: center;
+                cursor: pointer;
+                label{
+                    cursor: pointer;
+                    &:after{
+/*                        content: "PôLE";
+                        color:$rose-fushia;
+                        @include font-size(l);//utilisation de typey
+                        font-family: $FontRaleway;*/
+                    }
+                }
+                //&:hover:not(#edit-term-node-tid-depth-limited-All-wrapper)
+                // Exclusion du hover pour le choix Tout - Fonctionnel
+                &:hover:not(:first-child)
+                {
+                  //Utilisation de l'unité vw plus universelle, évite usage de BP
+                  @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -14vw , no-repeat );
+                  background-size:60%;
+                  background-color: $violet;
+
+
+                  label{
+                      @include opacity(0.45);
+                  }
+                }
+            }
+        }
+        .views-exposed-form{
+            //Masquer la roue bleue de drupal
+            .ajax-progress-throbber {
+                display: none;
+            }
+            .views-exposed-widget{
+                padding: 0;
+                margin: 0;
+                float: none;
+            }
+            //Style du bouton de filtrage
+            .views-submit-button{
+                float: none;
+                margin: 0 auto;
+                width:25vw;
+                padding:0;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                width: 10vw;
+                }
+                input[type="submit"] {
+                    background: $orange-fonce;
+                    border: em(1px) dashed $gris-anthracite;
+                    color: $blanc-casse;
+                    @include font-size(l);//utilisation de typey
+                    font-family: $FontArvo;
+                }
+            }
+        }
+        //Masquage du module additionnel du module (bug peut être corrigé via patch)
+        .view-filters{
+            #edit-children-of-wrapper{
+                display: none;
+                visibility: hidden;
+            }
+        }
+
+        //Style des éléments de la vue
+        ul.formations-initiales{
+            li{
+                list-style: none;
+                color: $blanc-casse;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    @include ombrage-bloc(0em,0em,0.5em,$gris-anthracite);
+
+                }
+                span{
+                    font-weight: bold;
+                    /*-webkit-text-stroke:em(1px) $gris-anthracite;//Contour de texte*/
+                }
+                span.section-euro{
+                    //classe ajoutée dans la vue - réécriture du champ
+                    border: em(1px) dashed;//couleur héritée du LI parent
+                }
+                span.complement {
+                    //classe ajoutée dans la vue - réécriture du champ
+                    font-weight:initial; /*we revert back the inherited style*/
+                }
+                /*                    &:matches(.complement){
+                                        font-weight: initial;
+                                    }*/
+                a{
+                    color: $blanc-casse;
+                    text-decoration: none;
+                    font-weight: bold;
+                    @include font-size(l);//utilisation de typey
+
+                }
+                span.illustration >a {//uniquement les "a" sur l'image
+                   position:relative;//pour overlay image
+                   &:before{
+                       @include image-overlay('motif_img_overlay.png', 0 0, repeat);
+
+                   }
+                }
+                &.tid-11{ //Filiere professionnelle
+                    background: $violet;
+                }
+                &.tid-12{ //Filiere techno
+                    background: $rose-fushia;
+                }
+                &.tid-10{ //Filiere BTS
+                    background: $jaune;
+                    *{
+                        color: $gris-anthracite;//cas particulier du fond clair
+                    }
+
+                }
+                &.tid-26{ //Filiere Prépas
+                    background: $bleu-turquoise;
+                }
+                // Inutilisés >>
+                &.tid-101{
+                    background: $rouge;
+                }
+                &.tid-102{
+                    background: $orange-fonce;
+
+                }
+                &.tid-103{
+                    background: $rose-fushia;
+                }
+                &.tid-106{
+                    background: $gris-clair-moyen;
+                }
+
+                img{
+
+                }
+                span{
+                    display: block;
+
+                }
+            }
+        }
+    }
+}
+#zone-2.type-page-pole{}
+#zone-3.type-page-pole{}
+#zone-4.type-page-pole{}
+#zone-5.type-page-pole{}

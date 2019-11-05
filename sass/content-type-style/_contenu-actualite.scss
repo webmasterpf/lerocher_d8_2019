@@ -1,0 +1,299 @@
+// Regroupe le style pour le contenu des node.tpl custom
+// créer des fichiers _CONTENT-TYPE.scss et les importer dans application.scss
+/*-------------------------------------|
+|       CONTENU CUSTOM               |
+|               NODE.TPL                      |
+|               MON TYPE                      |
+|--------------------------------------*/
+//@include breakpoint ($mobile){}
+//@include breakpoint ($desktop){}
+//@include breakpoint ($tablet){}
+//@include breakpoint(($desktop,$tablet)){}
+//@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
+//Ressources sur Attributs et PseudoElements
+// https://tympanus.net/codrops/2013/07/05/using-custom-data-attributes-and-pseudo-elements/
+/*######-------- ||| ORDRE FLEXBOX ||| --------######*/
+body .conteneur .conteneur-flex {
+  #zone-1.type-contenu-actualites {
+    order: 1;
+  }
+
+  #zone-2.type-contenu-actualites {
+    order: 2;
+  }
+
+  #zone-3.type-contenu-actualites {
+    order: 3;
+  }
+
+  #zone-4.type-contenu-actualites {}
+
+  #zone-5.type-contenu-actualites {}
+  @include breakpoint ($desktop) {}
+}
+/*######-------- ||| BORDURES ||| --------######*/
+body .conteneur,
+body .conteneur .conteneur-flex {
+  @include breakpoint(($desktop,$tablet)) {}
+}
+/*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
+article.middle-content {
+  //Empêche les flottants de sortir du conteneur
+  @include clearfixsusy3;
+}
+
+#zone-illustration.type-contenu-actualites {
+  #illustration-pleinepage {
+    min-height: 35vw;
+    max-height: 90vw;
+    overflow: hidden;
+    position: relative;
+    //image par défaut en BG comme secours
+    @include backgroundImage(("defaut/visuel-defaut-Actu-2019.jpg"),transparent,no-repeat, top left);
+    background-size: cover;
+  
+    img {
+      transform: translate(0%,0%);
+      @include adaptable-img();
+    }
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+      min-height: 25vw;
+      max-height: 30vw;
+
+      img {
+        transform: translate(0%,-35%);
+      }
+    }
+  }
+}
+
+#zone-1.type-contenu-actualites {
+  .bloc_docs_utiles_actu {
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+      float: right;
+      margin: span(0.1);
+      padding: span(0.02);
+      max-width: span(4);
+    }
+  }
+}
+
+#zone-2.type-contenu-actualites {
+  .galerie {
+    img {
+      @include adaptable-img();
+    }
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+      max-width: span(10);
+      margin: span(0.1) auto;
+      padding: span(0.02);
+    }
+  }
+}
+
+#zone-3.type-contenu-actualites {
+  #region-zone-3 {
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+      max-width: span(8);
+      margin: span(0.1) auto;
+      padding: span(0.02);
+    }
+
+    h2 {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+/*######-------- ||| STYLE ||| --------######*/
+h1.titre-page-globale {
+  @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+    top: em(10px);
+    left: em(10px);
+  }
+}
+/*¤¤¤ STYLES COMMUNS ¤¤¤*/
+//https://benfrain.com/working-with-lists-and-each-loops-in-sass-with-the-index-and-nth-function/
+//https://clubmate.fi/lists-in-sass-syntax-and-use-cases-with-examples/
+//Permet de créer facilement les styles communs à des IDs ou/et classes
+$typedecontenu: type-contenu-actualites, CLASS_NAME_CONTENU2, CLASS_NAME_CONTENU3; //2e boucle
+$zones: zone-1, zone-2, zone-3; //1ere boucle
+@each $zone in $zones {
+  @each $type in $typedecontenu {
+    ##{$zone}.#{$type} {
+      li,
+      p,
+      ul {
+        @include font-size(m); //utilisation de typey
+        padding: em(5px);
+        line-height: 1.5em;
+        list-style-position: inside;
+      }
+
+      u {
+        font-weight: bold;
+        color: $vert;
+      }
+
+      h2 {
+        @include font-size(l); //utilisation de typey
+        color: $violet;
+      }
+
+      h3 {
+        @include font-size(m); //utilisation de typey
+        color: $vert;
+      }
+
+      a {
+        text-decoration: none;
+        color: $violet;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      strong {
+        color: $vert;
+      }
+    }
+  }
+}
+/*------------------------------------
+        ¤¤¤ STYLES PROPRES ¤¤¤
+______________________________*/
+
+#zone-1.type-contenu-actualites {
+  .bloc_docs_utiles_actu {
+    @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
+    @include arrondis(1em);
+
+    a {
+      background: $gris-clair;
+      color: $violet;
+      text-decoration: none;
+      padding: span(0.01) span(0.03);
+      @include rollover-effect($rose-fushia); //Effet rollover CSS3
+
+      &:hover { //:not([href*="fiche"])
+        color: $gris-clair;
+        background: $violet;
+      }
+    }
+
+    a {
+      &[href*=".pdf"] {
+        &::before {
+          @include backgroundImage("PNG/Fichiers@3x.png");
+          background-size: contain;
+          content: "";
+          position: relative;
+          vertical-align: sub;
+          padding: em(10px);
+          margin: em(3px);
+          transition: 0.5s all;
+          display: inline-block;
+          transform: scale(1);
+        }
+      }
+
+      img.filefield-icon {
+        display: none; //initial
+      }
+
+      &[href*="http"],
+      &[href*="actu"]:not([href$=".pdf"]):not([href*="fiche"]) {
+        //pour cibler les liens externes et internes, exclure les pdf et le lien interne
+        &::before {
+          @include backgroundImage(("PNG/liens@3x.png"),transparent,no-repeat, top left);
+          background-size: contain;
+          content: "";
+          position: relative;
+          vertical-align: sub;
+          padding: em(10px);
+          margin: em(3px);
+          transition: 0.5s all;
+          display: inline-block;
+          transform: scale(1);
+        }
+      }
+    }
+
+    ul {
+      li {
+        //suppression des puces
+        list-style-type: none;
+        @include font-size(s); //utilisation de typey
+      }
+    }
+    //Style spécifique
+    .champ-field-relatif-formation {
+      max-width: 90%;
+
+      a {
+        @include font-size(m); //utilisation de typey
+        font-style: italic;
+      }
+    }
+
+    .label-field-passerelle-form {
+      font-weight: bold;
+      color: $gris-clair;
+      background: $violet;
+      padding: span(0.02);
+      margin: 0 0 span(0.2) span(0.2);
+    }
+
+    .label-field-fichier-joint-actu,
+    .label-field-lien-rp {
+      font-weight: bold;
+      color: $gris-clair;
+      background: $rose-fushia;
+      padding: span(0.02);
+      margin: 0 0 0 span(0.2);
+    }
+  }
+}
+
+#zone-2.type-contenu-actualites {
+  .galerie {
+    img {
+      @include transition-hover(75ms);
+
+      &:hover {
+        @include zoom-css3-hover(0.95);
+      }
+    }
+  }
+}
+
+#zone-3.type-contenu-actualites {
+  #region-zone-3 {
+    @include backgroundImage(("BG/stripe_vert_vert_pastel.png"),transparent,repeat, top left);
+    @include arrondis(1em);
+
+    a {
+      background: $gris-clair;
+      @include rollover-effect($rose-fushia); //Effet rollover CSS3
+    }
+
+    h2 {
+      @include backgroundRGBA($gris-clair,0.7);
+      //background: repeating-linear-gradient(to bottom ,$gris-clair 10px, transparent 17px);
+      text-align: center;
+    }
+
+    ul {
+      li {
+        list-style: none;
+      }
+    }
+  }
+}
+
+#zone-4.type-contenu-actualites {}
+
+#zone-5.type-contenu-actualites {}
+/*--------------------------------------
+----------------------------------------*/

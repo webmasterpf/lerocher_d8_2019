@@ -1,0 +1,76 @@
+{#
+/* 03/2019 Liste les fichiers uploadés par
+  * filefield and linkfield  avec création d'une liste dynamique, exclusion des champs vides
+#}
+
+{# ---*** Les classes à appliquer aux éléments  ***--- #}
+{% set champ1_attribute = create_attribute() %}
+{% set champ1bis_attribute = create_attribute() %}
+{% set champ2_attribute = create_attribute() %}
+{% set champ3_attribute = create_attribute() %}
+
+{% set champ1_classes = [
+'champ-' ~ node.field_passerelle_form.fieldDefinition.name | replace({"_" : "-"}),
+'titre-' ~ node.bundle|clean_class
+]%}
+{% set champ1bis_classes = [
+'label-' ~ node.field_passerelle_form.fieldDefinition.name | replace({"_" : "-"}),
+]%}
+{% set champ2_classes = [
+'label-' ~ node.field_fichier_joint_vdl.fieldDefinition.name | replace({"_" : "-"}),
+]%}
+{# ---*** Le contenu de l'include ***--- #}
+{% if node.field_passerelle_form.value or node.field_liens_vdl.value or node.field_fichier_joint_vdl.value is not empty %}
+  <div class="bloc_docs_utiles_vdl">
+
+    {% if node.field_passerelle_form.value is not empty %}
+      <ul>
+        <li {{ champ1bis_attribute.addClass(champ1bis_classes) }}>
+          {{ content.field_passerelle_form| field_label }}</li>
+        <li {{ champ1_attribute.addClass(champ1_classes).setAttribute('id', 'champ-1') }}>
+          {{content.field_passerelle_form.0}}</li>
+      </ul>
+
+    {% endif %}
+
+    {% if node.field_liens_vdl.value or node.field_fichier_joint_vdl.value is not empty %}
+      <ul>
+        <li {{ champ2_attribute.addClass(champ2_classes) }}>
+          {{ content.field_liens_vdl | field_label }}
+          {% if node.field_fichier_joint_vdl is not empty %}
+            //
+            {{ content.field_fichier_joint_vdl|field_label }}
+          {% endif %}
+        </li>
+      </ul>
+
+      <ul>
+        {# //Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
+        {% for key, fichier in node.field_liens_vdl.value %}
+          {# //Ne pas afficher les champs vides du tableau #}
+          {% if node.field_liens_vdl.value is not empty %}
+            <li>{{ content.field_liens_vdl[key] }}</li>
+          {% endif %}
+        {% endfor %}
+
+        {# //Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
+        {% for key, lien in node.field_fichier_joint_vdl %}
+          {# //Ne pas afficher les champs vides du tableau #}
+          {% if node.field_fichier_joint_vdl is not empty %}
+            <li>{{ content.field_fichier_joint_vdl[key] }}</li>
+          {% endif %}
+        {% endfor %}
+
+        {# Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
+        {% for key, lien in node.field_lien_interne %}
+          {# Ne pas afficher les champs vides du tableau #}
+          {% if node.field_lien_interne is not empty %}
+            <li>{{ content.field_lien_interne[key] }}</li>
+          {% endif %}
+        {% endfor %}
+
+      </ul>
+    {% endif %}
+    {# / endif pour bloc doc utiles #}
+  </div>
+{% endif %}

@@ -1,0 +1,27 @@
+"autocomplete-paths":
+  scopes: [
+    {
+      scopes: [
+        "images"
+      ]
+      prefixes: [
+        "include directory ~"
+      ]
+      extensions: [
+        "png"
+        "jpg"
+        "jpeg"
+        "gif"
+        "twig"
+      ]
+      replaceOnInsert: [
+        [
+          "(@[2-9]x)\\.png?$"
+          ".png"
+        ]
+      ]
+      relative: true
+      includeCurrentDirectory: true
+      projectRelativePath: false
+    }
+  ]

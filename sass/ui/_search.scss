@@ -1,0 +1,64 @@
+/*-------------------------------------|
+|     CONTENU CUSTOM                  |
+|      RESULTAT RECHERCHE             |
+|--------------------------------------*/
+//Changer le nom du bloc en fonction du thème
+body.page-search-node{
+#block-gasquet-d8-2019-content{
+  @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+   width: span(10 of $desktopcol);
+  margin-left: span(1 wide);//push
+  @include clearfix;
+  }
+  ul.pager__items{
+    width: 40%;
+    margin: 0 auto;
+    padding:em(5px);
+    li.pager__item {
+      display: inline-block;
+      a{
+        color: $rose-fushia;
+      }
+    }
+    li.pager__item--active{
+      a{
+        color: $violet;
+      }
+      }
+
+  }
+  a.search-help-link{
+    display: none;//On masque l'accès à l'aide.
+  }
+  h2{
+    color: $blanc-casse;
+    background: $rose-fushia;
+    @include font-size(l); //utilisation de typey
+  }
+  .search-results{
+  ol{}
+  li{
+    h3.title {
+      a{
+        color: $rose-fushia;
+        @include font-size(l); //utilisation de typey
+        &:hover{
+          color: $violet;
+        }
+      }
+
+    }
+    .search-snippet-info{
+      p.search-snippet{}
+      p.search-info{
+        font-style: italic;
+      }
+      strong{
+        color: $violet;
+      }
+    }
+  }
+
+  }
+}
+}

@@ -1,0 +1,739 @@
+// Regroupe le style pour le contenu des node.tpl custom
+// créer des fichiers _node-TYPE.scss et les importer dans application.scss
+
+/*-------------------------------------|
+|       CONTENU CUSTOM NODE.TPL        |
+|       FRONTPAGE INSTITUTIONNEL       |
+|--------------------------------------*/
+
+//@include breakpoint ($mobile){}
+//@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
+//@include breakpoint ($tablet){}
+//@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
+
+/*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
+.annonce_2{
+
+    ul.badnews{
+
+        li{
+            width: 95%;
+            margin: 0 auto;
+            float: none;
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+
+
+                float: none;
+            }
+
+
+
+        }
+    }
+}
+aside.DiapoHPFull{
+    min-height: 35vw;
+    max-height: 136vw;
+    overflow: hidden;
+
+    img{
+        transform: translate(0%,0%);
+        @include adaptable-img();
+    }
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+        min-height: 25vw;
+        max-height: 38vw;//Pour petites résolutions
+        img{
+            zoom: 0.8;
+            transform: scale (0.8);
+            transform: translate(0,-30%);
+        }
+    }
+}
+.logo_partenaires{
+    .acces-partenaires{
+        ul{
+            display: initial;//conserve ordre des lignes : grid,inutile ici
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            li{
+                list-style: none;
+                margin: span(1) 0;
+                text-align:center;
+                max-width: 85%;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    width: span(1 of 5);
+                    margin: span(0.0001);
+                        max-width: 95%;
+                }
+                img,object{
+                    @include adaptable-img;
+                    max-height: 50vw;
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape)){
+                        max-height: 8vw;
+                    }
+                    @include breakpoint(($tablet,$tabletlandscape)){
+                        max-height: 10vw;
+                    }
+                }
+                a{
+                    display: block;
+                    cursor: pointer;//pour Edge
+                }
+                object{
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}
+
+ul.rubriques-administratives{
+    list-style: none;
+    column-count: inherit;
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+        column-count: 5;
+        display: flex;
+        width: span(10 of $desktopcol);
+        margin-left: span(1 wide);//push
+    }
+    li{
+        margin: 0 0 em(5px) 0;
+
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+            max-width: 20%;
+            @include txt-colonnes;
+            display: block;
+            margin: 0;
+            cursor: pointer;
+        }
+    }}
+
+ul.rubriques-speciales{
+        //pas besoin de fixer un display en mobile, vertical automatique - mobile first
+        max-width: span(11);
+        margin: span(0.5)  span(0.2);
+        $nb-elements:5;//ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
+        @include breakpoint(($desktop,$desktopwide,
+        $tablet-hd,$tabletlandscape-hd
+        )){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
+            margin-left: span(3.05 wide);//push - si 4 items alors 2; si 3 items alors 3.5
+        }
+        @include breakpoint($tablet){
+            margin: span(0.5) span(0.2);
+        }
+        @include breakpoint(($mobilelandscape,$tabletlandscape)){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 10vw;
+            max-width: 95%;
+        }
+        @include breakpoint(($tablet,$mobile-galaxyShd,$mobile-iphonehd)){
+            display:inline-block;
+            column-count: 1;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 5vw;
+            width: 95%;
+        }
+    }
+
+    ul.rubriques-contact{
+        //pas besoin de fixer un display en mobile, vertical automatique - mobile first
+        max-width: span(11);
+        margin: span(0.5)  span(0.2);
+        $nb-elements:3;//ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
+        @include breakpoint(($desktop,$desktopwide,
+        $tablet-hd,$tabletlandscape-hd
+        )){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
+            margin-left: span(3.05 wide);//push - si 4 items alors 2; si 3 items alors 3.5
+        }
+        @include breakpoint($tablet){
+            margin: span(0.5) span(0.2);
+        }
+        @include breakpoint(($mobilelandscape,$tabletlandscape)){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 10vw;
+            max-width: 95%;
+        }
+        @include breakpoint(($tablet,$mobile-galaxyShd,$mobile-iphonehd)){
+            display:inline-block;
+            column-count: 1;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 5vw;
+            width: 75%;
+        }
+    }
+
+/*######-------- ||| STYLE ||| --------######*/
+
+//Code imbriqué à 100%
+body .conteneur {
+
+    .annonce_1{
+
+    }
+    .annonce_alaUne{
+        h3{//ajout picto en place du titre h3
+           display: none;
+           @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+               display: initial;
+               @include backgroundImage (('PNG/breaking-news@4x.png'));
+               @include backgroundImage (('PNG/notification@4x.png'));
+               background-size: contain;
+               text-indent: -9000px;
+               float: left;
+               height: em(80px);
+               width: em(80px);
+               margin-left: span(0.1);
+           }
+        }
+        ul.actu-brulante{
+            list-style: none;
+
+            li{
+                list-style: none;
+                color: $gris-anthracite;
+                max-width: 95%;
+                margin: span(0.1) 0 span(0.2) span(0.2);
+                float: none;
+                /*                @include breakpoint ($mobile){
+                                    width: 95%;
+                                    margin: span(0.1) 0 span(0.2) span(0.2);
+                                    float: none;
+                                }*/
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,
+                $tablet,$tabletlandscape
+                )){
+                    margin: span(0.1) 0 span(0.1) span(0.2);
+                    float: left;
+                }
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape)){
+
+                    max-width: 30%;
+                }
+                @include breakpoint(($tablet,$tabletlandscape)){
+                    max-width: 25%;
+
+                }
+
+            }
+            .breaking-news-element{
+
+                border: em(3px) transparent solid;
+                background: $orange-fonce;
+                transition-property: background !important;
+                transition: all .3s ease;
+                font-family: $FontRaleway;
+                @include font-size(m);//utilisation de typey
+                text-transform: uppercase;
+                cursor:pointer;
+                @include breakpoint(($tablet,$tabletlandscape)){
+                    @include font-size(xs);//utilisation de typey
+                }
+                &::before{
+                    transform: scale(0)!important;
+                }
+                &:hover{
+                    transition: all .3s ease;
+                    transform: translateZ(0)!important;
+                    border: em(3px) $orange-fonce solid;
+                    background: transparent;
+                    color: $gris-anthracite;
+                    &::before{
+                        transform: scale(1)!important;
+                    }
+                }
+            }
+            a{
+                display: block;
+                padding: span(0.005);
+                text-decoration:none;
+                text-align: center;
+                color: $blanc-casse;
+                &:hover{
+                    color: $gris-anthracite;
+                    /*color: $gris-clair-moyen;*/
+                    transition: .5s ease;
+                }
+            }
+        }
+    }
+    .annonce_2{
+        aside.AnnonceDeuil{
+            padding: span(0.1);
+        }
+        ul.badnews{
+            list-style: none;
+            li{
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+
+                }
+                list-style: none;
+
+            }
+            .breaking-news{
+                padding: span(0.005);
+                border: em(3px) $noir solid;
+                font-family: $FontRaleway;
+                @include font-size(m);//utilisation de typey
+                @include backgroundImage(('PNG/deuil.png'),top right,no-repeat); //nouvelle mixin 2018
+                text-transform: uppercase;
+            }
+            a{
+                color: $gris-clair-moyen;
+                text-decoration:none;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    color: $noir;
+                }
+                &:hover{
+                    color: $gris-clair-moyen;
+                }
+            }
+        }
+    }
+    .HPDiapo{
+        a{
+            color: white;
+            font-family: $FontRaleway;
+
+            text-decoration: none;
+        }
+        img{
+            //Voir Layout Spécifique Ligne34
+        }
+        .bxslider-hp{
+            a{
+                //                padding: 0 0 0 span(0.1);
+                display: block;
+            }
+            .bx-caption{
+                a{
+                    @include font-size(m);//utilisation de typey
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                        @include font-size(xl);//utilisation de typey
+                    }
+                }
+            }
+        }
+
+    }
+    .acces_rubriques{
+        p{
+            line-height: 0;
+        }
+        iframe{ //video en page d'accueil - centrage
+          display: block;
+          margin: 0 auto;
+        }
+        ul.rubriques-administratives{
+            list-style: none;
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+
+            }
+            li{
+                margin: 0 0 em(5px) 0;
+                background: $rose-fushia;//Couleur de fond des acces Rub Admin
+                color: whitesmoke;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+
+                }
+                &:hover{
+                    background: $violet;//Couleur de fond hover des acces Rub Admin
+                }
+                img{
+                    object-fit: cover;//permet que l'image occupe tout l'espace mais il faut définir une taille
+                    width: 100%;
+                    max-height: 85vw;
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                        max-height: 14.5vw;
+                    }
+                    &:hover{
+                        filter: grayscale(100%);
+                    }
+                }
+                a{
+                    @include clearfixsusy3;
+                    display: inherit;
+                }
+                .overlay {
+                    position: absolute;
+                    bottom: 100%;
+                    left: 0;
+                    right: 0;
+                    background-color: $bleu-turquoise;
+                    overflow: hidden;
+                    width: 100%;
+                    height:0;
+                    transition: .5s ease;
+
+                }
+
+                .rub-admin-image {
+                    img:hover{
+                        opacity: 1;
+                    }
+                    .overlay:hover{
+                        bottom: 0;
+                        height: 100%;
+                        transform: translate(-50%, -50%);
+                    }
+
+                }
+
+                .rub-admin-image:hover .overlay {
+                    opacity: 1;
+                }
+
+                span.titre-admin{
+                    display: block;
+                    text-align:center;
+                    a{
+                        color: whitesmoke;
+                        text-decoration: none;
+                        font-weight: bold;
+                    }
+                }
+                span.accroche-admin{
+                    @include font-size(xs);//utilisation de typey
+                    padding: em(6px);
+                    display: block;
+                    word-break: break-word;
+                    font-weight: normal !important;//inclusion du span dans celui du titre pour lien (via views)
+                }
+            }
+        }
+        aside.contenus-speciaux{
+            //ajouter la classe au niveau du bloc dans admin/structure/block
+
+            ul{
+                //pas besoin de fixer un display en mobile, vertical automatique
+                max-width: span(11);
+                margin:0 auto;
+                padding: span(0.02);
+                @include breakpoint(($desktop,$desktopwide,$tabletlandscape)){
+                    display: flex;
+                    flex-flow: row;
+                    flex-wrap: wrap;//pour répartir les items sur plusieurs lignes
+                }
+                @include breakpoint(($mobilelandscape,$tablet)){
+                    column-count: 3;
+                    column-fill: balance;
+                    white-space: normal;
+                }
+                li{
+                    list-style: none;
+                    margin: 0 0 span(0.2) span(0.2);
+                    float: none;
+                    @include txt-cesure;
+                    @include txt-colonnes;
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                        flex: 1 0 25%;
+                        //permet de répartir les items sur plusieurs lignes en fixant une largeur maxi
+
+                        @include hack-Edge;
+                        @include hack-IE;
+                    }
+                    a{
+                        background: $violet;//Changer la couleur du BG ici
+                        color: whitesmoke;
+                        display: block;
+                        padding: span(0.1);
+                        text-decoration: none;
+                        text-align: center;
+                        @include font-size(l);//utilisation de typey
+                        transition-duration: 0.4s;
+                        @include txt-ellipse;
+                        @include txt-cesure(break-word);
+                        @include breakpoint(($mobilelandscape,$tablet)){
+                            @include font-size(s);//utilisation de typey
+                        }
+                        &:hover{
+                            background: $rose-fushia;//Changer la couleur du BG hover ici
+                            color: $gris-clair;
+                        }
+                    }
+                    //Ciblage du lien concernant les JPO pour style différent
+                    a[href*="portes-ouvertes"]{
+
+                        @include clignote(1.8s);
+                        &:hover{
+
+                        }
+                    }
+                }
+            }
+        }
+        aside.liste-acces-contact{
+            //ajouter la classe au niveau du bloc dans admin/structure/block
+            ul{
+                //Voir layout ht de page pour réglages du bloc
+                li{
+                    list-style: none;
+                    width: 95%;
+                    margin: 0 0 span(0.2) span(0.2);
+
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,
+                    $tablet,$tabletlandscape,$tablet-hd,$tabletlandscape-hd)){
+                        @include txt-cesure;
+                        @include txt-colonnes;
+                        @include hack-Edge;
+                        @include hack-IE;
+                        margin: 0;
+                        padding: 0 span(0.9);
+                    }
+                    @include breakpoint(($tablet,$tabletlandscape,$tablet-hd,$tabletlandscape-hd)){
+                        padding: span(0.9);
+                    }
+                    span.titre-admin{
+                        display: block;
+                        text-align:center;
+                        @include breakpoint(($desktop,$desktopwide,
+                        $tablet-hd,$tabletlandscape-hd)){
+                            min-height: 11vw;
+                            min-width: 11vw;
+                            max-width: 11vw;
+                            max-height: 11vw;
+                            vertical-align: middle;
+                        }
+                        @include breakpoint(($tablet,$tabletlandscape)){
+                            max-width: 20vw;
+                            min-height: 14vw;
+                        }
+                        @include breakpoint($mobilelandscape){
+                            max-width: 20vw;
+                            min-width: 12vw;
+                            min-height: 20vw;
+                        }
+                        @include breakpoint(($mobile-galaxyShd,$mobile-iphonehd)){
+                            max-width: 50vw;
+                            max-height: 50vw;
+                            margin: 0 auto;
+                        }
+                        a{
+                            display: block;
+                            padding: span(4.6) span(0.1);
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            color: $blanc-casse;
+                            @include font-size(xs);//utilisation de typey
+                            /*@include backgroundImage("SVG/bg_acces_contact.svg");*/
+                            background-size: cover;
+
+                            min-width: inherit;
+                            min-height:  inherit;
+                            transition-duration: 0.0s;//Permet de jouer sur un effet de slide
+                            text-align: center;
+                            @include txt-cesure(break-word);
+                            /*  Forme arrondie pour les boutons - pb avec taille sur mobile
+
+                        background-clip: padding-box;
+                                                shape-outside: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+                                                clip-path: circle(50% at 50% 50%);*/
+                            /* Coins arrondis pour les boutons - passe mieux sur mobile*/
+                            @include arrondis(4em);
+                            background-color: $rose-fushia; //Couleur de fond des boutons
+
+                            @include breakpoint(($desktop,$desktopwide)){
+                                max-width: 11vw;
+                                max-height: 11vw;
+                                @include font-size(m);//utilisation de typey
+                                word-spacing: em(3px);
+
+                            }
+                            @include breakpoint(($mobilelandscape,$mobilelandscape-galaxyShd)){
+                                @include arrondis(2em);
+                                @include font-size(xxs);//utilisation de typey
+                            }
+                            @include breakpoint(($tablet,$tabletlandscape,$tablet-hd,$tabletlandscape-hd)){
+                                @include arrondis(3em);
+                                @include font-size(xs);//utilisation de typey
+                            }
+                            &:hover{
+
+                                /*        @include backgroundImage("SVG/bg_acces_contact.svg", -29em top);*/
+                                /*background: $violet;//Couleur de fond des boutons au rollover - Surpasse couleur donnée dans mixin backgroundImage, empêche image*/
+                                text-indent: em(-9000px);
+                            }
+                        }
+                    }
+                    &.nid-2{//contact
+                             a:hover{
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, -9% 58%, no-repeat);
+                                 background-size: 400%;
+                             }
+                    }
+                    &.nid-16{//inscriptions
+                             a:hover{
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 71% 58%, no-repeat);
+                                 background-size: 400%;
+                             }
+                    }
+                    &.nid-18{//actus
+                             a:hover{
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 108% 58%, no-repeat);
+                                 background-size: 400%;
+                             }
+                    }
+                    &.nid-xx{//liens utiles
+                             a:hover{
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 31% 58%, no-repeat);
+                                 background-size: 400%;
+                             }
+                    }
+
+                }
+
+
+            }
+        }
+        aside.AccesLycees{
+
+            ul.acces-lycees{
+                display: grid;//conserve ordre des lignes
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                }
+                li{
+                    list-style: none;
+                    margin: 0;
+                    text-align:center;
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                        width: span(1 of 4);
+                        margin: span(0.0001);
+                    }
+                }
+                li.views-row-1{
+                    order:9;
+                    background: $orange-fonce;
+                }
+                li.views-row-2{
+                    order:1;
+                    background: $bleu-turquoise;
+                }
+                li.views-row-3{
+                    order:2;
+                    background: $gris-clair-moyen;
+                }
+                li.views-row-4{
+                    order:3;
+                    background: $vert;
+                }
+                li.views-row-5{
+                    order:4;
+                    background: $orange;
+                }
+                li.views-row-6{
+                    order:6;
+                    background: $rouge;
+                }
+                li.views-row-7{
+                    order:7;
+                    background: $violet;
+                    object{
+                        display: none !important;//Exclu la video du rocher de l'affichage
+                    }
+                }
+                li.views-row-8{
+                    order:8;
+                    background: $rose-fushia;
+                }
+                li.views-row-9{
+                    order:5;
+                    background: transparent;
+                    iframe{
+                        margin: em(18px) 0 !important;
+                        border:0;
+                    }
+                    a{
+                        display: none;
+                    }
+
+                }
+            }
+
+
+
+            .container {
+                position: relative;
+            }
+
+            .center {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+
+            }
+
+            img {
+                @include adaptable-img();
+                contain:content;
+
+                opacity: 0;
+                transition-duration: 0.4s;
+                &:hover{
+
+                }
+            }
+            a{
+                text-decoration: none;
+                color: whitesmoke;
+                text-transform: uppercase;
+                @include font-size(m);//utilisation de typey
+                transition-duration: 0.4s;
+                &:hover{}
+            }
+            img:hover,a:hover{
+                cursor: pointer;
+                opacity: 0.8;
+
+            }
+        }
+    }
+
+
+    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){/*    //Dimensions pour les pc
+        //Taille du conteneur du groupe
+        .annonce_1{}
+        .annonce_2{}
+        .HPDiapo{}
+        .acces_rubriques{}
+        .logo_partenaires{}
+
+    }
+
+    @include breakpoint($tablet) {/*     //Dimensions pour les tablettes*/
+        .annonce_1{}
+        .annonce_2{}
+        .HPDiapo{}
+        .acces_rubriques{}
+        .logo_partenaires{}
+    }
+}
