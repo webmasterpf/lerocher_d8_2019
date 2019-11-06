@@ -3,25 +3,40 @@
     {
       scopes: [
         "images"
+        "source.twig"
+        "text.html.twig"
       ]
       prefixes: [
-        "include directory ~"
+        "include\\directory\\~"
+        "\\.\\/"
+        'import\\s+.*?from\\s+[\'"]', # import foo from '
+        'require\\([\'"]', # require('
+        'define\\(\\[?[\'"]' # define([' or define('
       ]
       extensions: [
-        "png"
-        "jpg"
-        "jpeg"
-        "gif"
-        "twig"
+        "png",
+        "jpg",
+        "jpeg",
+        "gif",
+        "svg",
+        "twig",
+        "html.twig"
       ]
-      replaceOnInsert: [
+      replaceOnInsert: [ # Replaces the file extensions on insert
+        ['.jpg?$', ''],
+        ['.jpeg$', ''],
         [
           "(@[2-9]x)\\.png?$"
-          ".png"
+          ".jpg?$"
+          ".jpeg?$"
+          ".gif?$"
+          ".svg?$"
+          ".twig?$"
+          ".html.twig?$"
         ]
       ]
-      relative: true
-      includeCurrentDirectory: true
-      projectRelativePath: false
+      relative: true, #// Inserts relative paths only - defaults to true
+      includeCurrentDirectory: true, #// Include './' in path - defaults to true
+      projectRelativePath: false, #// Includes full relative path starting after the project directory
     }
   ]

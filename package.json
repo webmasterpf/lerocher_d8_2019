@@ -1,28 +1,46 @@
 {
-  "name": "basic",
-  "version": "0.1.0",
-  "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "bourbon": "^5.0.0-beta.8",
-    "bourbon-neat": "^2.1.0",
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^7.0.0",
-    "gulp-imagemin": "^3.4.0",
-    "gulp-pixrem": "^1.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-glob": "^1.0.8",
-    "gulp-sourcemaps": "^2.6.1",
-    "gulp-svgmin": "^1.2.4",
-    "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^4.3.11",
-    "yargs": "^10.0.3"
-  },
-  "description": "Gulp tooling for Basic",
+  "name": "lerocher_d8_2019",
+  "version": "1.0.0",
+  "description": " Thème D8 pour LR",
   "main": "gulpfile.js",
-  "devDependencies": {},
-  "author": "",
-  "license": "MIT"
+  "dependencies": {
+    "npm": "^6.12.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.7.1",
+    "breakpoint": "^0.1.6",
+    "browser-sync": "^2.26.7",
+    "event-stream": "^4.0.1",
+    "gulp": "^3.9.1",
+    "gulp-load-plugins": "^2.0.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-shell": "^0.7.1",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-util": "^3.0.8",
+    "node-normalize-scss": "^8.0.1",
+    "node-sass-import-once": "^1.2.0",
+    "notify-send": "^0.1.2",
+    "susy": "^3.0.5",
+    "typey": "^1.1.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webmasterpf/lerocher_d8_2019.git"
+  },
+  "keywords": [
+    "d8"
+  ],
+  "author": "webmasterpf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/webmasterpf/lerocher_d8_2019/issues"
+  },
+  "homepage": "https://github.com/webmasterpf/lerocher_d8_2019#readme"
 }

@@ -52,6 +52,8 @@ Changer le favicon
 Changer le screenshot
 Changer le logo
 
+!!! Changer le nom du thème dans les fichiers sass-lint ; info, libraries et theme
+
 dans fichiers tpl
 remplacer le nom du theme dans les appels d'includes
 <pre>
