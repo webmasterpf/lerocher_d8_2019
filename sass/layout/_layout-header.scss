@@ -81,7 +81,7 @@ body .conteneur #header {
 /*---- HEADER BAS ----*/
 
 .headBas {
-    background: $rose-fushia;//Modifier la couleur du fond de la partie basse selon couleur du lycée
+    background:$violet;//Modifier la couleur du fond de la partie basse selon couleur du lycée
 }
 
 .headSearch {
@@ -103,7 +103,7 @@ body .conteneur #header {
 
 .site-name {
     clear: both;
-    background: $rose-fushia;
+    background: $violet;
     a {
         text-decoration: none;
         color: white;
@@ -121,7 +121,7 @@ body .conteneur #header {
     color: white;
     font-size: small;
     text-align: center;
-    background: $rose-fushia;
+    background: $violet;
     clear: both;
 
     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
