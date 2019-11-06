@@ -7,7 +7,7 @@ body .conteneur {
     //Approche mobile-first,réglage pour mobile
 
     #header{background-color: #F29400;}
-    .annonce_1{background-color: chocolate;}      
+    .annonce_1{background-color: chocolate;}
 
     .annonce_2{background-color:deeppink;}
     .HPDiapo{background-color: violet;}
@@ -16,8 +16,8 @@ body .conteneur {
 
     #footer{background-color: firebrick;
             aside{
-                background-color: teal;     
-            }     
+                background-color: teal;
+            }
     }
     @include breakpoint($tablet) {//Dimensions pour les tablettes
 
@@ -33,9 +33,9 @@ body .conteneur {
                                   #footer{background-color: peachpuff;
                                           aside{
                                               background:sandybrown;
-                                          }  
-                                  }        
-    }   
+                                          }
+                                  }
+    }
 
 
 
@@ -44,7 +44,7 @@ body .conteneur {
                                    #header{
                                        background: seashell;}
                                    .annonce_1{
-                                       background-color: palevioletred;     
+                                       background-color: palevioletred;
                                    }
                                    .annonce_2{background-color:yellow;}
                                    .HPDiapo{background-color: blanchedalmond;     }
@@ -58,7 +58,7 @@ body .conteneur {
 
                                                background: palevioletred;}
                                            .annonce_1{
-                                               background-color: yellow;     
+                                               background-color: yellow;
                                            }
                                            .annonce_2{background-color: sandybrown;}
                                            .HPDiapo{background-color: yellowgreen;}
@@ -406,7 +406,7 @@ body .conteneur{
             background: #00CC99;
         }
         @include breakpoint ($desktop){
-            background: #cccccc;
+            background: yellow;
         }
     }
 
