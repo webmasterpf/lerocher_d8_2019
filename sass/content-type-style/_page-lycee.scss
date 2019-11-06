@@ -93,9 +93,9 @@ $zonesimg: zone-illustration;
     background-size: cover;
   }
 }
-// Tableau initial des classes et IDs à créer.
+// Tableau initial des classes (TdC) et IDs (Zones) à créer.
 $typedecontenu: type-page-lycee,type-page-erreur ;
-$zones: zone-1, zone-2, zone-3 ;
+$zones: zone-1, zone-2, zone-3, zone-4 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
     ##{$zone}.#{$type} {}
@@ -115,7 +115,8 @@ body .conteneur {
 }
 /*######-------- ||| STYLE ||| --------######*/
 
-/*---- REGLAGE GLOBAL - supprimer autres réglages si existent - retirer le bloc dédié de l'affichage pour ne pas doublonner'*/
+/*---- REGLAGE GLOBAL - supprimer autres réglages si existent -
+Désactiver le bloc "Titre de page " pour éviter doublon*/
 //Commun pour tous les H1 titre du site -
 
 h1.titre_overlay {
@@ -129,7 +130,7 @@ h1.titre_overlay {
 h1.titre_page {
   @include titre-page;
   color: $blanc-casse;
-  @include backgroundRGBA($rose-fushia, 0.9);
+  @include backgroundRGBA($violet, 0.7); //0.9 pour clair, 0.7 pour foncé
 }
 /*¤¤¤ STYLES COMMUNS ¤¤¤*/
 //Permet de créer facilement les styles communs à des IDs ou/et classes
@@ -171,7 +172,7 @@ h1.titre_page {
       }
 
       strong {
-        color: $rose-fushia;
+        color: $violet;
       }
     }
   }
@@ -244,7 +245,83 @@ ______________________________*/
     }
 
   }
+  .bloc_docs_utiles_cdi,
+  .bloc_docs_utiles_plycee {
+    max-width: span(8);
+    padding: span(0.02);
+    margin: span(0.2);
+    @include backgroundImage(("BG/stripe_rosepale_violet_pastel.png"),transparent,repeat, top left);
 
+    @include arrondis(1em);
+
+    ul {}
+
+    li {
+      list-style: square;
+      list-style: none;
+      list-style-position: inside;
+      padding: span(0.1) 0;
+      @include font-size(s); //utilisation de typey
+
+      span {
+        //padding: span(0.01);
+      }
+
+      a { //liens blocs docs utiles
+        background: $gris-clair;
+        color: $violet;
+        text-decoration: none;
+        padding: span(0.01) span(0.03);
+
+        &:hover {
+          color: $blanc-casse;
+          background: $violet;
+        }
+      }
+
+      a[href*=".pdf"] {
+        &::before {
+          @include backgroundImage("PNG/Fichiers@3x.png");
+          background-size: contain;
+          content: "";
+          position: relative;
+          vertical-align: sub;
+          padding: em(10px);
+          margin: em(3px);
+          transition: 0.5s all;
+          display: inline-block;
+          transform: scale(1);
+        }
+      }
+
+      img.filefield-icon {
+        display: none; //initial
+      }
+
+      a[href*="/"]:not([href*=".pdf"]) {
+        //pour cibler les liens externes et internes, exclure les pdf
+        &::before {
+          @include backgroundImage("PNG/liens@3x.png");
+          background-size: contain;
+          content: "";
+          position: relative;
+          vertical-align: sub;
+          padding: em(10px);
+          margin: em(3px);
+          transition: 0.5s all;
+          display: inline-block;
+          transform: scale(1);
+        }
+      }
+    }
+    .label-field-lien-cdi{
+      font-weight: bold;
+      color: $gris-clair;
+      background: $violet;
+      padding: span(0.02);
+      margin: 0 0 0 span(0.2);
+    }
+  }
   .videos {
     ul{
       list-style: none;
@@ -255,7 +332,7 @@ ______________________________*/
       max-width: 60vw;
       margin: 0 auto;
       padding: span(0.02);
-      border: em(3px) solid $rose-fushia;
+      border: em(3px) solid $violet;
     }
     }
     }
@@ -340,83 +417,7 @@ ______________________________*/
     }
   }
 
-  .bloc_docs_utiles_cdi,
-  .bloc_docs_utiles_plycee {
-    max-width: span(6);
-    padding: span(0.02);
-    margin: span(0.2);
-    @include backgroundImage(("BG/stripe_rosepale_violet_pastel.png"),transparent,repeat, top left);
 
-    @include arrondis(1em);
-
-    ul {}
-
-    li {
-      list-style: square;
-      list-style: none;
-      list-style-position: inside;
-      padding: span(0.1) 0;
-      @include font-size(s); //utilisation de typey
-
-      span {
-        //padding: span(0.01);
-      }
-
-      a { //liens blocs docs utiles
-        background: $gris-clair;
-        color: $violet;
-        text-decoration: none;
-        padding: span(0.01) span(0.03);
-
-        &:hover {
-          color: $blanc-casse;
-          background: $rose-fushia;
-        }
-      }
-
-      a[href*=".pdf"] {
-        &::before {
-          @include backgroundImage("PNG/Fichiers@3x.png");
-          background-size: contain;
-          content: "";
-          position: relative;
-          rose-fushiaical-align: sub;
-          padding: em(10px);
-          margin: em(3px);
-          transition: 0.5s all;
-          display: inline-block;
-          transform: scale(1);
-        }
-      }
-
-      img.filefield-icon {
-        display: none; //initial
-      }
-
-      a[href*="/"]:not([href*=".pdf"]) {
-        //pour cibler les liens externes et internes, exclure les pdf
-        &::before {
-          @include backgroundImage("PNG/liens@3x.png");
-          background-size: contain;
-          content: "";
-          position: relative;
-          rose-fushiaical-align: sub;
-          padding: em(10px);
-          margin: em(3px);
-          transition: 0.5s all;
-          display: inline-block;
-          transform: scale(1);
-        }
-      }
-    }
-    .label-field-lien-cdi{
-      font-weight: bold;
-      color: $gris-clair;
-      background: $violet;
-      padding: span(0.02);
-      margin: 0 0 0 span(0.2);
-    }
-  }
 }
 /*######-------- ZONE 3 --------######*/
 #zone-3.type-page-lycee {
