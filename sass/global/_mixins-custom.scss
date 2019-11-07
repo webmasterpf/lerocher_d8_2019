@@ -54,10 +54,12 @@ $imagedir: '../images/'; // definir ici le chemin vers le dossier image
 @mixin backgroundImage($filename,$couleur:transparent,$position:top left,$repeat: no-repeat) {
   background: $couleur url('#{$imagedir}#{$filename}') $position $repeat;
 }
-@mixin maskImage($filename,$position:0 0,$repeat: no-repeat, $taille: 50%) {
-  mask: url("#{$imagedir}#{$filename}") $repeat $position;
+@mixin maskImage($filename,$position:0 0,$repeat: no-repeat, $taille: 100%, $mode: alpha, $couleurFinale: transparent) {
+  mask-image: url("#{$imagedir}#{$filename}") $repeat $position;
   mask-size: $taille;
-}
+  mask-mode: $mode;
+  background: $couleurFinale;
+  }
 @mixin backgroundSVGandColor($filename,$color:red) {
   /* background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="url('#{$imagedir}#{$filename}')" color="$color" ');
 
