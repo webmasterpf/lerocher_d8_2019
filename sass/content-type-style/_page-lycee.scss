@@ -317,7 +317,8 @@ ______________________________*/
       a[href*="/"]:not([href*=".pdf"]) {
         //pour cibler les liens externes et internes, exclure les pdf
         &::before {
-          @include backgroundImage("PNG/liens@3x.png");
+          @include maskImage(("PNG/liens-blanc@3x.png"),100%,alpha,$vert);
+          //@include backgroundImage("PNG/liens@3x.png");
           background-size: contain;
           content: "";
           position: relative;
@@ -326,7 +327,10 @@ ______________________________*/
           margin: em(3px);
           transition: 0.5s all;
           display: inline-block;
-          transform: scale(1);
+          transform: scale(1.5);
+          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+          min-height: em(15px);
+        }
         }
       }
     }
