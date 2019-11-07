@@ -161,7 +161,14 @@ h1.titre_page {
         @include font-size(m); //utilisation de typey
         color: $rose-fushia;
       }
-
+      h4{
+        @include font-size(s); //utilisation de typey
+        color: $vert;
+      }
+      h5{
+        @include font-size(xs); //utilisation de typey
+        color: $violet;
+      }
       a {
         text-decoration: none;
         color: $violet;
@@ -170,7 +177,9 @@ h1.titre_page {
           text-decoration: underline;
         }
       }
-
+      em {//texte italique
+        color: $rose-fushia;
+      }
       strong {
         color: $violet;
       }
@@ -323,6 +332,7 @@ ______________________________*/
     }
   }
   .videos {
+    background: $violet;
     ul{
       list-style: none;
     }
@@ -332,7 +342,7 @@ ______________________________*/
       max-width: 60vw;
       margin: 0 auto;
       padding: span(0.02);
-      border: em(3px) solid $violet;
+      border: em(3px) solid $blanc-casse;
     }
     }
     }
@@ -524,6 +534,40 @@ ______________________________*/
     min-width: 35vw;
     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
       min-height: 20vw;
+    }
+  }
+  div.entityqueue-plycee{
+    background: $vert;
+    h2{
+
+
+      &::before {
+        mask-image: url('../images/PNG/push-pin@3x.png');
+        mask-mode: alpha;
+        mask-size: 100%;
+        @include backgroundImage("PNG/push-pin@3x.png");
+        background: $violet;
+        background-size: contain;
+        content: "";
+        position: relative;
+        vertical-align: sub;
+        padding: em(10px);
+        margin: em(3px);
+        transition: 0.5s all;
+        display: inline-block;
+        transform: scale(1);
+
+
+      }
+    }
+    ul.liste-manuelle{
+      list-style: square;
+    }
+    li{
+      &::before{
+
+
+      }
     }
   }
 }
