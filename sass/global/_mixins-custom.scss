@@ -54,11 +54,19 @@ $imagedir: '../images/'; // definir ici le chemin vers le dossier image
 @mixin backgroundImage($filename,$couleur:transparent,$position:top left,$repeat: no-repeat) {
   background: $couleur url('#{$imagedir}#{$filename}') $position $repeat;
 }
-@mixin maskImage($filename,$position:0 0,$repeat: no-repeat, $taille: 100%, $mode: alpha, $couleurFinale: transparent) {
-  mask-image: url("#{$imagedir}#{$filename}") $repeat $position;
-  mask-size: $taille;
-  mask-mode: $mode;
+@mixin maskImage($filename, $taille: 100%, $mode: alpha, $couleurFinale: transparent,$position:0 0,$repeat: no-repeat) {
+  /*
+Utilise la mixin backgroundImage pour l'image de BG. Bien spécifier les valeurs même par défaut Sinon
+problème de distribution des valeurs. Utiliser un visuel PNG blanc comme base pour meilleure
+application des couleurs.
+Ne pas utiliser //background-size: contain; si problèmes
+Ne pas utiliser d'image pour le background, couleur suffit
+  */
+  //background: url('#{$imagedir}#{$filename}') $position $repeat $couleurFinale;
   background: $couleurFinale;
+  mask-image: url('#{$imagedir}#{$filename}');
+  mask-mode: $mode;
+  mask-size: $taille;
   }
 @mixin backgroundSVGandColor($filename,$color:red) {
   /* background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="url('#{$imagedir}#{$filename}')" color="$color" ');
