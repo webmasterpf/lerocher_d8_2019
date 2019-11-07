@@ -281,7 +281,10 @@ ______________________________*/
         color: $violet;
         text-decoration: none;
         padding: span(0.01) span(0.03);
-
+        display: block;
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+        min-height: em(65px);
+      }
         &:hover {
           color: $blanc-casse;
           background: $violet;
@@ -290,16 +293,20 @@ ______________________________*/
 
       a[href*=".pdf"] {
         &::before {
-          @include backgroundImage("PNG/Fichiers@3x.png");
+          @include maskImage(("PNG/Fichier-blanc@3x.png"),100%,alpha,$rose-fushia);
           background-size: contain;
           content: "";
           position: relative;
-          vertical-align: sub;
-          padding: em(10px);
+          vertical-align: middle;
+          padding: em(13px);
           margin: em(3px);
           transition: 0.5s all;
           display: inline-block;
           transform: scale(1);
+          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+          min-height: em(33px);
+        }
+        //Pas de hover possible sur before
         }
       }
 
@@ -539,15 +546,10 @@ ______________________________*/
   div.entityqueue-plycee{
     background: $vert;
     h2{
-
+        color: $rose-fushia;
 
       &::before {
-        mask-image: url('../images/PNG/push-pin@3x.png');
-        mask-mode: alpha;
-        mask-size: 100%;
-        @include backgroundImage("PNG/push-pin@3x.png");
-        background: $violet;
-        background-size: contain;
+        @include maskImage(("PNG/push-pin-blanc@3x.png"),100%,alpha,$violet, 0 0, no-repeat);
         content: "";
         position: relative;
         vertical-align: sub;
