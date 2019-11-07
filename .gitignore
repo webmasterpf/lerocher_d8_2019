@@ -1,0 +1,10 @@
+/Import_Taxo_Termes.csv
+*.scssc
+*.sassc
+.sass-cache
+*.map
+node_modules
+.DS_Store
+symfony-2.8
+private
+.db
