@@ -26,10 +26,13 @@ body .conteneur{
         }
     }
     .zone_layout_max_centre{
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+        @include breakpoint(($desktop,$desktopwide)){
          width: span(10 of $desktopcol);
         margin-left: span(1 wide);//push
         @include clearfix;
+        }
+        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+        margin: 0;
         }
     }
 }
@@ -37,7 +40,6 @@ body .conteneur{
 /*---  LAYOUT CONTENU ACTU ---*/
 body .conteneur{
     display:grid;
-
     .content-top{
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
             width: span(10 of $desktopcol);
@@ -59,7 +61,7 @@ body .conteneur{
         display: list-item;
         margin: span(2) 0 0;
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-            width: span(12 of $desktopcol);
+            //width: span(12 of $desktopcol);
             display: inherit;
         margin: 0;
             /*@include clearfixsusy3;*/
@@ -83,7 +85,6 @@ body .conteneur{
 
             width: span(3 of $desktopcol);
             float:left;
-            @include clearfixsusy3;
         }
     }
     //Variante de largeur de colonnes différentes
@@ -101,7 +102,7 @@ body .conteneur{
     }
     .zone2_layout_8_4{
 @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-          @include clearfixsusy3;
+
             width: span(4 of $desktopcol);
             float:left;
         }

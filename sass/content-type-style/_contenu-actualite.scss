@@ -51,7 +51,7 @@ article.middle-content {
     //image par défaut en BG comme secours
     @include backgroundImage(("defaut/visuel-defaut-Actu-2019.jpg"),transparent,no-repeat, top left);
     background-size: cover;
-  
+
     img {
       transform: translate(0%,0%);
       @include adaptable-img();
@@ -132,7 +132,7 @@ $zones: zone-1, zone-2, zone-3; //1ere boucle
 
       u {
         font-weight: bold;
-        color: $vert;
+        color: $rose-fushia;
       }
 
       h2 {
@@ -142,7 +142,7 @@ $zones: zone-1, zone-2, zone-3; //1ere boucle
 
       h3 {
         @include font-size(m); //utilisation de typey
-        color: $vert;
+        color: $rose-fushia;
       }
 
       a {
@@ -155,7 +155,7 @@ $zones: zone-1, zone-2, zone-3; //1ere boucle
       }
 
       strong {
-        color: $vert;
+        color: $rose-fushia;
       }
     }
   }
@@ -270,7 +270,7 @@ ______________________________*/
 
 #zone-3.type-contenu-actualites {
   #region-zone-3 {
-    @include backgroundImage(("BG/stripe_vert_vert_pastel.png"),transparent,repeat, top left);
+    @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
     @include arrondis(1em);
 
     a {

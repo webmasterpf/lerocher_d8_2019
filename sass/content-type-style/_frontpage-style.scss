@@ -166,7 +166,11 @@ ul.rubriques-speciales{
             margin-left: span(3.05 wide);//push - si 4 items alors 2; si 3 items alors 3.5
         }
         @include breakpoint($tablet){
-            margin: span(0.5) span(0.2);
+          display:inline-block;
+          column-count: 3;//Selon nombre éléments à afficher
+          column-fill: balance;
+          white-space: normal;
+          margin-left: span(2 wide);//centrage des boutons sur tablette portrait
         }
         @include breakpoint(($mobilelandscape,$tabletlandscape)){
             display:inline-block;
@@ -177,7 +181,7 @@ ul.rubriques-speciales{
             margin: 0 10vw;
             max-width: 95%;
         }
-        @include breakpoint(($tablet,$mobile-galaxyShd,$mobile-iphonehd)){
+        @include breakpoint(($mobile-galaxyShd,$mobile-iphonehd)){
             display:inline-block;
             column-count: 1;
             column-fill: balance;
@@ -318,6 +322,7 @@ body .conteneur {
     .HPDiapo{
         a{
             color: white;
+
             font-family: $FontRaleway;
 
             text-decoration: none;
@@ -331,8 +336,12 @@ body .conteneur {
                 display: block;
             }
             .bx-caption{
+                span{
+                  color: $gris-anthracite;//Couleur des Titres
+                }
                 a{
                     @include font-size(m);//utilisation de typey
+                    color: $gris-anthracite;
                     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                         @include font-size(xl);//utilisation de typey
                     }
@@ -356,7 +365,7 @@ body .conteneur {
             }
             li{
                 margin: 0 0 em(5px) 0;
-                background: $rose-fushia;//Couleur de fond des acces Rub Admin
+                background: $vert;//Couleur de fond des acces Rub Admin
                 color: whitesmoke;
                 @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
 
@@ -472,7 +481,7 @@ body .conteneur {
                             @include font-size(s);//utilisation de typey
                         }
                         &:hover{
-                            background: $rose-fushia;//Changer la couleur du BG hover ici
+                            background: $vert;//Changer la couleur du BG hover ici
                             color: $gris-clair;
                         }
                     }
@@ -556,7 +565,7 @@ body .conteneur {
                                                 clip-path: circle(50% at 50% 50%);*/
                             /* Coins arrondis pour les boutons - passe mieux sur mobile*/
                             @include arrondis(4em);
-                            background-color: $rose-fushia; //Couleur de fond des boutons
+                            background-color: $vert; //Couleur de fond des boutons
 
                             @include breakpoint(($desktop,$desktopwide)){
                                 max-width: 11vw;
@@ -581,19 +590,19 @@ body .conteneur {
                             }
                         }
                     }
-                    &.nid-2{//contact
+                    &.nid-23{//contact
                              a:hover{
                                  @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, -9% 58%, no-repeat);
                                  background-size: 400%;
                              }
                     }
-                    &.nid-16{//inscriptions
+                    &.nid-21{//inscriptions
                              a:hover{
                                  @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 71% 58%, no-repeat);
                                  background-size: 400%;
                              }
                     }
-                    &.nid-18{//actus
+                    &.nid-39{//actus
                              a:hover{
                                  @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 108% 58%, no-repeat);
                                  background-size: 400%;

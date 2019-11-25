@@ -41,6 +41,7 @@ article.middle-content {
   #illustration-pleinepage {
     min-height: 35vw;
     max-height: 90vw;
+
     overflow: hidden;
     position: relative;
 
@@ -57,17 +58,31 @@ article.middle-content {
       }
       // Position différente de l'image selon le nid.
       &.illustration-nid-133{
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+        @include breakpoint(($desktop,$desktopwide)) {
           img {
             transform: translate(0%,-37%);
           }
         }
+        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+            min-height: 25vw;
+            max-height: 40vw;
+            img{
+                transform: translate(0%,-35%);
+            }
+        }
       }
-      &.illustration-nid-526{ //PAge rubrique lycée
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+      &.illustration-nid-526{ //Page rubrique lycée
+        @include breakpoint(($desktop,$desktopwide)) {
           img {
             transform: translate(0%,-31%);
           }
+        }
+        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+            min-height: 25vw;
+            max-height: 40vw;
+            img{
+                transform: translate(0%,-35%);
+            }
         }
       }
     }
@@ -96,47 +111,86 @@ article.middle-content {
   }
 
   ul.acces-contenu-lycee {
-    column-count: 0;
-    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
-      column-count: 2;
-      column-fill: balance;
+    padding: 0;
+
+    @include breakpoint(($desktop,$desktopwide)){
+        column-count: 2;//adapter selon taille des blocs / images
+        column-fill: balance;//bug FF en colonne résolu
+        white-space: normal;
+        padding: span(0.1);
+    }
+    @include breakpoint(($tablet-hd,$tablet,$mobilelandscape,$tabletlandscape)){
+      //Layout différent pour tablette, 2 colonnes
+      column-count: 2;//adapter selon taille des blocs / images
+      column-fill: balance;//bug FF en colonne résolu
+      column-gap: em(10px);//taille de la gouttière (gutter)
       white-space: normal;
       padding: span(0.1);
     }
-
     li {
-      @include txt-colonnes();
+      padding: 0;
+      margin: span(0.1) 0;
+      overflow: hidden;
+      @include breakpoint(($desktop,$desktopwide)){
       @include hack-Edge;
       @include hack-IE;
+      @include txt-colonnes();
+
+    }
+    @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
+      @include hack-Edge;
+      @include hack-IE;
+      @include txt-colonnes();
+      //Pour avoir 2 colonnes sans que items dépassent - TabS3 Portrait
+      margin: 0 span(0.1) 0;
+      max-width: 45vw;
+      display: inline-block;
+    }
+
 
       span.illus-lycee {
         overflow: hidden;
-
+        padding: 0;
         img {
           transform: scale(1);
+        }
+        @include breakpoint(($desktop,$desktopwide)){
+          max-width: 70%;
+          float: left;
+          content: "";
+
+          img {
+            transform: scale(1.1);
+          }
+        }
+        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
+          img {
+            transform: scale(1.05);
+          }
         }
       }
 
       span.complement,
       span.titre-lycee {
         padding: span(0.1);
-      }
+        display: block;
 
-      span {
+
         @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
-          max-width: span(1);
+          //max-width: 40vw;
         }
         @include breakpoint($desktop) {
           max-width: 7vw;
+          float: left;
         }
         @include breakpoint($desktopwide) {
           max-width: 11vw;
           padding: 0 0 0 span(0.01);
+          float: left;
         }
       }
-
       a {
-        display: inherit;
+        display: block;
       }
     }
   }
@@ -219,18 +273,12 @@ ______________________________*/
 span.titre-lycee {
   color: $blanc-casse;
   @include txt-cesure();
-  display: inline-block;
-  float: left;
+
 }
 
 span.illus-lycee {
   position: relative;
-  @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
-    max-width: 70%;
-    float: left;
-    content: "";
-    padding: 0;
-  }
+
 
         a {
           &:before {
