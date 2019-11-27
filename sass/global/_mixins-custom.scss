@@ -61,6 +61,7 @@ problème de distribution des valeurs. Utiliser un visuel PNG blanc comme base p
 application des couleurs.
 Ne pas utiliser //background-size: contain; si problèmes
 Ne pas utiliser d'image pour le background, couleur suffit
+Support partiel par Edge à partir de v42
   */
   //background: url('#{$imagedir}#{$filename}') $position $repeat $couleurFinale;
   background: $couleurFinale;
