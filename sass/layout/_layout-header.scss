@@ -32,7 +32,7 @@ body .conteneur #header {
             img{
                 margin: 0 auto;
                 @include adaptable-img();
-                @include breakpoint(($mobile,$mobilelandscape)){           }
+                @include breakpoint(($mobile,$mobilelandscape)){ //Inutile          }
                 @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                     width: 100%;
                     margin: 0;
@@ -71,7 +71,8 @@ body .conteneur #header {
     .headSearch{
         margin: 0 30%;
         padding: 0;
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+        @include breakpoint(($desktop,$desktopwide)){
+            width: span(2);
             padding: em(5px) 0 0 0; //Ajoute un padding pour positionner boite de recherche
             margin: 0 span(0.2);
             float: right;
@@ -105,7 +106,7 @@ body .conteneur #header {
         vertical-align: middle;
     }
     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-        padding: 0;
+        //padding: 0;
     }
 }
 
@@ -148,6 +149,6 @@ body .conteneur #header {
         text-transform: uppercase;
     }
 }
-
+}
 /*FIN CSS HEADER*/
 /*****************/
