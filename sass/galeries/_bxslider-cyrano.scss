@@ -34,9 +34,10 @@ body .conteneur{
 .HPDiapo{
     .bx-wrapper{
         margin:0;
+        border-color: $vert;//Couleur du cadre du diapo sur Accueil - Blanc par défaut
         .bx-viewport {
         box-shadow: none;
-    border: none;
+        border: none;
         background: none;
         max-height: 30em;
         }
@@ -46,7 +47,7 @@ body .conteneur{
             left: span(0.2);
             width: 80%;
             //couleur fond des captions
-            @include backgroundRGBA($rose-fushia, 0.85);
+            @include backgroundRGBA($violet, 0.85);
             margin: 0 auto;
             span{
                  color: white;
