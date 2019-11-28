@@ -430,10 +430,11 @@ body .conteneur {
                 span.titre-admin{
                     display: block;
                     text-align:center;
+                    font-weight: bold;
                     a{
                         color: whitesmoke;
                         text-decoration: none;
-                        font-weight: bold;
+
                     }
                 }
                 span.accroche-admin{
@@ -575,7 +576,7 @@ body .conteneur {
                                                 clip-path: circle(50% at 50% 50%);*/
                             /* Coins arrondis pour les boutons - passe mieux sur mobile*/
                             @include arrondis(4em);
-                            background-color: $vert; //Couleur de fond des boutons
+                            background-color: $violet; //Couleur de fond des boutons acces-contact
 
                             @include breakpoint(($desktop,$desktopwide)){
                                 max-width: 11vw;
@@ -595,32 +596,32 @@ body .conteneur {
                             &:hover{
 
                                 /*        @include backgroundImage("SVG/bg_acces_contact.svg", -29em top);*/
-                                /*background: $violet;//Couleur de fond des boutons au rollover - Surpasse couleur donnée dans mixin backgroundImage, empêche image*/
+                                /*background: $vert;//Couleur de fond des boutons au rollover - Surpasse couleur donnée dans mixin backgroundImage, empêche image*/
                                 text-indent: em(-9000px);
                             }
                         }
                     }
                     &.nid-23{//contact
                              a:hover{
-                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, -9% 58%, no-repeat);
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$vert, -9% 58%, no-repeat);
                                  background-size: 400%;
                              }
                     }
                     &.nid-5{//inscriptions
                              a:hover{
-                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 49% 58%, no-repeat);
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$vert, 49% 58%, no-repeat);
                                 transform: scale(1);
                              }
                     }
                     &.nid-39{//actus
                              a:hover{
-                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 108% 58%, no-repeat);
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$vert, 108% 58%, no-repeat);
                                  background-size: 400%;
                              }
                     }
                     &.nid-xx{//liens utiles
                              a:hover{
-                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$violet, 31% 58%, no-repeat);
+                                 @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'),$vert, 31% 58%, no-repeat);
                                  background-size: 400%;
                              }
                     }
