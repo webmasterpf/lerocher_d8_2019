@@ -6,9 +6,19 @@
 |       FRONTPAGE INSTITUTIONNEL       |
 |--------------------------------------*/
 
-//@include breakpoint ($mobile){}
-//@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
-//@include breakpoint ($tablet){}
+//@include breakpoint ($desktop){}  : $desktopwide  $mobile  $mobile-iphonehd   $mobile-iphoneX
+/*
+$mobile-galaxyShd
+$mobile-galaxyS6
+$tablet
+$tablet-hd
+
+// Breakpoint pour les format paysage
+$mobilelandscape
+$mobilelandscape-galaxyShd
+$tabletlandscape
+$tabletlandscape-hd:
+*/
 //@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
 
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
