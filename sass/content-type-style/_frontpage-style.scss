@@ -362,7 +362,7 @@ body .conteneur {
     }
     .acces_rubriques{
         p{
-            line-height: 0;
+            //line-height: 0;
         }
         iframe{ //video en page d'accueil - centrage
           display: block;
@@ -375,13 +375,13 @@ body .conteneur {
             }
             li{
                 margin: 0 0 em(5px) 0;
-                background: $vert;//Couleur de fond des acces Rub Admin
+                background: $violet;//Couleur de fond des acces Rub Admin
                 color: whitesmoke;
                 @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
 
                 }
                 &:hover{
-                    background: $violet;//Couleur de fond hover des acces Rub Admin
+                    background: $vert;//Couleur de fond hover des acces Rub Admin
                 }
                 img{
                     object-fit: cover;//permet que l'image occupe tout l'espace mais il faut définir une taille
