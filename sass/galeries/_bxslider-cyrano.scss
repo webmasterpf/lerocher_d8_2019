@@ -13,21 +13,47 @@ body .conteneur{
 
 }
 $typedecontenu: HPDiapo;
+$ULclasse:bxslider-hp;
   @each $type in $typedecontenu {
     .#{$type} {
       .bx-wrapper{
         img{
-          @include adaptable-img();
+
+          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+            @include adaptable-img();
+          }
+
+
         }
         .bx-viewport {
+          box-shadow: none;
+          border: none;
+          background: none;
+          
           @include breakpoint(($desktop,$desktopwide)) {
-            box-shadow: none;
-            border: none;
-            background: none;
             max-height: 30em;
           }
         @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
           //Pas besoin de réglages spécifiques
+        }
+        @each $classe-ul in $ULclasse {
+          .#{$classe-ul} {
+            li{}
+          }
+        }
+      }
+        .bx-caption{
+          span{
+          color: white;
+          padding: em(5px);
+          font-family: $AristaFont;
+          line-height: 1em;
+          @include font-size(m); //utilisation de typey
+          @include breakpoint(($desktop,$desktopwide,$tablet,$tabletlandscape)) {
+           line-height: 1.3em;
+           @include font-size(l); //utilisation de typey
+          }
+        @include breakpoint(($mobilelandscape)) {}
         }
         }
 
@@ -58,10 +84,7 @@ $typedecontenu: HPDiapo;
         margin:0;
         //border-color: $vert;//Couleur du cadre du diapo sur Accueil - Blanc par défaut - Décommenter si besoin
         .bx-viewport {
-        box-shadow: none;
-        border: none;
-        background: none;
-        max-height: 30em;
+        //Voir code haut de page
         }
         .bx-caption{
             position: fixed;
@@ -71,12 +94,8 @@ $typedecontenu: HPDiapo;
             //couleur fond des captions
             @include backgroundRGBA($violet, 0.85);
             margin: 0 auto;
-            span{
-                 color: white;
-                padding: em(5px);
-                font-family: $AristaFont;
-                line-height: 1.3em;
-                font-size: x-large;
+            span{//style du cartouche
+              //Voir code haut  de page
             }
         }
     }
