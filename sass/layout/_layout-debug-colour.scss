@@ -16,7 +16,9 @@ body .conteneur {
 
     #footer{background-color: firebrick;
             aside{
-                background-color: teal;
+                //background-color: teal;
+                background-image: repeating-linear-gradient(-45deg,transparent 0 5px,
+                grey 0.1em 0.35em);
             }
     }
     @include breakpoint($tablet) {//Dimensions pour les tablettes
@@ -32,7 +34,9 @@ body .conteneur {
 
                                   #footer{background-color: peachpuff;
                                           aside{
-                                              background:sandybrown;
+                                              //background:sandybrown;
+                                              background-image: repeating-linear-gradient(-45deg,transparent 0 5px,
+                                              grey 6px 7px);
                                           }
                                   }
     }
