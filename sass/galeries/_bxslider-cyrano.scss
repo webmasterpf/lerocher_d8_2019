@@ -12,6 +12,28 @@ body .conteneur{
     z-index: 888;//pour écraser valeur donnée par défaut de 9999
 
 }
+$typedecontenu: HPDiapo;
+  @each $type in $typedecontenu {
+    .#{$type} {
+      .bx-wrapper{
+        img{
+          @include adaptable-img();
+        }
+        .bx-viewport {
+          @include breakpoint(($desktop,$desktopwide)) {
+            box-shadow: none;
+            border: none;
+            background: none;
+            max-height: 30em;
+          }
+        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
+          //Pas besoin de réglages spécifiques
+        }
+        }
+
+      }
+    }
+  }
 .galerie-vdl {
     .bx-wrapper{
     margin: 0 auto;
@@ -34,7 +56,7 @@ body .conteneur{
 .HPDiapo{
     .bx-wrapper{
         margin:0;
-        border-color: $vert;//Couleur du cadre du diapo sur Accueil - Blanc par défaut
+        //border-color: $vert;//Couleur du cadre du diapo sur Accueil - Blanc par défaut - Décommenter si besoin
         .bx-viewport {
         box-shadow: none;
         border: none;
