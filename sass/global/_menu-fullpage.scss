@@ -66,7 +66,7 @@ body .conteneur{
             }
         }
     }
-
+    //*** STYLE ET POSITION DE LA LISTE ***//
     .mobilenav {
         font-family: inherit;
         top: 0;
@@ -80,10 +80,14 @@ body .conteneur{
         opacity: 0.9;
         ul{
             list-style: none;
-            width: span(7 of $desktopcol);
-            margin: 0 auto;
+            width: span(10);
+            margin: 25% auto;
         /*margin-left: span(2  wide);//push*/
         font-family: $FontRaleway;
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+            width: span(7);
+            margin: 0 auto;
+        }
         }
         li {
             list-style-type: none;
@@ -91,7 +95,7 @@ body .conteneur{
             padding: span(0.1);
             a {
                 display: block;
-                font-size: smaller;
+                @include font-size(m);//utilisation de typey
                 color: $blanc-casse;
                 text-decoration: none;
                 font-weight: lighter;
@@ -113,7 +117,7 @@ body .conteneur{
         }
     }
 
-
+    //****** ACCES MENU ET ANIMATION CROIX *****//
     .top-animate {
         background: #fff !important;
         top: 13px !important;
@@ -130,7 +134,7 @@ body .conteneur{
         transform: rotate(-225deg);
     }
     .top-menu,.mid-menu,.bottom-menu{
-             width: em(25px);
+        width: em(25px);
         height: em(2px);
         border-radius: em(10px);
         background-color: $violet;//Couleur de l'accès menu 3 barres
