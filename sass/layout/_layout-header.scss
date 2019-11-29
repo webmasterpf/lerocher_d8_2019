@@ -6,7 +6,7 @@
 //Imbrication à 100% (full nested)
 body .conteneur #header {
     /*width: span(4 of $mobilecol);*/
-    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+    @include breakpoint(($desktop,$desktopwide)){
         z-index : 30;
         width: span(10 of $desktopcol);
         margin-left: span(1 wide);//push
@@ -19,7 +19,8 @@ body .conteneur #header {
     &:after{
         content: " ";
         display: block;
-        clear: both;}
+        clear: both;
+      }
     .headHaut {
 
         @include clearfixsusy3;//Dispo sur tous supports
@@ -32,11 +33,10 @@ body .conteneur #header {
             img{
                 margin: 0 auto;
                 @include adaptable-img();
-                @include breakpoint(($mobile,$mobilelandscape)){ //Inutile          }
+                @include breakpoint(($mobile)){
+                  transform: scale(0.75);
+                }
                 @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-                    width: 100%;
-                    margin: 0;
-                    padding: 0;
                     //display: block;//commenter si logo pas collé à gauche
                     max-height: 15em;//si logo trop gros
                     object-fit: contain;
@@ -44,6 +44,9 @@ body .conteneur #header {
                 }
 
             }
+        }
+        .site-slogan,.objectif{
+            //Voir plus bas
         }
         nav.menuOver{
     margin: 0 span(0.3) 0 0;
@@ -63,11 +66,7 @@ body .conteneur #header {
     @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
         margin: 0 0 em(10px) 0;
       }
-    .site-slogan,.objectif{
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-            padding: em(5px) 0 0 0 //Ajoute un padding pour positionner boite
-        }
-    }
+
     .headSearch{
         margin: 0 30%;
         padding: 0;
@@ -128,17 +127,17 @@ body .conteneur #header {
 .site-name {
     clear: both;
     background: $violet;
+    padding: span(0.01) 0 0 span(0.1);
     a {
         text-decoration: none;
         color: white;
         text-transform: initial;
           @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
         text-align: left;
-        padding: em(3px) 0 0 span(0.1);
+
     }
     }
-    padding: 0;
-    margin: 0;
+    
 }
 
 .site-slogan,.objectif {
@@ -152,12 +151,12 @@ body .conteneur #header {
         text-align: left;
         padding: span(0.01) 0 0 span(0.1);
     }
+
     a {
         text-decoration: none;
         color: white;
         text-transform: uppercase;
     }
-}
 }
 /*FIN CSS HEADER*/
 /*****************/
