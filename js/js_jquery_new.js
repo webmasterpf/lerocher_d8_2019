@@ -1,7 +1,7 @@
 /*
  * Pour pouvoir utiliser plusieurs versions de Jquery : https://www.drupal.org/node/1058168
  * Utiliser jQuery normalement.
- * Trés bonne explication sur action du noConflict() : 
+ * Trés bonne explication sur action du noConflict() :
  * http://sundropsoftware.com/how-to-use-jquery-noconflict-the-right-way/
  */
 
@@ -26,10 +26,6 @@
 
     jQuery(document).ready(function ()
     {
-
-
-
-
 //OffCanvas avec fonction anonyme
         console.log('Chargement du script pour volet coulissant');
         var $transformer = $('.transformer'),
@@ -158,8 +154,8 @@
     jQuery(document).ready(function () {
         $(".lightSlider").lightSlider();
     });
-    
-    // StickUp pour barre de partage social 
+
+    // StickUp pour barre de partage social
 //    jQuery(window).load(function () {
 //    console.log('Chargement de StickUp.js pour jQuery>=1.11');
 //$('.service-links').stickUp();
@@ -195,7 +191,7 @@ $('#block-service_links-service_links').floatit({
 //  fade: true,
 //  cssEase: 'linear'
 //});
-//}); 
+//});
 //
 ////Pour utiliser Slick avec une nav par miniatures (thumbs)
 //jQuery(document).ready(function ()
@@ -215,11 +211,11 @@ $('#block-service_links-service_links').floatit({
 //  centerMode: true,
 //  focusOnSelect: true
 //});
-//}); 
+//});
 
 //// Script pour Masonry - Views casse les __ utiliser -- plutôt
 
-//    jQuery(document).ready(function () 
+//    jQuery(document).ready(function ()
     jQuery(window).on('load', function ()
     {
         console.log('Chargement des paramètres Masonry.js');
@@ -249,14 +245,14 @@ $('#block-service_links-service_links').floatit({
 //// Script pour Wookmark (liste html)
 //jQuery(document).ready(function ()
 //{
-//  console.log('Chargement des paramètres Wookmark.js');   
+//  console.log('Chargement des paramètres Wookmark.js');
 //$('#wookmark-id li').wookmark({
 //            autoResize: true, // This will auto-update the layout when the browser window is resized.
 //            container: $('#tiles'), // Optional, used for some extra CSS styling
 //            offset: 2, // Optional, the distance between grid items
 //            itemWidth: 210 // Optional, the width of a grid item
 //        });
-// 
+//
 // window.onresize = function(event) {
 //     $('#wookmark-id li').wookmark({offset: 2});
 // }
@@ -281,10 +277,10 @@ $('#block-service_links-service_links').floatit({
 //Action sur taille des images : retrait de toutes les tailles en dur (HTML) de manière ciblée
         //$('img').each(function(){
         console.log('Nettoyage sur divers éléments : objets,iframe,....');
-        
-     
-  
-  
+
+
+
+
         $('.fiche-formation img').each(function () {
             $(this).removeAttr('width');
             $(this).removeAttr('height');
@@ -304,27 +300,30 @@ $('#block-service_links-service_links').floatit({
         $("#zone-2 ul").removeAttr("style");
         $(".masonry-brick").removeAttr("style");//pas d'effet
         $("img.filefield-icon").removeAttr("style");
-        
+
 
         //Retrait du style des objets imbriqués comme object,iframe,etc...
         $("#media-youtube-default-external-object-1").removeAttr("style");
         $("#media-youtube-1").remove();
-        
-        
+
+
         //Reset des attributs de l'iframe puis réglage des nouvelles valeurs des attributs, alignement avec plugin JQuery
-        $(".acces_rubriques iframe").each(function () {
+      /*  $(".acces_rubriques iframe").each(function () {
             $(this).removeAttr('width');
             $(this).removeAttr('height');
             $(this).removeAttr('align');
-        });
-        if (parseInt($(window).width()) > 1500) {
-            $("#zone-1 #media-vimeo-1 iframe").height('23vw').width('100vw');
-            $("#zone-2 #media-vimeo-1 iframe").height('23vw').width('100vw');
-            $("#zone-1 #media-youtube-1").height('23vw').width('100vw');
-            $("#zone-2 #media-youtube-1").height('23vw').width('100vw');
-            $(".acces_rubriques iframe").height('95vh').width('60vw');//Video site CE D8
+        });*/
+
+
+        //if (parseInt($(window).width()) > 1500) {
+          if (isBreakPoint(1900)) {
+
 
         }
+        if (isBreakPoint(1500)) {
+          //$(".acces_rubriques iframe").height('95vh').width('60vw');//Video Gde Taille HP
+
+      }
 
 
 // Taille auto pour les images des logos partenaires sur accueil
@@ -343,7 +342,7 @@ $('#block-service_links-service_links').floatit({
         $(".nav-espace-partenaire li img").removeAttr("style");
 
 
-        //Retrait position:absolute sur le Views Slideshow       
+        //Retrait position:absolute sur le Views Slideshow
         $('.views_slideshow_cycle_slide:visible').css('position', 'relative', 'important');
         $('.views_slideshow_cycle_slide').not(':visible').css('position', 'absolute', 'important');
 
@@ -353,7 +352,7 @@ $('#block-service_links-service_links').floatit({
         $(".page-contact p:has(iframe)").addClass('external-content');
         $(".contenu-international p:has(iframe)").addClass('external-content');
     });
-
+//Changer la taille de l'iframe dans les contenus
      function resizeIframe(obj) {
     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
   }
@@ -363,7 +362,7 @@ $('#block-service_links-service_links').floatit({
   console.log( $( this ).text() );
 });
 
-    //Views Slideshow Cycle RWD    
+    //Views Slideshow Cycle RWD
 
     $(window).resize(function () {
         $('.views_slideshow_cycle_main').each(function () {
@@ -409,26 +408,67 @@ $('#block-service_links-service_links').floatit({
             $('.mid-menu').toggleClass('mid-animate');
             $('.bottom-menu').toggleClass('bottom-animate');
         });
-        
+
         //Cache / Affiche les enfants dans le menu overlay - Pas fonctionnel
 $('#block-menu-menu-menu-general').click(function() {
   $('.collapsed').toggle( "slow", function() {
     // Animation complete.
   });
 });
-        
-//deplacement du code pour vimeo
 
-        
-        
+//deplacement du code pour vimeo
     });
-    
+
+      jQuery(document).ready(function () {
+    ////***** ENQUIRE.JS ****/////
+    //Fonction BPoint personnalisé - https://stackoverflow.com/a/11387513/2416915
+    // Utilisation de matchMedia pour utiliser les mêmes BP que pour scss.
+    var desktop = "screen and (min-width:1200px)";// sortie=>> min-width: XXXpx xlarge 1200px
+    var desktopwide = "screen and (min-width:1440px) and (min-resolution:1dppx)";// sortie=>> min-width: XXXpx xxlarge 1440px
+
+
+    var mobile = "only screen and (max-width 667px) and (orientation portrait) and (min-resolution:2dppx)";//medium - Iphone->8
+    var mobile-iphonehd = "only screen and (min-width 414px max-width 736px) and (orientation portrait) and (min-resolution:3dppx)";//medium - Iphone6+->
+    var mobile-iphoneX = "only screen and (min-width 375px max-width 812px) and (orientation portrait) and (min-resolution:3dppx)";//medium - IphoneX
+    var mobile-galaxyShd = "screen and (min-width 320px max-width 640px) and (orientation portrait) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
+    var mobile-galaxyS6 = "screen and (min-width 360px max-width 645px) and (orientation portrait) and (min-resolution:4dppx)";//medium - GalaxyS6 et suivants
+    var tablet = "only screen and (min-width 768px max-width 1024px) and (orientation portrait) and (min-resolution:1dppx)";//large - Tablettes non HD
+    var tablet-hd = "only screen and (min-width 1500px max-width 2050px) and (orientation portrait) and (min-resolution:2dppx)";//tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.(Ipad2->)
+
+    // Breakpoint pour les format paysage
+    var mobilelandscape = "only screen and (min-width 319px 765px) and (orientation landscape)";//pour orientation paysage (min-height 319px) and (max-height 765px)
+    var mobilelandscape-galaxyShd = "screen and (min-width 320px 645px) and (orientation landscape) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
+    var tabletlandscape = "only screen and (min-width 768px 1024px) and (orientation landscape) and (min-resolution:1dppx)";//pour orientation paysage - Tablettes non HD
+    var tabletlandscape-hd = "only screen and (min-width 1500px 2050px) and (orientation landscape) and (min-resolution:2dppx)";//pour orientation paysage, tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.
+    //Utilisation d'enquire.js
+    enquire.register(desktop, {
+    	match : function() {
+        console.log('Enquire.js : BP pour:'desktop);
+        $("#zone-1 #media-vimeo-1 iframe").height('23vw').width('100vw');
+        $("#zone-2 #media-vimeo-1 iframe").height('23vw').width('100vw');
+        $("#zone-1 #media-youtube-1").height('23vw').width('100vw');
+        $("#zone-2 #media-youtube-1").height('23vw').width('100vw');
+
+        //Video sur HP
+        /*$(".acces_rubriques iframe").each(function () {
+            $(this).removeAttr('width');
+            $(this).removeAttr('height');
+            $(this).removeAttr('align');
+        });*/
+        //$(".acces_rubriques iframe").height('95vh').width('60vw');//Video Gde Taille HP
+    	},
+    	unmatch : function() {
+    		example.unmatch();
+    	}
+    });//enquire.register(desktop)
+  });//Fin document.ready
+
     //Retrait de l'autoplay des videos Vimeo
 //https://stackoverflow.com/questions/49053072/change-part-of-src-attribute-of-iframe-with-jquery
 //
 //  var oldSrc = $("#media-vimeo-1 iframe").attr("src"); //Get the src of the iframe
 //  var newSrc = oldSrc.replace("autoplay=1", "autoplay=0"); //Replace "autoplay=1" by "autoplay=0"
-//  
+//
 //  $("#media-vimeo-1 iframe").attr("src", newSrc); //Change the src attr to the new value
 //    console.log("Retrait de l'autoplay de Vimeo: ");
 //  console.log("Old Src: " + oldSrc);
@@ -438,4 +478,4 @@ $('#block-menu-menu-menu-general').click(function() {
     $('.conteneur').find('img').lazyLoadXT();
     $('.conteneur').find('iframe').lazyLoadXT();
 
-})(jQuery);
+})(jQuery); //Fin de function ($)
