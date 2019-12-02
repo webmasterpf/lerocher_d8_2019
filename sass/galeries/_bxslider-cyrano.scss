@@ -29,7 +29,7 @@ $ULclasse:bxslider-hp;
           box-shadow: none;
           border: none;
           background: none;
-          
+          max-height: inherit;
           @include breakpoint(($desktop,$desktopwide)) {
             max-height: 30em;
           }
@@ -37,8 +37,11 @@ $ULclasse:bxslider-hp;
           //Pas besoin de réglages spécifiques
         }
         @each $classe-ul in $ULclasse {
-          .#{$classe-ul} {
-            li{}
+          ul.#{$classe-ul} {
+            li,img{
+                margin: 0;
+            }
+
           }
         }
       }
@@ -99,13 +102,9 @@ $ULclasse:bxslider-hp;
             }
         }
     }
-    ul.bxslider-hp{
-        li,img{
-            margin: 0;
-        }
+    //Voir code haut de page pour UL
 
-    }
-}
+}//Fin HPDiapo
 
 #illustration-pleinepage.illustration-page-fiche-formation{
     .bx-wrapper{
@@ -114,10 +113,17 @@ $ULclasse:bxslider-hp;
            .bx-viewport{
             background: 0;
             border: 0;
-            max-width: 100%;
-            box-shadow:none;
-            max-height: 30em;
-            min-height: 78vh !important;
+            box-shadow: none;
+            border: none;
+            background: none;
+
+            @include breakpoint(($desktop,$desktopwide)) {
+              max-height: 30em;
+              min-height: 78vh !important;
+            }
+          @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
+            //Pas besoin de réglages spécifiques
+          }
             img{
                 margin: 0;
                 padding: 0;
