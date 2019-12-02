@@ -35,6 +35,9 @@ npm install --save-dev autoprefixer gulp-postcss
 
 https://github.com/at-import/breakpoint
 
+Pour utiliser les Breakpoints CSS avec javascript : enquire.js
+npm install enquire.js  permet d'installer + enquire.js@2.1.6
+
 BROWSER SYNC
 -----------------
 :/var/www/drupal-8/sites/all/themes/dossier_projet$ npm install browser-sync --save-dev
