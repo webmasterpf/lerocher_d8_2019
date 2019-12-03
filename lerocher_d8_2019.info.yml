@@ -23,10 +23,10 @@ libraries:
 #  - core/normalize
   - lerocher_d8_2019/global-styling
   - lerocher_d8_2019/fonts
-#  - lerocher_d8_2019/3rdparty
+  #- lerocher_d8_2019/3rdparty
   #Les librairies de javascript
-#  - lerocher_d8_2019/js
-  - lerocher_d8_2019/at.enquire
+  #- lerocher_d8_2019/js
+  #- lerocher_d8_2019/at.enquire
   #- lerocher_d8_2019/cdn.jquery
   - lerocher_d8_2019/global-scripts
 regions:
