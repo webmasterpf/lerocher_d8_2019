@@ -70,7 +70,8 @@
     <!-- ___ /ACCES LOGOS PARTENAIRES ____ -->
 
     {#
-Déplacement du bloc de chargement des JS du core Drupal et modules dans le fichier du footer, juste avant la fermeture du body
+Déplacement du bloc de chargement des JS du core Drupal et modules
+dans le fichier libraries.yml du thème,chargement via placeholder
 #}
     {% if browser_sync.enabled %}
       <script id="__bs_script__">

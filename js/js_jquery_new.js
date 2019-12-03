@@ -315,16 +315,6 @@ $('#block-service_links-service_links').floatit({
         });*/
 
 
-        //if (parseInt($(window).width()) > 1500) {
-          if (isBreakPoint(1900)) {
-
-
-        }
-        if (isBreakPoint(1500)) {
-          //$(".acces_rubriques iframe").height('95vh').width('60vw');//Video Gde Taille HP
-
-      }
-
 
 // Taille auto pour les images des logos partenaires sur accueil
         $(".logo_partenaires img").height('auto').width('auto');
