@@ -419,7 +419,7 @@ $('#block-menu-menu-menu-general').click(function() {
 //deplacement du code pour vimeo
     });
 
-      jQuery(document).ready(function () {
+      $(document).ready(function () {
     ////***** ENQUIRE.JS ****/////
     //Fonction BPoint personnalisé - https://stackoverflow.com/a/11387513/2416915
     // Utilisation de matchMedia pour utiliser les mêmes BP que pour scss.
@@ -427,19 +427,19 @@ $('#block-menu-menu-menu-general').click(function() {
     var desktopwide = "screen and (min-width:1440px) and (min-resolution:1dppx)";// sortie=>> min-width: XXXpx xxlarge 1440px
 
 
-    var mobile = "only screen and (max-width 667px) and (orientation portrait) and (min-resolution:2dppx)";//medium - Iphone->8
-    var mobile-iphonehd = "only screen and (min-width 414px max-width 736px) and (orientation portrait) and (min-resolution:3dppx)";//medium - Iphone6+->
-    var mobile-iphoneX = "only screen and (min-width 375px max-width 812px) and (orientation portrait) and (min-resolution:3dppx)";//medium - IphoneX
-    var mobile-galaxyShd = "screen and (min-width 320px max-width 640px) and (orientation portrait) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
-    var mobile-galaxyS6 = "screen and (min-width 360px max-width 645px) and (orientation portrait) and (min-resolution:4dppx)";//medium - GalaxyS6 et suivants
-    var tablet = "only screen and (min-width 768px max-width 1024px) and (orientation portrait) and (min-resolution:1dppx)";//large - Tablettes non HD
-    var tablet-hd = "only screen and (min-width 1500px max-width 2050px) and (orientation portrait) and (min-resolution:2dppx)";//tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.(Ipad2->)
+    var mobile = "only screen and (max-width:667px) and (orientation: portrait) and (min-resolution:2dppx)";//medium - Iphone->8
+    var mobile-iphonehd = "only screen and (min-width:414px) and (max-width:736px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - Iphone6+->
+    var mobile-iphoneX = "only screen and (min-width:375px) and (max-width:812px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - IphoneX
+    var mobile-galaxyShd = "screen and (min-width:320px) and (max-width:640px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
+    var mobile-galaxyS6 = "screen and (min-width:360px) and (max-width:645px) and (orientation: portrait) and (min-resolution:4dppx)";//medium - GalaxyS6 et suivants
+    var tablet = "only screen and (min-width:768px) and (max-width:1024px) and (orientation: portrait) and (min-resolution:1dppx)";//large - Tablettes non HD
+    var tablet-hd = "only screen and (min-width:1500px) and (max-width:2050px) and (orientation: portrait) and (min-resolution:2dppx)";//tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.(Ipad2->)
 
     // Breakpoint pour les format paysage
-    var mobilelandscape = "only screen and (min-width 319px 765px) and (orientation landscape)";//pour orientation paysage (min-height 319px) and (max-height 765px)
-    var mobilelandscape-galaxyShd = "screen and (min-width 320px 645px) and (orientation landscape) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
-    var tabletlandscape = "only screen and (min-width 768px 1024px) and (orientation landscape) and (min-resolution:1dppx)";//pour orientation paysage - Tablettes non HD
-    var tabletlandscape-hd = "only screen and (min-width 1500px 2050px) and (orientation landscape) and (min-resolution:2dppx)";//pour orientation paysage, tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.
+    var mobilelandscape = "only screen and (min-width:319px) and (max-width:765px) and (orientation: landscape)";//pour orientation: paysage (min-height 319px) and (max-height 765px)
+    var mobilelandscape-galaxyShd = "screen and (min-width:320px) and (max-width:645px) and (orientation: landscape) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
+    var tabletlandscape = "only screen and (min-width:768px) and (max-width:1024px) and (orientation: landscape) and (min-resolution:1dppx)";//pour orientation: paysage - Tablettes non HD
+    var tabletlandscape-hd = "only screen and (min-width:1500px) and (max-width:2050px) and (orientation: landscape) and (min-resolution:2dppx)";//pour orientation: paysage, tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.
     //Utilisation d'enquire.js
     enquire.register(desktop, {
     	match : function() {
@@ -461,9 +461,13 @@ $('#block-menu-menu-menu-general').click(function() {
     		example.unmatch();
     	}
     });//enquire.register(desktop)
-    enquire.register(tabletlandscape, {
-    	match : function() {
-        console.log('Enquire.js : BP pour:'.tabletlandscape);
+    enquire.register("screen and (min-width:768px) and (max-width:1024px) and (orientation: landscape) and (min-resolution:1dppx)", {
+      deferSetup : true,
+      	setup : function() {
+      	$(".acces_rubriques iframe").height('55vh').width('45vw');//Video Gde Taille HP
+      	},
+      match : function() {
+        console.log('Enquire.js : BP pour: tabletlandscape');
         $("#zone-1 #media-vimeo-1 iframe").height('23vw').width('100vw');
         $("#zone-2 #media-vimeo-1 iframe").height('23vw').width('100vw');
         $("#zone-1 #media-youtube-1").height('23vw').width('100vw');
