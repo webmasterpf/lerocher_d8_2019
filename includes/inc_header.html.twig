@@ -14,90 +14,89 @@
 
     {# chargement des CSS #}
     <css-placeholder token="{{ placeholder_token }}">
-      {#  IMPORTANT : charger les librairies externes avant les scripts !! #}
-      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-      <script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+      {#  IMPORTANT : charger les librairies externes avant les scripts !!
+        Tous les JS se chargent en fin de page via html.html.twig et <js-bottom-placeholder>
+      #}
 
-      <js-placeholder token="{{ placeholder_token }}"></head>
-      {% set classes = [] %}
-      {% for role in user.roles %}
-        {% set classes = classes|merge(['role--' ~ role|clean_class]) %}
-      {% endfor %}
+      {#<js-placeholder token="{#{ placeholder_token }#}">#}
+    </head>
+    {% set classes = [] %}
+    {% for role in user.roles %}
+      {% set classes = classes|merge(['role--' ~ role|clean_class]) %}
+    {% endfor %}
 
-      {% set sidebar_first = page.sidebar_first | render %}
-      {% set sidebar_second = page.sidebar_second | render %}
-      <body{{ attributes.addClass(classes, not is_front ? 'with-subnav', sidebar_first ? 'sidebar-first', sidebar_second ? 'sidebar-second', (sidebar_first and not sidebar_second) or (sidebar_second and not sidebar_first) ? 'one-sidebar', (sidebar_first
-      and sidebar_second) ? 'two-sidebars', (not sidebar_first and not sidebar_second) ? 'no-sidebar' ) }}>
+    {% set sidebar_first = page.sidebar_first | render %}
+    {% set sidebar_second = page.sidebar_second | render %}
+    <body{{ attributes.addClass(classes, not is_front ? 'with-subnav', sidebar_first ? 'sidebar-first', sidebar_second ? 'sidebar-second', (sidebar_first and not sidebar_second) or (sidebar_second and not sidebar_first) ? 'one-sidebar', (sidebar_first
+    and sidebar_second) ? 'two-sidebars', (not sidebar_first and not sidebar_second) ? 'no-sidebar' ) }}>
 
-        <!-- ______________________ PAGE TOP BANDEAU _______________________ -->
+      <!-- ______________________ PAGE TOP BANDEAU _______________________ -->
 
-        <!-- ______________________ CONTENEUR _______________________ -->
-        <section class="conteneur">
-          {# #}
-          {% include directory ~ '/includes/inc_bandeau_off_canvas_susy.html.twig' %}
-          {# #}
-          <!-- ______________________ HEADER _______________________ -->
-          <header id="header">
+      <!-- ______________________ CONTENEUR _______________________ -->
+      <section class="conteneur">
+        {# #}
+        {% include directory ~ '/includes/inc_bandeau_off_canvas_susy.html.twig' %}
+        {# #}
+        <!-- ______________________ HEADER _______________________ -->
+        <header id="header">
 
-            <div class="headHaut">
+          <div class="headHaut">
 
-              {# !!! IMPORTANT !!!
+            {# !!! IMPORTANT !!!
                Le logo du site est affiché via le tpl block--system-branding-block.html.twig
                Il s'affiche avec le slogan du site, voir plus bas.
                Ajouter classes nécessaires dans le template du block.
                 #}
 
-              {#
+            {#
 /**
 positionner le bloc fournissant le menu dans cette région, pour v2018,le bloc Menu Général suffit (avec classe mobilenav) + bloc avec JS (sans editeur)
 */
 #}
-              {% if page.menuDyn is not empty %}
-                <nav class="menuOver">
-                  {{ page.menuDyn}}
+            {% if page.menuDyn is not empty %}
+              <nav class="menuOver">
+                {{ page.menuDyn}}
 
-                  <!-- <a href="javascript:void(0)" class="icon"> <div class="hamburger"> <div class="menui top-menu"></div> <div class="menui mid-menu"></div> <div class="menui bottom-menu"></div> </div> </a>-->
+                <!-- <a href="javascript:void(0)" class="icon"> <div class="hamburger"> <div class="menui top-menu"></div> <div class="menui mid-menu"></div> <div class="menui bottom-menu"></div> </div> </a>-->
 
-                </nav>
+              </nav>
 
-                <!-- /menuHead -->
-              {% endif %}
+              <!-- /menuHead -->
+            {% endif %}
 
-            </div>
-            <!-- /headHaut -->
-            <div class="headBas">
+          </div>
+          <!-- /headHaut -->
+          <div class="headBas">
 
-              {% if page.site_slogan is not empty %}
-                <div class="site-slogan">
-                  {{ page.site_slogan}}
-                </div>
-                <!-- /site-slogan -->
-              {% endif %}
-
-              {% if page.mission is not empty %}
-                <div class="objectif">
-                  {{ page.mission}}
-                </div>
-                <!-- /site-mission -->
-              {% endif %}
-
-              <div class="headSearch">
-                {% if page.search_box is not empty %}
-                  {{ page.search_box}}
-                {% endif %}
+            {% if page.site_slogan is not empty %}
+              <div class="site-slogan">
+                {{ page.site_slogan}}
               </div>
-              <!-- /recherche -->
+              <!-- /site-slogan -->
+            {% endif %}
 
-            </div>
-            <!-- /headBas -->
-            <div class="fil_ariane">
-              {% if page.ariane is not empty %}
-                {{page.ariane}}
+            {% if page.mission is not empty %}
+              <div class="objectif">
+                {{ page.mission}}
+              </div>
+              <!-- /site-mission -->
+            {% endif %}
+
+            <div class="headSearch">
+              {% if page.search_box is not empty %}
+                {{ page.search_box}}
               {% endif %}
             </div>
-            <!-- /fild_ariane -->
+            <!-- /recherche -->
 
-          </header>
-          <!-- /header -->
+          </div>
+          <!-- /headBas -->
+          <div class="fil_ariane">
+            {% if page.ariane is not empty %}
+              {{page.ariane}}
+            {% endif %}
+          </div>
+          <!-- /fild_ariane -->
+
+        </header>
+        <!-- /header -->
