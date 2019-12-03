@@ -26,6 +26,8 @@ libraries:
 #  - lerocher_d8_2019/3rdparty
   #Les librairies de javascript
 #  - lerocher_d8_2019/js
+  - lerocher_d8_2019/at.enquire
+  #- lerocher_d8_2019/cdn.jquery
   - lerocher_d8_2019/global-scripts
 regions:
  #Régions de base - devient {{ page.header }}  dans fichier .twig

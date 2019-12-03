@@ -461,6 +461,26 @@ $('#block-menu-menu-menu-general').click(function() {
     		example.unmatch();
     	}
     });//enquire.register(desktop)
+    enquire.register(tabletlandscape, {
+    	match : function() {
+        console.log('Enquire.js : BP pour:'.tabletlandscape);
+        $("#zone-1 #media-vimeo-1 iframe").height('23vw').width('100vw');
+        $("#zone-2 #media-vimeo-1 iframe").height('23vw').width('100vw');
+        $("#zone-1 #media-youtube-1").height('23vw').width('100vw');
+        $("#zone-2 #media-youtube-1").height('23vw').width('100vw');
+
+        //Video sur HP
+        /*$(".acces_rubriques iframe").each(function () {
+            $(this).removeAttr('width');
+            $(this).removeAttr('height');
+            $(this).removeAttr('align');
+        });*/
+        $(".acces_rubriques iframe").height('55vh').width('65vw');//Video Gde Taille HP
+    	},
+    	unmatch : function() {
+    		example.unmatch();
+    	}
+    });//enquire.register(tabletlandscape)
   });//Fin document.ready
 
     //Retrait de l'autoplay des videos Vimeo
