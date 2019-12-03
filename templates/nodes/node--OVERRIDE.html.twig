@@ -39,6 +39,9 @@ Possible avec le NiD ou un mot de l'url réécrite.
 
 <article{{ attributes.addclass(classes) }}>
 
+  {# Attacher une librairie JS pour un type de contenu spécifique via son template #}
+  {{ attach_library('nom_theme/angular.angularjs') }}
+
   {% include directory ~ '/templates/includes/inc_header_node.html.twig' %}
 
   <div{{ content_attributes.addClass('content') }}>
