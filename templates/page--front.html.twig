@@ -42,15 +42,16 @@ Voir fichier @html.html.twig
   {% endif %}
 
   <!-- ______________________ ACCES RUBRIQUES 3 _______________________ -->
+
   {#
-{% if  page.RubriquesHP3 is not empty %}
-    <div class="acces_rubriques">{{page.RubriquesHP3}}</div>
-{% endif %}
+Voir fichier @html.html.twig pour inclusion de la zone Accès contact
 #}
+
   <!-- ______________________ ACCES LYCEES / VIDEO LYCEE _______________________ -->
   {% if page.AccesLycees is not empty %}
     <div class="acces_rubriques">{{page.AccesLycees}}</div>
   {% endif %}
+
   <!-- ______________________ ACCES LOGOS PARTENAIRES _______________________ -->
   {#
 Voir fichier @html.html.twig pour inclusion de la zone logos PARTENAIRES
@@ -59,6 +60,8 @@ Voir fichier @html.html.twig pour inclusion de la zone logos PARTENAIRES
   {# Inclusion du markup du Footer pour plus de lisibilité
 Voir fichier @html.html.twig
 #}
+  {# Chargement de librairies JS pour ce template #}
+  {{ attach_library('lerocher_d8_2019/at.enquire') }}
 
 </div>
 <!-- /.layout-container -->
