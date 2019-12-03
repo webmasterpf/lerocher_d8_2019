@@ -7,7 +7,7 @@ global-styling:
     css:
         theme:
            css/application.css: {}
-        #3rdparty:   
+        #3rdparty:
             # Style pour Flexslider
            3rdparty/flexslider/flexslider.css: {}
             #Style pour Bxslider
@@ -18,10 +18,18 @@ global-styling:
            3rdparty/chocolat/chocolat.css: {}
             #Style pour Lightslider (galerie RWD)
            3rdparty/lightslider/css/lightslider.css: {}
-        #js:  
+        #js:
             #Style pour Responsive Slides (diaporama RWD)
            js/jquery_plugin/responsiveslides/responsiveslides.css: {}
-            
+fonts:
+  version: 1.x
+  css:
+    theme:
+      #css/font-awesome/css/font-awesome.min.css: {}
+      https://fonts.googleapis.com/css?family=Arvo&subset=latin: {type: external}
+      https://fonts.googleapis.com/css?family=Arimo&subset=latin: {type: external}
+      https://fonts.googleapis.com/css?family=Sorts+Mill+Goudy:400,400italic: {type: external}
+      https://fonts.googleapis.com/css?family=Raleway:400,700,300: {type: external}
 global-scripts:
     version: VERSION
     js:
@@ -45,8 +53,8 @@ global-scripts:
         js/jquery_plugin/responsiveslides/responsiveslides.min.js: {}
         js/jquery_plugin/lazyload/jquery.lazyloadxt.extra.min.js: {}
         js/jquery_plugin/stacktable.min.js: {}
-        js/jquery_plugin/vertical-align.min.js: {}  
-        
+        js/jquery_plugin/vertical-align.min.js: {}
+
         3rdparty/bxslider/js/jquery.bxslider.js: {}
         3rdparty/lightslider/js/lightslider.js: {}
      #  *** Utilisation des plugins Jquery  plus récents - Toujours terminer avec ce JS***
@@ -59,7 +67,8 @@ global-scripts:
        - core/drupalSettings
        - core/jquery.once
        - core/modernizr
-       
+       - core/matchmedia
+
 # Uncomment the code above to load scripts.js file on all pages. This file also requires JQuery to be
   # loaded on all pages. Consider implimenting your scripts through theme libraries if you wish to
   # avoid this. https://www.drupal.org/developing/api/8/assets
@@ -80,4 +89,4 @@ global-scripts:
 #  version: VERSION
 #  header: true
 #  js:
-#    js/selectivizr-min.js: { browsers: { IE: 'lte IE 8', '!IE': false }, minified: true, preprocess: false }       
+#    js/selectivizr-min.js: { browsers: { IE: 'lte IE 8', '!IE': false }, minified: true, preprocess: false }

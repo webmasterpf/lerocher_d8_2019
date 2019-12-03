@@ -22,7 +22,7 @@ libraries:
   #Les librairies de style
 #  - core/normalize
   - lerocher_d8_2019/global-styling
-#  - lerocher_d8_2019/css
+  - lerocher_d8_2019/fonts
 #  - lerocher_d8_2019/3rdparty
   #Les librairies de javascript
 #  - lerocher_d8_2019/js
