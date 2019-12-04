@@ -21,16 +21,16 @@
 'label-' ~ node.field_NAME.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {% set champ2_classes = [
-'label-' ~ node.field_lien_utile_ficheform.fieldDefinition.name | replace({"_" : "-"}),
+'label-' ~ node.field_lien_ficheform.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {# ---*** Le contenu de l'include ***--- #}
 
-{% if node.field_programme_formation.value or node.field_lien_utile_ficheform.value is not empty %}
+{% if node.field_programme_formation.value or node.field_lien_ficheform.value is not empty %}
   <div class="bloc_docs_utiles_ficheform">
 
     <ul>
       <li {{ champ2_attribute.addClass(champ2_classes) }}>
-        {{ content.field_lien_utile_ficheform | field_label }}
+        {{ content.field_lien_ficheform | field_label }}
         {% if node.field_programme_formation is not empty %}
           //
           {{ content.field_programme_formation|field_label }}
@@ -48,10 +48,10 @@
       {% endfor %}
 
       {# //Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
-      {% for key, lien in node.field_lien_utile_ficheform %}
+      {% for key, lien in node.field_lien_ficheform %}
         {# //Ne pas afficher les champs vides du tableau #}
-        {% if node.field_lien_utile_ficheform is not empty %}
-          <li>{{ content.field_lien_utile_ficheform[key] }}</li>
+        {% if node.field_lien_ficheform is not empty %}
+          <li>{{ content.field_lien_ficheform[key] }}</li>
         {% endif %}
       {% endfor %}
 
