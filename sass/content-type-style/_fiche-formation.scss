@@ -33,29 +33,33 @@ body .conteneur{
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
 #zone-diaporama.type-fiche-formations{
     // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
-    min-height: 35vw;
-    max-height: 90vw;
-    overflow: hidden;
-
-    img{
-        transform: translate(0%,0%);
-        @include adaptable-img();
-    }
-    @include breakpoint(($mobile-iphonehd,$mobile-galaxyS6)){
-        background:  $violet;
-    }
-    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-        min-height: 20vw;
-        max-height: 30vw;//Pour pouvoir augmenter ensuite la hauteur des images via bx-wrapper dans _bxslider-cyrano.scss
-        img{
-            //Avec Diapo il faut séparer le contenu du conteneur à cause de la position absolute. Position générique.
-            transform: translate(0%,-5%);
+    #illustration-pleinepage{
+            min-height: 35vw;
+            max-height: 90vw;
+            overflow: hidden;
+            position:relative;
+            //image par défaut en BG comme secours
+            @include backgroundImage(("defaut/visuel-defaut-Actu-2019.jpg"),transparent,no-repeat, top left);
+            background-size: cover;
+            img{
+                transform: translate(0%,0%);
+                @include adaptable-img();
+            }
+            @include breakpoint(($desktop,$desktopwide)){
+                min-height: 25vw;
+                max-height: 30vw;
+                img{
+                    transform: translate(0%,-6%);
+                }
+            }
+            @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+                min-height: 25vw;
+                max-height: 40vw;
+                img{
+                    transform: translate(0%,-20%);
+                }
+            }
         }
-           .view-Diapo-multichoix{
-            transform: translate(0%,-12%);
-        }
-
-    }
 
 }
 
@@ -67,15 +71,18 @@ body .conteneur{
             margin: span(0.02) auto;
         }
     }
-    span.terme-pole{
-        text-align: center;
-        display: block;
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-        width: span(2);
-        margin: 0 auto span(0.1) auto;
-      }
-
-    }
+span.terme-pole {
+  text-align: center;
+  display: block;
+  @include breakpoint(($desktop,$desktopwide)) {
+    width: span(2);
+    margin: 0 auto span(0.1);
+  }
+  @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
+    width: span(5);
+    margin: 0 auto span(0.1);
+  }
+}
     .content{
         column-count: inherit;
         @include breakpoint(($desktop,$desktopwide,$tabletlandscape)){
@@ -215,7 +222,7 @@ ______________________________*/
         }
     }
     span.terme-pole{
-     background: $violet;
+     background: $vert;
     color: $blanc-casse;
 
     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){

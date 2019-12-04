@@ -25,7 +25,7 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 ]%}
 {% set complement_classes = [
 'complement-titre-fiche',
-'champ-' ~ content.field_complement_ficheform[0]['#title']|clean_class | replace({"^" : ""}),
+'champ-' ~ content.field_complement_info_formation[0]['#title']|clean_class | replace({"^" : ""}),
 ]%}
 {% set image_classes = [
 'illustration-'~ node.bundle|clean_class,
@@ -120,10 +120,10 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
     <div{{ content_attributes.addclass('content') }}>
 
       <span {{ complement_attribute.addClass(complement_classes) }}>
-        {{ content.field_complement_ficheform.0 }}
+        {{ content.field_complement_info_formation.0 }}
       </span>
       {{ content.body }}
-      {{ content.field_contenu_suite_ficheform.0}}
+
     </div>
     <!-- /.content -->
   </div>
