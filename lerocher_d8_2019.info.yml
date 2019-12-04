@@ -21,7 +21,7 @@ libraries:
   # le fichier NOM_THEME.libraries.yml
     #Les librairies de javascript
     #- lerocher_d8_2019/js
-    #- lerocher_d8_2019/at.enquire
+  - lerocher_d8_2019/npm.enquire
     #- lerocher_d8_2019/cdn.jquery
   - lerocher_d8_2019/global-scripts
   #Les librairies de style
