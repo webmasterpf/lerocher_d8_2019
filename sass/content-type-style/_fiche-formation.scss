@@ -15,11 +15,11 @@
 
 /*######-------- ||| ORDRE FLEXBOX ||| --------######*/
 body .conteneur .conteneur-flex{
-    #zone-1.type-fiche-formation{order:1;}
-    #zone-2.type-fiche-formation{order:2;}
-    #zone-3.type-fiche-formation{order:3;}
-    #zone-4.type-fiche-formation{}
-    #zone-5.type-fiche-formation{}
+    #zone-1.type-fiche-formations{order:1;}
+    #zone-2.type-fiche-formations{order:2;}
+    #zone-3.type-fiche-formations{order:3;}
+    #zone-4.type-fiche-formations{}
+    #zone-5.type-fiche-formations{}
     @include breakpoint ($desktop){}
 }
 
@@ -31,7 +31,7 @@ body .conteneur{
 }
 
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-#zone-diaporama.type-fiche-formation{
+#zone-diaporama.type-fiche-formations{
     // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
     min-height: 35vw;
     max-height: 90vw;
@@ -42,7 +42,7 @@ body .conteneur{
         @include adaptable-img();
     }
     @include breakpoint(($mobile-iphonehd,$mobile-galaxyS6)){
-        background:  $rose-fushia;
+        background:  $violet;
     }
     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
         min-height: 20vw;
@@ -60,7 +60,7 @@ body .conteneur{
 }
 
 
-#zone-1.type-fiche-formation{
+#zone-1.type-fiche-formations{
     .complement-titre-fiche{
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
             width: span(6);
@@ -81,14 +81,14 @@ body .conteneur{
         @include breakpoint(($desktop,$desktopwide,$tabletlandscape)){
             column-count: 2;
             column-fill: balance;
-            column-rule: em(2px) dashed $rose-fushia;
+            column-rule: em(2px) dashed $vert;
             h3{
                 @include txt-colonnes;
             }
         }
     }
 }
-#zone-2.type-fiche-formation{
+#zone-2.type-fiche-formations{
     .bloc_docs_utiles_ficheform{
         margin: span(0.01) auto;
         padding: span(0.01);
@@ -104,7 +104,7 @@ body .conteneur{
     }
 
 }
-#zone-3.type-fiche-formation{
+#zone-3.type-fiche-formations{
     .bloc_complement_actu_ficheform{
          margin: span(0.01) auto;
         padding: span(0.01);
@@ -151,11 +151,11 @@ h1.titre-fiche-formation{
 // réglage avec _page-lycee.scss
 }
 /*¤¤¤ STYLES COMMUNS ¤¤¤*/
-#zone-1.type-fiche-formation,
-#zone-2.type-fiche-formation,
-#zone-3.type-fiche-formation,
-#zone-4.type-fiche-formation,
-#zone-5.type-fiche-formation
+#zone-1.type-fiche-formations,
+#zone-2.type-fiche-formations,
+#zone-3.type-fiche-formations,
+#zone-4.type-fiche-formations,
+#zone-5.type-fiche-formations
 {
     p,ul,li{
         @include font-size(m);//utilisation de typey
@@ -165,7 +165,7 @@ h1.titre-fiche-formation{
     }
   u{
         font-weight: bold;
-        color: $rose-fushia;
+        color: $violet;
 
     }
     h2{
@@ -174,7 +174,7 @@ h1.titre-fiche-formation{
     }
     h3{
         @include font-size(m);//utilisation de typey
-        color: $rose-fushia;
+        color: $violet;
     }
     h4{
         @include font-size(m);//utilisation de typey
@@ -183,27 +183,27 @@ h1.titre-fiche-formation{
     a{
         text-decoration: none;
         color: $violet;
-        @include rollover-effect($rose-fushia);//Effet rollover CSS3
+        @include rollover-effect($violet);//Effet rollover CSS3
         &:hover{
             text-decoration: none;
         }
     }
     strong{
-        color: $rose-fushia;
+        color: $violet;
     }
 }
 
 /*------------------------------------
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
-#zone-1.type-fiche-formation{
+#zone-1.type-fiche-formations{
     .complement-titre-fiche{
 
         margin: 0 auto;
         display: block;
         *{
-            background: linear-gradient(180deg, $violet 85%, $rose-fushia 50%);
-            //@include backgroundRGBA ($rose-fushia,0.5);
+            background: linear-gradient(180deg, $violet 85%, $violet 50%);
+            //@include backgroundRGBA ($violet,0.5);
             color: $jaune;
             font-weight: bold;
             padding: span(0.02);
@@ -215,7 +215,7 @@ ______________________________*/
         }
     }
     span.terme-pole{
-     background: $rose-fushia;
+     background: $violet;
     color: $blanc-casse;
 
     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
@@ -231,7 +231,7 @@ ______________________________*/
         max-width: fit-content;
 
         color: $blanc-casse;
-        background: $rose-fushia;
+        background: $vert;
         padding: em(3px);
         margin: em(5px) em(20px);
 
@@ -239,7 +239,7 @@ ______________________________*/
     }
     aside.ficheform-savoirplus{}
 }
-#zone-2.type-fiche-formation{
+#zone-2.type-fiche-formations{
         aside.ficheform-savoirplus,.bloc_docs_utiles_ficheform{
         @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
         background-color: $gris-clair;
@@ -253,7 +253,7 @@ ______________________________*/
             padding: span(0.01) span(0.03);
             &:hover{
                                 color: $gris-anthracite;
-                                    background: $rose-fushia;
+                                    background: $violet;
             }
             &[href*=".pdf"]{
                 &::before{
@@ -293,7 +293,7 @@ ______________________________*/
         .label-field-lien-utile-ficheform {
           font-weight: bold;
           color: $gris-clair;
-          background: $rose-fushia;
+          background: $violet;
           padding: span(0.02);
           margin: 0 0 span(0.2) span(0.2);
         }
@@ -321,7 +321,7 @@ ______________________________*/
         }
     }
 }
-#zone-3.type-fiche-formation{
+#zone-3.type-fiche-formations{
     h3{
         transform: rotate(-1deg);
         max-width: fit-content;
@@ -350,7 +350,7 @@ ______________________________*/
             padding: span(0.01) span(0.03);
             &:hover{
                 color: $gris-anthracite;
-                /*background: $rose-fushia;*/
+                /*background: $violet;*/
             }
         }
         ul{
@@ -366,5 +366,5 @@ ______________________________*/
 
 
 }
-#zone-4.type-fiche-formation{}
-#zone-5.type-fiche-formation{}
+#zone-4.type-fiche-formations{}
+#zone-5.type-fiche-formations{}
