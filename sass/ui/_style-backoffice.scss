@@ -8,10 +8,12 @@
 
 /*######-------- ||| LAYOUT  PAGES BO ||| --------######*/
 body.not-front.logged-in, body.role--authenticated{
+  padding: 0;
     section.conteneur{
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-         width: span(10 of $desktopcol);
-        margin-left: span(1 wide);//push
+         width: span(11);
+        //margin-left: span(1 wide);//push
+        margin: 0 auto;
         @include clearfix;
           .middle-content  img{
         width: auto;
@@ -96,7 +98,7 @@ ul.menu,nav.tabs,#block-#{$theme}-local-tasks{
     text-decoration: none;
     &:hover{
         color: $gris-clair;
-        background: $rose-fushia;
+        background: $vert;
     }
   }
 }
