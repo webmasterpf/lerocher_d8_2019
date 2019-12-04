@@ -55,13 +55,18 @@ cdn.jquery:
     gpl-compatible: true
   js:
     https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js: { type: external, minified: true }
+npm.enquire:
+  version: VERSION
+  js:
+    #Chargement des JS ajoutées via NPM ou externes
+    node_modules/enquire.js/dist/enquire.min.js: {}    
 global-scripts:
     version: VERSION
     js:
 #     js/navmenu.js: {}   //issu de Basic
 #     js/modernizr.js: {} //issu de Basic
       #Chargement des JS ajoutées via NPM ou externes
-      #../node_modules/enquire.js/dist/enquire.min.js: {}
+      #node_modules/enquire.js/dist/enquire.min.js: {}
       #Chargement des librairies externes - déplacée depuis le Header (non fonctionnel)
       #https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js: {type: external, minified: true}
       #https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js: {type: external, minified: true}

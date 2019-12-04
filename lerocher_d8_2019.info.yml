@@ -19,16 +19,17 @@ libraries-remove:
 libraries:
   #Les fichiers (librairies) de style chargés pour toutes les pages. Utilise une Asset Library (bibliothèque) définie dans
   # le fichier NOM_THEME.libraries.yml
+    #Les librairies de javascript
+    #- lerocher_d8_2019/js
+    #- lerocher_d8_2019/at.enquire
+    #- lerocher_d8_2019/cdn.jquery
+  - lerocher_d8_2019/global-scripts
   #Les librairies de style
 #  - core/normalize
   - lerocher_d8_2019/global-styling
   - lerocher_d8_2019/fonts
   #- lerocher_d8_2019/3rdparty
-  #Les librairies de javascript
-  #- lerocher_d8_2019/js
-  #- lerocher_d8_2019/at.enquire
-  #- lerocher_d8_2019/cdn.jquery
-  - lerocher_d8_2019/global-scripts
+
 regions:
  #Régions de base - devient {{ page.header }}  dans fichier .twig
  #synthaxe : nom_region: 'Nom Région'
