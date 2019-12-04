@@ -6,8 +6,10 @@
  */
 
 (function ($) {
-    jQuery(document).ready(function ()
-    {
+///*************  Fonctions déclenchées sur  $(document).ready(function () *****///
+    $(document).ready(function ()  {
+
+
         //<!--Pour utiliser selectnav en RWD-->
         console.log('Chargement du script pour selectnav');
         selectnav('subnav', {label: '- Accès rapide -'});
@@ -21,11 +23,10 @@
         $('#views_slideshow_cycle_div_Diapo_illustration-block_1_0').css('position', 'relative', 'important');
         $('#views_slideshow_cycle_div_Diapo_illustration-block_1_1').css('position', 'relative', 'important');
         $('.views_slideshow_cycle_slide').not(':visible').css('position', 'absolute', 'important');
-    });
 
 
-    jQuery(document).ready(function ()
-    {
+
+
 //OffCanvas avec fonction anonyme
         console.log('Chargement du script pour volet coulissant');
         var $transformer = $('.transformer'),
@@ -41,58 +42,13 @@
             $transformer.removeClass('is-open');
         });
 
-    });
 
 
-//Pour une galerie standard : Flexslider
-    jQuery(window).load(function () {
-        console.log('Chargement des paramètres de Flexslider');
-        $('.flexslider-classic').flexslider({
-            //animation: "slide",
-            directionNav: true,
-            controlNav: false,
-            start: function (slider) {
-                $('body').removeClass('loading');
-                $('.flexslider-classic').resize();
 
-            }
 
-        });
-
-        //Flexslider pour HP (avec caption)
-        $('.flexslider-hp').flexslider({
-            animation: "slide"
-        });
-    });
-
-    //Pour une galerie avec des vignettes : Flexslider thumbs
-    jQuery(window).load(function () {
-        console.log('Chargement des paramètres de FlexsliderThumbs');
-        $('#carousel').flexslider({
-            animation: "slide",
-            controlNav: false,
-            directionNav: false,
-            animationLoop: false,
-            slideshow: false,
-            itemWidth: 210,
-            itemMargin: 5,
-            asNavFor: '#slider'
-        });
-
-        $('#slider').flexslider({
-            animation: "slide",
-            controlNav: true,
-            directionNav: false,
-            animationLoop: false,
-            slideshow: false,
-            sync: "#carousel"
-        });
-    });
 
     //Pour le BxSlider - Ajouter la classe dans views au niveau des paramètres d'affichage > classe de la liste
-    //    jQuery(window).load(function (){
-    jQuery(document).ready(function () {
-        console.log('Chargement des paramètres de BxSlider');
+          console.log('Chargement des paramètres de BxSlider');
 //  $('.bxslider').bxSlider({
 //      pagerCustom: "#bx-pager",
 //   captions: true
@@ -121,16 +77,16 @@
         });
 //   alert('BxSlider est chargé');
 
-    });
+
 
 //Pour Galerie Chocolat.js
-//    jQuery(document).ready(function(){
+//    $(document).ready(function(){
 //        console.log('Appel du script Chocolat.js');
 //    $('.chocolat-parent').Chocolat();
 //});
 
 //Pour Galerie BaguetteBox.js
-    jQuery(document).ready(function () {
+
         console.log('Appel du script BaguetteBox.js');
         baguetteBox.run('.galerieBaguetteBox', {
             // Custom options
@@ -150,18 +106,18 @@
 
 
 
-    });
-    jQuery(document).ready(function () {
-        $(".lightSlider").lightSlider();
-    });
+
+
+
+
 
     // StickUp pour barre de partage social
-//    jQuery(window).load(function () {
+//    $(window).load(function () {
 //    console.log('Chargement de StickUp.js pour jQuery>=1.11');
 //$('.service-links').stickUp();
 //});
 
-jQuery(document).ready(function () {
+
     console.log('Chargement de Floatit.js pour jQuery>=1.12');
 $('#block-service_links-service_links').floatit({
 		  limiter: 'footer',
@@ -170,54 +126,11 @@ $('#block-service_links-service_links').floatit({
 		bottom_spacing: 10,
 		recalculate: true
 	  });
-});
 
-
-    //Pour stacktable (tableaux RWD)
-    jQuery(window).load(function () {
-        console.log('Chargement des paramètres de Stacktable.js');
-        //Ajouter l'ID de la table à rendre RWD
-        //Cible toutes les tables contenues dans la div.content (colonne-2)
-        $('div.content').children('table').stacktable();
-    });
-
-//Slick Basic, nav par points, transition fade
-//jQuery(document).ready(function ()
-// {
-// $('.slickdiapofade').slick({
-//  dots: true,
-//  infinite: true,
-//  speed: 500,
-//  fade: true,
-//  cssEase: 'linear'
-//});
-//});
-//
-////Pour utiliser Slick avec une nav par miniatures (thumbs)
-//jQuery(document).ready(function ()
-// {
-//   $('.slider-for').slick({
-//  slidesToShow: 1,
-//  slidesToScroll: 1,
-//  arrows: false,
-//  fade: true,
-//  asNavFor: '.slider-nav'
-//});
-//$('.slider-nav').slick({
-//  slidesToShow: 3,
-//  slidesToScroll: 1,
-//  asNavFor: '.slider-for',
-//  dots: true,
-//  centerMode: true,
-//  focusOnSelect: true
-//});
-//});
 
 //// Script pour Masonry - Views casse les __ utiliser -- plutôt
 
-//    jQuery(document).ready(function ()
-    jQuery(window).on('load', function ()
-    {
+
         console.log('Chargement des paramètres Masonry.js');
         'use strict';
         var $masonryContainer = $('.masonry');
@@ -241,85 +154,10 @@ $('#block-service_links-service_links').floatit({
             s.parentNode.insertBefore(wf, s);
         })();
 
-    });
-//// Script pour Wookmark (liste html)
-//jQuery(document).ready(function ()
-//{
-//  console.log('Chargement des paramètres Wookmark.js');
-//$('#wookmark-id li').wookmark({
-//            autoResize: true, // This will auto-update the layout when the browser window is resized.
-//            container: $('#tiles'), // Optional, used for some extra CSS styling
-//            offset: 2, // Optional, the distance between grid items
-//            itemWidth: 210 // Optional, the width of a grid item
-//        });
-//
-// window.onresize = function(event) {
-//     $('#wookmark-id li').wookmark({offset: 2});
-// }
-//  });
-
-//jQuery(document).ready(function ()
-    jQuery(window).on('load', function ()
-    {
-        //<!-- Pour ajouter classes sur éléments du tableau -->
-        console.log('Actions sur divers éléments : tableaux, images...');
-        //Ajout des classes pour styler les tableaux
-        $('table tr:odd').addClass('odd');
-        $('table tr:even').addClass('even');
-//Ajout d'attributs pour mur image JS
-        $('#liste-vdl ul.wookmark').attr("id", "wookmark-id");
-        $('#liste-vdl div.view-content').attr("id", "grid");
-        $('#liste-vdl div.view-content').attr("data-columns", "");
 
 
 
 
-//Action sur taille des images : retrait de toutes les tailles en dur (HTML) de manière ciblée
-        //$('img').each(function(){
-        console.log('Nettoyage sur divers éléments : objets,iframe,....');
-
-        $('.fiche-formation img').each(function () {
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-        });
-
-//Changer la casse des titres H1 qui sont en Majuscules
-        $('h1').css('text-transform', 'capitalize');
-//        $('.liste-vdl-lycee .titre-vdl a').css('text-transform', 'lowercase');
-        $('#liste-vdl span.titre-vdl > a').css('text-transform', 'lowercase');
-
-        //Retirer les style en ligne issus de copier/coller
-        $("#zone-2 span").removeAttr("style");
-        $("#zone-2 p").removeAttr("style");
-        $("#zone-2 ul").removeAttr("style");
-        $(".masonry-brick").removeAttr("style");//pas d'effet
-        $("img.filefield-icon").removeAttr("style");
-
-
-        //Retrait du style des objets imbriqués comme object,iframe,etc...
-        $("#media-youtube-default-external-object-1").removeAttr("style");
-        $("#media-youtube-1").remove();
-
-
-        //Reset des attributs de l'iframe puis réglage des nouvelles valeurs des attributs, alignement avec plugin JQuery
-      /*  $(".acces_rubriques iframe").each(function () {
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-            $(this).removeAttr('align');
-        });*/
-
-
-
-// Taille auto pour les images des logos partenaires sur accueil
-        $(".logo_partenaires img").height('auto').width('auto');
-        $(".acces-lycees #media-vimeo-1 iframe").height('11.5vw').width('20vw');
-
-//Taille auto des images sur les pages espace
-        $('.page-espace li img').each(function () {
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-        });
-//$(".page-espace li img").height('auto').width('auto');
 
 //Retrait Taille des images sur les pages espace Entreprise et Partenaires
         $(".nav-espace-entreprise li img").removeAttr("style");
@@ -383,13 +221,13 @@ $('#block-service_links-service_links').floatit({
 
 // Pour MixItUp plugin: voir le fichier ajout.classes.mixitup.js
 // Calling the MixItUp plugin for this View.
-//    jQuery(window).load(function () {
+//    $(window).load(function () {
 //        console.log('Chargement de Mixitup');
 //        $('.mixitup').mixItUp();
 //    });
 
     //Menu Pleine Page Overlay
-    jQuery(document).ready(function () {
+
         $(".icon").click(function () {
             $('.mobilenav').fadeToggle(500);
             $('.top-menu').toggleClass('top-animate');
@@ -404,10 +242,7 @@ $('#block-menu-menu-menu-general').click(function() {
   });
 });
 
-//deplacement du code pour vimeo
-    });
 
-      jQuery(document).ready(function () {
     ////***** ENQUIRE.JS ****/////
     //Fonction BPoint personnalisé - https://stackoverflow.com/a/11387513/2416915
     // Utilisation de matchMedia pour utiliser les mêmes BP que pour scss.
@@ -416,22 +251,22 @@ $('#block-menu-menu-menu-general').click(function() {
 
 
     var mobile = "only screen and (max-width:667px) and (orientation: portrait) and (min-resolution:2dppx)";//medium - Iphone->8
-    var mobile-iphonehd = "only screen and (min-width:414px) and (max-width:736px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - Iphone6+->
-    var mobile-iphoneX = "only screen and (min-width:375px) and (max-width:812px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - IphoneX
-    var mobile-galaxyShd = "screen and (min-width:320px) and (max-width:640px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
-    var mobile-galaxyS6 = "screen and (min-width:360px) and (max-width:645px) and (orientation: portrait) and (min-resolution:4dppx)";//medium - GalaxyS6 et suivants
+    var mobile_iphonehd = "only screen and (min-width:414px) and (max-width:736px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - Iphone6+->
+    var mobile_iphoneX = "only screen and (min-width:375px) and (max-width:812px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - IphoneX
+    var mobile_galaxyShd = "screen and (min-width:320px) and (max-width:640px) and (orientation: portrait) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
+    var mobile_galaxyS6 = "screen and (min-width:360px) and (max-width:645px) and (orientation: portrait) and (min-resolution:4dppx)";//medium - GalaxyS6 et suivants
     var tablet = "only screen and (min-width:768px) and (max-width:1024px) and (orientation: portrait) and (min-resolution:1dppx)";//large - Tablettes non HD
-    var tablet-hd = "only screen and (min-width:1500px) and (max-width:2050px) and (orientation: portrait) and (min-resolution:2dppx)";//tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.(Ipad2->)
+    var tablet_hd = "only screen and (min-width:1500px) and (max-width:2050px) and (orientation: portrait) and (min-resolution:2dppx)";//tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.(Ipad2->)
 
     // Breakpoint pour les format paysage
     var mobilelandscape = "only screen and (min-width:319px) and (max-width:765px) and (orientation: landscape)";//pour orientation: paysage (min-height 319px) and (max-height 765px)
-    var mobilelandscape-galaxyShd = "screen and (min-width:320px) and (max-width:645px) and (orientation: landscape) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
+    var mobilelandscape_galaxyShd = "screen and (min-width:320px) and (max-width:645px) and (orientation: landscape) and (min-resolution:3dppx)";//medium - GalaxyS4 et suivants
     var tabletlandscape = "only screen and (min-width:768px) and (max-width:1024px) and (orientation: landscape) and (min-resolution:1dppx)";//pour orientation: paysage - Tablettes non HD
-    var tabletlandscape-hd = "only screen and (min-width:1500px) and (max-width:2050px) and (orientation: landscape) and (min-resolution:2dppx)";//pour orientation: paysage, tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.
+    var tabletlandscape_hd = "only screen and (min-width:1500px) and (max-width:2050px) and (orientation: landscape) and (min-resolution:2dppx)";//pour orientation: paysage, tablette HD, GalaxyTab S3 2048 x 1536 (QXGA) par ex.
     //Utilisation d'enquire.js
     enquire.register(desktop, {
     	match : function() {
-        console.log('Enquire.js : BP pour:'desktop);
+        console.log('Enquire.js : BP pour:'.desktop);
         $("#zone-1 #media-vimeo-1 iframe").height('23vw').width('100vw');
         $("#zone-2 #media-vimeo-1 iframe").height('23vw').width('100vw');
         $("#zone-1 #media-youtube-1").height('23vw').width('100vw');
@@ -473,21 +308,125 @@ $('#block-menu-menu-menu-general').click(function() {
     		example.unmatch();
     	}
     });//enquire.register(tabletlandscape)
+
+    //  Utilisation du Lazyload pour les éléments contenus dans certains conteneurs
+        $('.conteneur').find('img').lazyLoadXT();
+        $('.conteneur').find('iframe').lazyLoadXT();
+
   });//Fin document.ready
 
-    //Retrait de l'autoplay des videos Vimeo
-//https://stackoverflow.com/questions/49053072/change-part-of-src-attribute-of-iframe-with-jquery
-//
-//  var oldSrc = $("#media-vimeo-1 iframe").attr("src"); //Get the src of the iframe
-//  var newSrc = oldSrc.replace("autoplay=1", "autoplay=0"); //Replace "autoplay=1" by "autoplay=0"
-//
-//  $("#media-vimeo-1 iframe").attr("src", newSrc); //Change the src attr to the new value
-//    console.log("Retrait de l'autoplay de Vimeo: ");
-//  console.log("Old Src: " + oldSrc);
-//  console.log("New Src: " + newSrc);
+///*************  Fonctions déclenchées sur   $(window).load(function () *****///
 
-//  Utilisation du Lazyload pour les éléments contenus dans certains conteneurs
-    $('.conteneur').find('img').lazyLoadXT();
-    $('.conteneur').find('iframe').lazyLoadXT();
+  $(window).load(function () {
+  //Pour une galerie standard : Flexslider
 
-})(jQuery); //Fin de function ($)
+          console.log('Chargement des paramètres de Flexslider');
+          $('.flexslider-classic').flexslider({
+              //animation: "slide",
+              directionNav: true,
+              controlNav: false,
+              start: function (slider) {
+                  $('body').removeClass('loading');
+                  $('.flexslider-classic').resize();
+
+              }
+
+          });
+
+          //Flexslider pour HP (avec caption)
+          $('.flexslider-hp').flexslider({
+              animation: "slide"
+          });
+
+
+      //Pour une galerie avec des vignettes : Flexslider thumbs
+
+          console.log('Chargement des paramètres de FlexsliderThumbs');
+          $('#carousel').flexslider({
+              animation: "slide",
+              controlNav: false,
+              directionNav: false,
+              animationLoop: false,
+              slideshow: false,
+              itemWidth: 210,
+              itemMargin: 5,
+              asNavFor: '#slider'
+          });
+
+          $('#slider').flexslider({
+              animation: "slide",
+              controlNav: true,
+              directionNav: false,
+              animationLoop: false,
+              slideshow: false,
+              sync: "#carousel"
+          });
+
+          //Pour stacktable (tableaux RWD)
+          console.log('Chargement des paramètres de Stacktable.js');
+              //Ajouter l'ID de la table à rendre RWD
+              //Cible toutes les tables contenues dans la div.content (colonne-2)
+          $('div.content').children('table').stacktable({});
+
+          
+                  //<!-- Pour ajouter classes sur éléments du tableau -->
+                  console.log('Actions sur divers éléments : tableaux, images...');
+                  //Ajout des classes pour styler les tableaux
+                  $('table tr:odd').addClass('odd');
+                  $('table tr:even').addClass('even');
+          //Ajout d'attributs pour mur image JS
+                  $('#liste-vdl ul.wookmark').attr("id", "wookmark-id");
+                  $('#liste-vdl div.view-content').attr("id", "grid");
+                  $('#liste-vdl div.view-content').attr("data-columns", "");
+
+
+
+
+          //Action sur taille des images : retrait de toutes les tailles en dur (HTML) de manière ciblée
+                  //$('img').each(function(){
+                  console.log('Nettoyage sur divers éléments : objets,iframe,....');
+
+                  $('.fiche-formation img').each(function () {
+                      $(this).removeAttr('width');
+                      $(this).removeAttr('height');
+                  });
+
+          //Changer la casse des titres H1 qui sont en Majuscules
+                  $('h1').css('text-transform', 'capitalize');
+          //        $('.liste-vdl-lycee .titre-vdl a').css('text-transform', 'lowercase');
+                  $('#liste-vdl span.titre-vdl > a').css('text-transform', 'lowercase');
+
+                  //Retirer les style en ligne issus de copier/coller
+                  $("#zone-2 span").removeAttr("style");
+                  $("#zone-2 p").removeAttr("style");
+                  $("#zone-2 ul").removeAttr("style");
+                  $(".masonry-brick").removeAttr("style");//pas d'effet
+                  $("img.filefield-icon").removeAttr("style");
+
+
+                  //Retrait du style des objets imbriqués comme object,iframe,etc...
+                  $("#media-youtube-default-external-object-1").removeAttr("style");
+                  $("#media-youtube-1").remove();
+
+
+                  //Reset des attributs de l'iframe puis réglage des nouvelles valeurs des attributs, alignement avec plugin JQuery
+                /*  $(".acces_rubriques iframe").each(function () {
+                      $(this).removeAttr('width');
+                      $(this).removeAttr('height');
+                      $(this).removeAttr('align');
+                  });*/
+
+
+
+          // Taille auto pour les images des logos partenaires sur accueil
+                  $(".logo_partenaires img").height('auto').width('auto');
+                  $(".acces-lycees #media-vimeo-1 iframe").height('11.5vw').width('20vw');
+
+          //Taille auto des images sur les pages espace
+                  $('.page-espace li img').each(function () {
+                      $(this).removeAttr('width');
+                      $(this).removeAttr('height');
+
+
+      });// Fin   $(window).load(function ()
+}); //Fin de function ($)
