@@ -54,7 +54,7 @@ $imagedir: '../images/'; // definir ici le chemin vers le dossier image
 @mixin backgroundImage($filename,$couleur:transparent,$position:top left,$repeat: no-repeat) {
   background: $couleur url('#{$imagedir}#{$filename}') $position $repeat;
 }
-@mixin maskImage($filename, $taille: 100%, $mode: alpha, $couleurFinale: transparent,$position:0 0,$repeat: no-repeat) {
+@mixin maskImage($filename, $taille: 100%, $mode: alpha, $couleurFinale: transparent,$repeat: no-repeat,$position:0 0,$repeat: no-repeat) {
   /*
 Utilise la mixin backgroundImage pour l'image de BG. Bien spécifier les valeurs même par défaut Sinon
 problème de distribution des valeurs. Utiliser un visuel PNG blanc comme base pour meilleure
@@ -68,6 +68,7 @@ Support partiel par Edge à partir de v42
   mask-image: url('#{$imagedir}#{$filename}');
   mask-mode: $mode;
   mask-size: $taille;
+  mask-repeat: $repeat;
   }
 @mixin backgroundSVGandColor($filename,$color:red) {
   /* background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="url('#{$imagedir}#{$filename}')" color="$color" ');
