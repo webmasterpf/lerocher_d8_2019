@@ -119,17 +119,14 @@ Support partiel par Edge à partir de v42
                         left: 0;
                         right: 0;
                         bottom: 1054.4vw;//83%*/
-  @include breakpoint(($desktop,$desktopwide,$mobilelandscape)) {
+  @include breakpoint(($desktop,$desktopwide)) {
     display: inline-block;
     margin: 0 0 0 span(0.1);
     top: 0; //120% 17vw mieux comme ça avec titre en haut et non en bas de la photo
-    /*                left: 0;
-                                right: 60vw;//60%
-                                bottom: -10.4vw;//-29.5%*/
     transform: translate(0%, 5%);
     max-height: 2.7vw;
   }
-  @include breakpoint(($tablet,$tabletlandscape,$tablet-hd,$tabletlandscape-hd)) {
+  @include breakpoint(($tablet,$tabletlandscape,$tablet-hd,$tabletlandscape-hd,$mobilelandscape)) {
     display: inline-block;
     margin: 0 0 0 span(0.1);
     top: 0; //120% 17vw mieux comme ça avec titre en haut et non en bas de la photo
