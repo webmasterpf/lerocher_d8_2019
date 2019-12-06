@@ -96,60 +96,59 @@ span.terme-pole {
     }
 }
 #zone-2.type-fiche-formations{
-    .bloc_docs_utiles_ficheform{
-        margin: span(0.01) auto;
-        padding: span(0.01);
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-            width: span(7);
 
-        }
-        .label-field-lien-utile-ficheform
-        {
-          //Besoin de simuler un br pour avoir un saut de ligne entre chaque éléments.HTML en liste plus efficace
-          @include clearfixsusy3;
-        }
-    }
 
 }
 #zone-3.type-fiche-formations{
-    .bloc_complement_actu_ficheform{
-         margin: span(0.01) auto;
-        padding: span(0.01);
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-            width: span(7);
-        }
+  .bloc_docs_utiles_ficheform{
+      margin: span(0.01) auto;
+      padding: span(0.01);
+      width: span(9);
+      @include breakpoint(($desktop,$desktopwide)){
+          width: span(7);
 
-    }
-
-    article.paragraphe-section-europe{
-        column-count: inherit;
-        margin: span(0.2) 0;
-        @include breakpoint(($desktop,$desktopwide,$tabletlandscape)){
-            column-count: 2;
-            column-fill: balance;
-            white-space: nowrap;
-            h3{
-                @include txt-colonnes;
-            }
+      }
+      @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+          width: span(10);
         }
-    }
-    aside.ficheform-savoirplus,aside.lycees-possibles{
-        margin: span(0.01) auto;
-        padding: span(0.01);
-            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-            width: span(5);
+      li {
+padding: span(0.1) 0;
+@include font-size(s); //utilisation de typey
+@include breakpoint(($desktop,$desktopwide)){
+  @include font-size(m); //utilisation de typey
 
-        }
-    }
-    aside.lycees-possibles{
-        ul{
-            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-                 column-count: 2;
-            column-fill: balance;
-            }
-        }
+}
+@include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+  @include font-size(m); //utilisation de typey
+  }
+}
 
+li {
+span {
+  a {
+    &::before {
+      @include breakpoint(($desktop,$desktopwide)) {
+        height: 3.45vh; //Ajuster la hauteur selon taille du picto
+      }
+      @include breakpoint(($tabletlandscape)) {
+        height: 3.1vh; //Ajuster la hauteur selon taille du picto
+      }
+      @include breakpoint(($tablet)) {
+        height: 2.3vh; //Ajuster la hauteur selon taille du picto
+      }
+      @include breakpoint(($mobilelandscape)) {
+        height: 3.7vh; //Ajuster la hauteur selon taille du picto
+      }
     }
+  }
+}
+}
+      .label-field-lien-ficheform
+      {
+        //Besoin de simuler un br pour avoir un saut de ligne entre chaque éléments.HTML en liste plus efficace
+        @include clearfixsusy3;
+      }
+  }
 }
 
 /*######-------- ||| STYLE ||| --------######*/
@@ -247,128 +246,132 @@ ______________________________*/
     aside.ficheform-savoirplus{}
 }
 #zone-2.type-fiche-formations{
-        aside.ficheform-savoirplus,.bloc_docs_utiles_ficheform{
-        @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
-        background-color: $gris-clair;
-        @include arrondis(1em);
+  h3{
+      transform: rotate(-1deg);
+      max-width: fit-content;
 
-        a{
-            background: $gris-clair;
-            color: $violet;
+      color: $jaune;
+      background: $gris-anthracite;
+      padding: em(3px);
+      margin: em(5px) em(20px);
 
-            text-decoration:none;
-            padding: span(0.01) span(0.03);
-            &:hover{
-                                color: $gris-anthracite;
-                                    background: $violet;
-            }
-            &[href*=".pdf"]{
-                &::before{
-                    @include backgroundImage("PNG/Fichiers@3x.png");
-                    background-size: contain;
-                    content: "";
-                    position: relative;
-                    vertical-align: sub;
-                    padding: em(10px);
-                    margin:em(3px);
-                    transition:0.5s all;
-                    display: inline-block;
-                    transform: scale(1);
-                }
-            }
-            img.filefield-icon{
+  }
+  ul{
+      padding: 0;
+      margin:0;
+      li{
+          list-style: square;
+      }
+  }
+  .bloc_complement_actu_ficheform{
+      @include backgroundImage(("BG/stripe_vert_vert_pastel.png"),transparent,repeat, top left);
+      //@include backgroundImage(("BG/stripe_violet.png"),transparent,repeat, top left);
+      @include arrondis(1em);
+      a{
+          background: $gris-clair;
+          color: $violet;
+          text-decoration:none;
+          padding: span(0.01) span(0.03);
+          &:hover{
+              color: $gris-anthracite;
+              /*background: $violet;*/
+          }
+      }
+      ul{
 
-                display: none;//initial
-            }
-            &[href*="/"]:not([href*=".pdf"]) { //pour cibler les liens externes et internes, exclure les pdf
-                                               &::before{
-                                                   @include backgroundImage("PNG/liens@3x.png");
-                                                   background-size: contain;
-                                                   content: "";
-                                                    position: relative;
-                                                   vertical-align: sub;
-                                                   padding: em(10px);
-                                                   margin:em(3px);
-                                                   transition:0.5s all;
-                                                   display: inline-block;
-                                                   transform: scale(1);
-                                               }
-
-            }
-        }
-        //Style spécifique pour liste de docs utiles
-        .label-field-lien-utile-ficheform {
-          font-weight: bold;
-          color: $gris-clair;
-          background: $violet;
-          padding: span(0.02);
-          margin: 0 0 span(0.2) span(0.2);
-        }
-        .views-field-title >span{
-            color: $orange-fonce;
-            background: $gris-anthracite;
-            text-align: center;
-            font-weight: bold;
-            transform: rotate(-1deg);
-            max-width: fit-content;
-            display: block;
-            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-                margin: 0 0 0 span(5.5);
-                padding: span(0.001);
-            }
-        }
-        ul{
-
-
-            li{
-                list-style: none;
-                list-style-position: inside;
-                @include font-size(s);//utilisation de typey
-            }
-        }
-    }
+          li{
+              //suppression des puces
+              list-style-type: none;
+              @include font-size(s);//utilisation de typey
+          }
+      }
+  }
 }
 #zone-3.type-fiche-formations{
-    h3{
-        transform: rotate(-1deg);
-        max-width: fit-content;
+  aside.ficheform-savoirplus,.bloc_docs_utiles_ficheform{
+  @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
+  background-color: $gris-clair;
+  @include arrondis(1em);
 
-        color: $jaune;
-        background: $gris-anthracite;
-        padding: em(3px);
-        margin: em(5px) em(20px);
+  a{
+      background: $gris-clair;
+      color: $violet;
 
-    }
-    ul{
-        padding: 0;
-        margin:0;
-        li{
-            list-style: square;
-        }
-    }
-    .bloc_complement_actu_ficheform{
-        @include backgroundImage(("BG/stripe_vert_vert_pastel.png"),transparent,repeat, top left);
-        //@include backgroundImage(("BG/stripe_violet.png"),transparent,repeat, top left);
-        @include arrondis(1em);
-        a{
-            background: $gris-clair;
-            color: $violet;
-            text-decoration:none;
-            padding: span(0.01) span(0.03);
-            &:hover{
-                color: $gris-anthracite;
-                /*background: $violet;*/
-            }
-        }
-        ul{
+      text-decoration:none;
+      padding: span(0.01) span(0.03);
+      &:hover{
+        color: $gris-clair;
+        background: $violet;
+      }
+      &[href*=".pdf"]{
+          &::before{
+            @include maskImage(("PNG/Fichier-blanc@3x.png"),100%,alpha,$vert);
+              //@include backgroundImage("PNG/Fichiers@3x.png");
+              background-size: contain;
+              content: "";
+              position: relative;
+              vertical-align: sub;
+              padding: em(10px);
+              margin:em(3px);
+              transition:0.5s all;
+              display: inline-block;
+              transform: scale(1);
 
-            li{
-                //suppression des puces
-                list-style-type: none;
-                @include font-size(s);//utilisation de typey
-            }
-        }
-    }
+          }
+      }
+      img.filefield-icon{
+
+          display: none;//initial
+      }
+      &[href*="/"]:not([href*=".pdf"]) { //pour cibler les liens externes et internes, exclure les pdf
+&::before {
+//@include backgroundImage("PNG/liens@3x.png");
+@include maskImage(("PNG/liens-blanc@3x.png"),100%,alpha,$vert);
+background-size: contain;
+content: "";
+position: relative;
+vertical-align: sub;
+padding: em(10px);
+margin: em(3px);
+transition: 0.5s all;
+display: inline-block;
+transform: scale(1);
+}
+
+      }
+  }
+  //Style spécifique pour liste de docs utiles
+  .label-field-lien-ficheform {
+    font-weight: bold;
+    color: $gris-clair;
+    background: $violet;
+    padding: span(0.02);
+    margin: 0 0 span(0.2) span(0.2);
+  }
+  .views-field-title >span{
+      color: $orange-fonce;
+      background: $gris-anthracite;
+      text-align: center;
+      font-weight: bold;
+      transform: rotate(-1deg);
+      max-width: fit-content;
+      display: block;
+      @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+          margin: 0 0 0 span(5.5);
+          padding: span(0.001);
+      }
+  }
+  ul{
+
+
+      li{
+          list-style: none;
+          list-style-position: inside;
+          @include font-size(s);//utilisation de typey
+      }
+  }
+}
+
 
 
 
