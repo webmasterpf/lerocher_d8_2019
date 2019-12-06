@@ -131,16 +131,16 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 
   <!--______________ZONE 2________________ -->
   <div {{ zone2_attribute.addClass(zone2_classes).setAttribute('id', 'zone-2') }}>
-
-    {% include directory ~ '/includes/dedicates_inc/inc_ficheform_infos_utiles.html.twig' %}
+    {# Galerie d'image optionnelle#}
+    {# % include directory ~ '/includes/dedicates_inc/inc_ficheform_complement_actu.html.twig' % #}
 
   </div>
   <!-- /zone-2 -->
 
   <!--______________ ZONE 3 ________________ -->
   <div {{ zone3_attribute.addClass(zone3_classes).setAttribute('id', 'zone-3') }}>
-    {# % include directory ~ '/includes/dedicates_inc/inc_ficheform_complement_actu.html.twig' % #}
 
+    {% include directory ~ '/includes/dedicates_inc/inc_ficheform_infos_utiles.html.twig' %}
     {% if content.links %}
       <div class="links">
         {{ content.links }}
