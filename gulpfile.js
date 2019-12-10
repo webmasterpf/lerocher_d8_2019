@@ -77,6 +77,7 @@ var bs_stream = browserSync.stream();
 var postcss = require('gulp-postcss');
 var plugins = require('gulp-load-plugins')();
 var gutil = require('gulp-util');
+var gcache = require('gulp-cache');
 //Plugins de PostCSS
 var autoprefixer = require('autoprefixer');
 
@@ -199,11 +200,16 @@ browserSync.init({
         logConnections: true
     });
 });
-
+//Vidage de cache automatisé avec gulp-cache
+gulp.task('clearCache', function() {
+  // Or, just call this for everything
+  cache.clearAll();
+});
 //Tâche de surveillance et d'automatisation
 gulp.task('default', ['browser-sync'], function(){
 //    gulp.task('default', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
+  gulp.watch(basePaths.src, ['clearCache']);
   gulp.watch(folderPaths.images.src, bs_reload);
   gulp.watch(folderPaths.images.dest, bs_reload);
   gulp.watch(folderPaths.styles.src, bs_reload);
