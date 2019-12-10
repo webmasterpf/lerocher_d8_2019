@@ -127,6 +127,10 @@ body .conteneur{
               padding: 0;
             margin: span(0.1) 0;
             overflow: hidden;
+            img{
+              @include adaptable-img();//Evite que taille image casse layout
+            }
+
             @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
             @include hack-Edge;
             @include hack-IE;
@@ -140,12 +144,11 @@ body .conteneur{
                   span.illustration {
                       overflow: hidden;
                       img{
+
                           transform: scale(1);
                       }
                   }
-                  span.titre-fiche, span.complement{
-                      padding: span(0.1);
-                  }
+
                   span.complement{}
               }
               @include breakpoint(($tabletlandscape)){
@@ -164,10 +167,14 @@ body .conteneur{
                   }
                 }
               }
+              //Padding pour tous supports
+              span.titre-fiche, span.complement{
+                  padding: span(0.1);
+              }
               a{
                   display: block;
               }
-            }
+            } //Fin li
         }// Fin ul.formations-initiales
     }//Fin aside.liste-formations-initiales
 }
@@ -200,7 +207,7 @@ ______________________________*/
         //Style du filtrage de la vue
        .bef-exposed-form{
             div.form-item{
-                background: $rose-fushia;
+                background: $violet;
                 color: $blanc-casse;
                 text-align: center;
                 cursor: pointer;
@@ -218,10 +225,9 @@ ______________________________*/
                 &:hover:not(:first-child)
                 {
                   //Utilisation de l'unité vw plus universelle, évite usage de BP
-                  @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -7.5vw , no-repeat );
+                  @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -5.8vw , no-repeat );
                   background-size:60%;
-                  background-color: $violet;
-
+                  background-color: $vert;
 
                   label{
                       @include opacity(0.45);
@@ -285,6 +291,11 @@ ______________________________*/
                 span.complement {
                     //classe ajoutée dans la vue - réécriture du champ
                     font-weight:initial; /*we revert back the inherited style*/
+                    @include font-size(s);//utilisation de typey
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    @include font-size(l);//utilisation de typey
+
+                    }
                 }
                 /*                    &:matches(.complement){
                                         font-weight: initial;
@@ -293,7 +304,11 @@ ______________________________*/
                     color: $blanc-casse;
                     text-decoration: none;
                     font-weight: bold;
+                    @include font-size(s);//utilisation de typey
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                     @include font-size(l);//utilisation de typey
+
+                    }
 
                 }
                 span.illustration >a {//uniquement les "a" sur l'image
@@ -303,11 +318,11 @@ ______________________________*/
 
                    }
                 }
-                &.tid-18{ //Filiere professionnelle
-                    background: $violet;
+                &.tid-18{ //Filiere industrie
+                    background: $vert;
                 }
-                &.tid-19{ //Filiere techno
-                    background: $rose-fushia;
+                &.tid-19{ //Filiere Service Personne
+                    background: $violet;
                 }
                 &.tid-20{ //Filiere BTS
                     background: $jaune;
