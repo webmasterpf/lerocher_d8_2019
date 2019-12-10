@@ -22,6 +22,7 @@ Plugin pour Gulp (permet de charger tous les plugins)
 
 Plugin pour Sass:
 npm install --save-dev  event-stream gulp-util node-sass-import-once gulp-sass gulp-size gulp-shell gulp-notify notify-send gulp-sourcemaps typey susy node-normalize-scss gulp-plumber gulp-postcss autoprefixer breakpoint
+gulp-cache
 
 Vérifier versions des npm:
 npm-check
