@@ -15,11 +15,11 @@
 
 /*######-------- ||| ORDRE FLEXBOX ||| --------######*/
 body .conteneur .conteneur-flex{
-    #zone-1.type-page-pole{order:1;}
-    #zone-2.type-page-pole{order:2;}
-    #zone-3.type-page-pole{order:3;}
-    #zone-4.type-page-pole{}
-    #zone-5.type-page-pole{}
+    #zone-1.type-page-formations{order:1;}
+    #zone-2.type-page-formations{order:2;}
+    #zone-3.type-page-formations{order:3;}
+    #zone-4.type-page-formations{}
+    #zone-5.type-page-formations{}
     @include breakpoint ($desktop){}
 }
 
@@ -31,7 +31,7 @@ body .conteneur{
 }
 
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-#zone-illustration.type-page-pole{
+#zone-illustration.type-page-formations{
     #illustration-pleinepage{
         min-height: 35vw;
         max-height: 90vw;
@@ -60,7 +60,7 @@ body .conteneur{
         }
     }
 }
-#zone-1.type-page-pole{
+#zone-1.type-page-formations{
     >.content{
         column-count: 0;
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
@@ -168,8 +168,8 @@ body .conteneur{
                   display: block;
               }
             }
-        }
-    }
+        }// Fin ul.formations-initiales
+    }//Fin aside.liste-formations-initiales
 }
 /*######-------- ||| STYLE ||| --------######*/
 
@@ -184,18 +184,18 @@ h1.titre-page-pole{
     }
 }
 
-#zone-1.type-page-pole,
-#zone-2.type-page-pole,
-#zone-3.type-page-pole,
-#zone-4.type-page-pole,
-#zone-5.type-page-pole
+#zone-1.type-page-formations,
+#zone-2.type-page-formations,
+#zone-3.type-page-formations,
+#zone-4.type-page-formations,
+#zone-5.type-page-formations
 {}
 
 /*------------------------------------
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
 
-#zone-1.type-page-pole{
+#zone-1.type-page-formations{
     aside.liste-formations-initiales{
         //Style du filtrage de la vue
        .bef-exposed-form{
@@ -303,20 +303,20 @@ ______________________________*/
 
                    }
                 }
-                &.tid-11{ //Filiere professionnelle
+                &.tid-18{ //Filiere professionnelle
                     background: $violet;
                 }
-                &.tid-12{ //Filiere techno
+                &.tid-19{ //Filiere techno
                     background: $rose-fushia;
                 }
-                &.tid-10{ //Filiere BTS
+                &.tid-20{ //Filiere BTS
                     background: $jaune;
                     *{
                         color: $gris-anthracite;//cas particulier du fond clair
                     }
 
                 }
-                &.tid-26{ //Filiere Prépas
+                &.tid-25{ //Filiere Prépas
                     background: $bleu-turquoise;
                 }
                 // Inutilisés >>
@@ -345,7 +345,7 @@ ______________________________*/
         }
     }
 }
-#zone-2.type-page-pole{}
-#zone-3.type-page-pole{}
-#zone-4.type-page-pole{}
-#zone-5.type-page-pole{}
+#zone-2.type-page-formations{}
+#zone-3.type-page-formations{}
+#zone-4.type-page-formations{}
+#zone-5.type-page-formations{}
