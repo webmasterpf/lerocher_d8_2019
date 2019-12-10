@@ -204,6 +204,8 @@ browserSync.init({
 gulp.task('default', ['browser-sync'], function(){
 //    gulp.task('default', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
+  gulp.watch(folderPaths.images.src, bs_reload);
+  gulp.watch(folderPaths.images.dest, bs_reload);
   gulp.watch(folderPaths.styles.src, bs_reload);
   gulp.watch(folderPaths.templates.d8, bs_reload);
 //  gulp.watch(folderPaths.templates.d6nodestpl, bs_reload);
