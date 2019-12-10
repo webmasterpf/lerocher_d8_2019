@@ -79,7 +79,7 @@ body .conteneur{
               white-space: normal;
               padding: span(0.02);
           }
-          @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+          @include breakpoint(($tablet,$tabletlandscape)){
             //Diminue taille items sur Tablette selon réglage de display
             //display:inherit;
             column-count: 1;// Tablette S3: Edge & FF OK
@@ -87,15 +87,25 @@ body .conteneur{
             white-space: normal;
             padding: span(0.02);
           }
+          @include breakpoint(($mobilelandscape)){
+            //Diminue taille items sur Tablette selon réglage de display
+            //display:inherit;
+            column-count: 2;// Mobile Paysage
+            column-fill: balance;
+            white-space: normal;
+            padding: span(0.02);
+          }
           div.form-item{
               margin: 0 0 span(0.01) 0;
+              min-height: 7vh;
+              padding: span(0.15);
               @include breakpoint(($desktop,$desktopwide)){
                 @include hack-Edge;
                 @include hack-IE;
                 @include txt-colonnes();
                 padding: span(1);
               }
-              @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+              @include breakpoint(($tablet,$tabletlandscape)){
                 @include hack-Edge;
                 @include hack-IE;
                 @include txt-colonnes();
@@ -104,6 +114,17 @@ body .conteneur{
                 display: inline-block;
                 width: span(5.5);
                 padding: span(0.35);
+                //Garder le margin par défaut
+              }
+              @include breakpoint(($mobilelandscape)){
+                @include hack-Edge;
+                @include hack-IE;
+                @include txt-colonnes();
+                //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
+                // Régler column-count: sur 1 au niveau de l'UL
+                display: block;
+                min-height: 19vh;
+                padding: span(0.15);
                 //Garder le margin par défaut
               }
           }
@@ -176,6 +197,20 @@ body .conteneur{
               }
             } //Fin li
         }// Fin ul.formations-initiales
+
+        nav.pager{
+            @include clearfixsusy3;
+              column-span: all;//la pagination utilise toute la largeur
+
+            ul.pager__items{
+              width: span(4);
+              margin: 0 auto;
+              padding: span(0.1);
+              li{
+                  @include horizontal-list-item();
+              }
+            }// Fin ul.pager__items
+        }// Fin nav.pager
     }//Fin aside.liste-formations-initiales
 }
 /*######-------- ||| STYLE ||| --------######*/
@@ -225,8 +260,8 @@ ______________________________*/
                 &:hover:not(:first-child)
                 {
                   //Utilisation de l'unité vw plus universelle, évite usage de BP
-                  @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -5.8vw , no-repeat );
-                  background-size:60%;
+                  @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -9vw , no-repeat );
+                  background-size:70%;
                   background-color: $vert;
 
                   label{
