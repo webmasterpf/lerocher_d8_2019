@@ -71,7 +71,7 @@ aside.DiapoHPFull{
             }
             li{
                 list-style: none;
-                margin: span(1) 0;
+                margin: span(1) auto;
                 text-align:center;
                 max-width: 85%;
                 @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
