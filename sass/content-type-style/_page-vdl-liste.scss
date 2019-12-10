@@ -276,6 +276,31 @@ $zones: zone-1 ; //, zone-2, zone-3
                 }
               } // Fin acces-contenu-lycee
           } // Fin item-list
+          nav.pager{
+            //Utiliser PAgination complète en réécrivant les étiquettes dans ÉTIQUETTES DE LIEN DE PAGINATION
+            //de l'affichage de la vue concernée
+              @include clearfixsusy3;
+                //column-span: all;//la pagination utilise toute la largeur
+
+              ul.pager__items{
+                display: flex;
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                  width: span(4);
+                  margin: 0 auto;
+                  padding: span(0.1);
+                }
+                li{
+                  @include font-size(s); //utilisation de typey
+                    @include horizontal-list-item();
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                      @include font-size(l); //utilisation de typey
+                    }
+                    @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+                      @include font-size(m); //utilisation de typey
+                    }
+                }
+              }// Fin ul.pager__items
+          }// Fin nav.pager
       } //Fin Aside liste-vdl
 
     }
@@ -354,8 +379,8 @@ ______________________________*/
 
                 {
 
-                    @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -1.8vw , no-repeat );
-                    background-size:60%;
+                    @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -4.5vw , no-repeat );
+                    background-size:80%;
                     background-color: $vert;
                     label{
                         @include opacity(0.45);
@@ -490,6 +515,7 @@ ______________________________*/
 
 
             }
+
         }// Fin UL.liste-vdl-lycee
         //Liste d'accès à la rubrique lycée
         ul.acces-contenu-lycee {
@@ -523,6 +549,15 @@ ______________________________*/
             }
 
         }//Fin UL acces-contenu-lycee
+        nav.pager{
+            ul.pager__items{
+              li{
+                //Couleurs du pager
+                &.is-active{
+                  background: $vert;
+                  display: block;
+                }
+              }}}//Fin nav.pager
     }// Fin Aside liste-vdl
 
 }
