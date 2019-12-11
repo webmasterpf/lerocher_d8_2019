@@ -72,6 +72,7 @@ body.not-front.logged-in, body.role--authenticated{
 
 /*-- EDIT MODE --D8 --*/
 // Tabs. Remplacer l'ID par celle du thème utilisé si les classes sur UL ne fonctionnent pas.
+// Régler la variable $theme dans le fichier _variables.scss
 
 body.role--authenticated{
 ul.menu,nav.tabs,#block-#{$theme}-local-tasks{
