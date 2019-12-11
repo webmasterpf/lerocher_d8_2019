@@ -4,7 +4,6 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 {% set classes = [
 'node',
 'node--type-' ~ node.bundle|clean_class
-
 ] %}
 {% set titre_attribute = create_attribute() %}
 {% set image_attribute = create_attribute() %}
