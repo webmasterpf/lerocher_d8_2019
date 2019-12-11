@@ -201,15 +201,14 @@ browserSync.init({
     });
 });
 //Vidage de cache automatisé avec gulp-cache
-gulp.task('clearCache', function() {
-  // Or, just call this for everything
-  cache.clearAll();
+gulp.task('clearCache', function (done) {
+   return cache.clearAll(done);
 });
 //Tâche de surveillance et d'automatisation
 gulp.task('default', ['browser-sync'], function(){
 //    gulp.task('default', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
-  gulp.watch(basePaths.src, ['clearCache']);
+  gulp.watch(basePaths.project, ['clearCache']);
   gulp.watch(folderPaths.images.src, bs_reload);
   gulp.watch(folderPaths.images.dest, bs_reload);
   gulp.watch(folderPaths.styles.src, bs_reload);
