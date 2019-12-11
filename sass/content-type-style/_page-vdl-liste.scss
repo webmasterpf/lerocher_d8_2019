@@ -301,11 +301,25 @@ $zones: zone-1 ; //, zone-2, zone-3
                 }
               }// Fin ul.pager__items
           }// Fin nav.pager
+          //Layout pour Calendrier
+          div.calendrier-vdl{
+            
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tabletlandscape)){
+              width: span(11);
+              margin-left: span(0.5 wide);//Push
+            }
+          .fc-left{//Boutons de navigation
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
+          }
+          .fc-right{//Boutons de type d'affichage
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
+          }
+          }//Fin .calendrier-vdl
       } //Fin Aside liste-vdl
 
-    }
-  }
-}
+    }// Fin Zone1 boucle SASS
+  }// Fin Zone1 boucle SASS
+}// Fin Zone1 boucle SASS
 /*######-------- ||| STYLE ||| --------######*/
 //Pour H1 voir _page-lycee.scss
 h1.titre-page-globale{
@@ -331,11 +345,19 @@ h1.titre-page-globale{
 
     }
     h2{
+      @include font-size(m);//utilisation de typey
+      @include breakpoint(($desktop,$desktopwide,$tablet,$tabletlandscape)){
         @include font-size(l);//utilisation de typey
+      }
+
         color: $violet;
     }
     h3{
+      @include font-size(s);//utilisation de typey
+      @include breakpoint(($desktop,$desktopwide,$tablet,$tabletlandscape)){
         @include font-size(m);//utilisation de typey
+      }
+
         color: $rose-fushia;
     }
     a{
