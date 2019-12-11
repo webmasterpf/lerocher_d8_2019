@@ -202,13 +202,19 @@ browserSync.init({
 });
 //Vidage de cache automatisé avec gulp-cache
 gulp.task('clearCache', function (done) {
-   return cache.clearAll(done);
+   return cache.clearAll(done)
+   .pipe(plugins.notify({
+     title: "Vidage de Cache avec gulp-cache",
+     message: "Cache vidé complètement.",
+     onLast: true
+   }));
 });
 //Tâche de surveillance et d'automatisation
 gulp.task('default', ['browser-sync'], function(){
 //    gulp.task('default', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
-  gulp.watch(basePaths.project, ['clearCache']);
+  //gulp.watch(basePaths.project, ['clearCache']);
+  //gulp.watch(folderPaths.templates.d8nodestpl,['clearCache'],bs_reload);
   gulp.watch(folderPaths.images.src, bs_reload);
   gulp.watch(folderPaths.images.dest, bs_reload);
   gulp.watch(folderPaths.styles.src, bs_reload);
