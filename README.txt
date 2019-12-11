@@ -141,3 +141,8 @@ les déclarer dans le fichier THEMENAME.info.yml
 
 Réglages d'une vue pour exclure node courant:
 https://www.drupal.org/node/131547
+
+DEBUGAGE MATERIELS ANDROID
+--------------------------
+Installer driver adb sur machine locale (si non linux)
+Puis lancer commande: adb devices // adb kill-server
