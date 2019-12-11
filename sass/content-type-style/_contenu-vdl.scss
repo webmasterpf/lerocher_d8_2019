@@ -23,19 +23,6 @@ body .conteneur .conteneur-flex {
   #zone-3.type-contenu-vdl {
     order: 3;
   }
-  @include breakpoint ($desktop) {
-    #zone-1.type-contenu-vdl {
-      order: 1;
-    }
-
-    #zone-2.type-contenu-vdl {
-      order: 2;
-    }
-
-    #zone-3.type-contenu-vdl {
-      order: 3;
-    }
-  }
 }
 /*######-------- ||| BORDURES ||| --------######*/
 
@@ -45,7 +32,7 @@ body .conteneur {
   }
 }
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-$typedecontenu: type-contenu-vdl ;
+$typedecontenu: type-contenu-vdl,type-page-sortie ;
 $zonesimg: zone-illustration;
 @each $zone in $zonesimg {
   @each $type in $typedecontenu {
@@ -72,7 +59,7 @@ $zonesimg: zone-illustration;
     }
   }
 }
-$typedecontenu: type-contenu-vdl, type-page-sorties-actions, type-page-partenaires ;
+  $typedecontenu: type-contenu-vdl, type-page-sortie, type-page-partenaires ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -123,9 +110,16 @@ $zones: zone-1, zone-2, zone-3 ;
           list-style: none;
         }
         iframe{
-          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+          @include breakpoint(($desktop,$desktopwide)) {
           max-height: 90vh;
           max-width: 60vw;
+          margin: 0 auto;
+          padding: span(0.02);
+          border: em(3px) solid $violet;
+        }
+        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
+          max-height: 90vh;
+          max-width: 90vw;
           margin: 0 auto;
           padding: span(0.02);
           border: em(3px) solid $violet;
@@ -163,7 +157,7 @@ h1.titre-contenu-vdl {
 }
 /*¤¤¤ STYLES COMMUNS ¤¤¤*/
 //Permet de créer facilement les styles communs à des IDs ou/et classes
-$typedecontenu: type-contenu-vdl ;
+$typedecontenu: type-contenu-vdl,type-page-sortie ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -210,7 +204,7 @@ $zones: zone-1, zone-2, zone-3 ;
 /*------------------------------------
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
-$typedecontenu: type-contenu-vdl, type-page-sorties-actions, type-page-partenaires;
+$typedecontenu: type-contenu-vdl, type-page-sortie;
 $zones: zone-1, zone-2, zone-3;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -307,7 +301,7 @@ $zones: zone-1, zone-2, zone-3;
     }
   }
 }
-$typedecontenu: type-contenu-vdl, type-page-sorties-actions, type-page-partenaires;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-partenaires;
 $zones: zone-1, zone-2, zone-3;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -324,7 +318,7 @@ $zones: zone-1, zone-2, zone-3;
     }
   }
 }
-$typedecontenu: type-contenu-vdl,type-page-sorties-actions, type-page-partenaires;
+$typedecontenu: type-contenu-vdl,type-page-sortie, type-page-partenaires;
 $zones: zone-1, zone-2, zone-3;
 @each $zone in $zones {
   @each $type in $typedecontenu {
