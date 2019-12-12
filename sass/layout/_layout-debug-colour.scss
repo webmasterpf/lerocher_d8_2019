@@ -335,20 +335,17 @@ body .conteneur{
     .zone2_layout_5_7{}
 
     .zone1_layout_6_6,.zone1_layoutflex_6_6{
-        @include breakpoint ($tablet){
-            background: tomato;
-        }
-        @include breakpoint ($desktop){
-            background: thistle;
-        }
+      @include breakpoint(($desktop,$desktopwide)){background: blanchedalmond;}
+      @include breakpoint(($tabletlandscape)){background: seagreen;}
+      @include breakpoint(($tablet,$mobilelandscape)){background: tomato;}
+      @include breakpoint(($tablet-hd,$tabletlandscape-hd)){background:thistle;}
+
     }
     .zone2_layout_6_6,.zone2_layoutflex_6_6{
-        @include breakpoint ($tablet){
-            background: #00CC99;
-        }
-        @include breakpoint ($desktop){
-            background: #cccccc;
-        }
+      @include breakpoint(($desktop,$desktopwide)){background: thistle;}
+      @include breakpoint(($tabletlandscape)){background: tomato;}
+      @include breakpoint(($tablet,$mobilelandscape)){background: #00CC99;}
+      @include breakpoint(($tablet-hd,$tabletlandscape-hd)){background:blanchedalmond;}
     }
 
     .zone1_layout_7_5{
