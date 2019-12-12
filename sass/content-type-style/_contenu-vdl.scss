@@ -105,6 +105,7 @@ $zones: zone-1, zone-2, zone-3 ;
           padding: span(0.02);
         }
       }
+      //Réglage des vignette se fait dans _baguettebox-vignette-zoom.scss
       .videos{
         ul{
           list-style: none;
@@ -218,11 +219,11 @@ $zones: zone-1, zone-2, zone-3;
           color: $violet;
           text-decoration: none;
           padding: span(0.01) span(0.03);
-          @include rollover-effect($rose-fushia); //Effet rollover CSS3 sur les liens
+          @include rollover-effect($vert); //Effet rollover CSS3 sur les liens
 
           &:hover{ //:not([href*="fiche"])
-            color: $gris-clair;
-            background: $violet;
+            color: $violet;
+            background: $vert;
           }
         }
 
@@ -247,7 +248,7 @@ $zones: zone-1, zone-2, zone-3;
           }
 
           &[href*="http"],&[href*="https"],
-          &[href*="actualites/"]:not([href$=".pdf"]):not([href*="fiche"]),
+          &[href*="fr/"]:not([href$=".pdf"]):not([href*="fiche"]),
           &[href*="vie-du-lycee/"]:not([href$=".pdf"]):not([href*="fiche"]) {
             //pour cibler les liens externes et internes, exclure les pdf et le lien interne
             &::before {
@@ -285,12 +286,13 @@ $zones: zone-1, zone-2, zone-3;
         .label-field-passerelle-form {
           font-weight: bold;
           color: $gris-clair;
-          background: $rose-fushia;
+          background: $vert;
           padding: span(0.02);
           margin: 0 0 span(0.2) span(0.2);
         }
 
-        .label-field-fichier-joint-vdl {
+        .label-field-fichier-joint-vdl,
+        .label-field-liens-vdl {
           font-weight: bold;
           color: $gris-clair;
           background: $violet;
