@@ -1,0 +1,7 @@
+<ol>
+  {% for key, value in _context %}
+    <li>{{ key }}</li>
+  {% endfor %}
+</ol>
+
+{{ dump(_context|keys) }}
