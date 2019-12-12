@@ -92,10 +92,11 @@
       {# Début Liste liens #}
       <ul {{ champ5_attribute.addClass(champ5_classes) }}>
         {# //Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
-        {% for key, liens in node.field_liens_vdl %}
+        {% for key, value in node.field_liens_vdl %}
           {# //Ne pas afficher les champs vides du tableau #}
           {% if node.field_liens_vdl is not empty %}
-            <li>{{ content.field_liens_vdl[liens] }}</li>
+            <li>{{ content.field_liens_vdl[key] }}</li>
+
           {% endif %}
         {% endfor %}
       </ul>
@@ -105,3 +106,4 @@
   </div>
 {% endif %}
 {# / endif pour bloc doc utiles #}
+{# % include directory ~ '/includes/drupal_debug/inc_drupal_debug.html.twig' %#}
