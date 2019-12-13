@@ -21,7 +21,7 @@
 'titre-' ~ node.bundle|clean_class
 ]%}
 {% set champ2_classes = [
-'label-' ~ node.field_passerelle_form.fieldDefinition.name | replace({"_" : "-"}),
+'label-' ~ node.field_fichier_joint_intervenant.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {% set champ3_classes = [
 'label-' ~ node.field_fichier_joint_sortie.fieldDefinition.name | replace({"_" : "-"}),
@@ -43,7 +43,9 @@
 'liste-' ~ node.field_liens_vdl.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {# ---*** Le contenu de l'include ***--- #}
-{% if node.field_passerelle_form.value or node.field_fichier_joint_sortie.value or node.field_liens_vdl.value or node.field_fichier_joint.value is not empty %}
+{% if node.field_passerelle_form.value or node.field_fichier_joint_sortie.value or
+node.field_liens_vdl.value or node.field_fichier_joint.value or node.field_fichier_joint_intervenant
+is not empty %}
   <div class="bloc_docs_utiles_vdl">
 
     {% if node.field_passerelle_form.value is not empty %}
@@ -57,17 +59,25 @@
 
     {% endif %}
 
-    {% if node.field_fichier_joint_sortie.value or node.field_fichier_joint.value is not empty %}
+    {% if node.field_fichier_joint_sortie.value or node.field_fichier_joint.value
+    or node.field_fichier_joint_intervenant is not empty %}
       {# Affichage des étiquettes des champs en tant que titres #}
       <ul>
         <li {{ champ3_attribute.addClass(champ3_classes).addClass(champ6_classes) }}>
-          {{ content.field_fichier_joint_sortie|field_label }}
+          {% if node.field_fichier_joint_sortie is not empty %}
+            {{ content.field_fichier_joint_sortie|field_label }}
+          {% endif %}
           {% if node.field_fichier_joint is not empty %}
             //
             {{ content.field_fichier_joint|field_label }}
           {% endif %}
+          {% if node.field_fichier_joint_intervenant is not empty %}
+            //
+            {{ content.field_fichier_joint_intervenant|field_label }}
+          {% endif %}
         </li>
       </ul>
+      {# Fin Titre Liste Fichiers #}
 
       <ul {{ champ7_attribute.addClass(champ7_classes) }}>
         {# //Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
@@ -79,6 +89,7 @@
             </li>
           {% endif %}
         {% endfor %}
+        {# Fin Elements fichiers joints Sorties #}
 
         {# Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
         {% for key, lien in node.field_fichier_joint %}
@@ -87,9 +98,20 @@
             <li>{{ content.field_fichier_joint[key] }}</li>
           {% endif %}
         {% endfor %}
+        {# Fin Elements fichiers joints Projets #}
+
+        {# Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
+        {% for key, lien in node.field_fichier_joint_intervenant %}
+          {# Ne pas afficher les champs vides du tableau #}
+          {% if node.field_fichier_joint_intervenant is not empty %}
+            <li>{{ content.field_fichier_joint_intervenant[key] }}</li>
+          {% endif %}
+        {% endfor %}
+        {# Fin Elements fichiers joints Intervenants #}
       </ul>
     {% endif %}
-    {# Fin Liste fichiers joints - fichier audio #}
+    {# Fin Liste fichiers joints #}
+
     {#
 -----****** LIENS INTERNES ou EXTERNES *******-------
 #}
