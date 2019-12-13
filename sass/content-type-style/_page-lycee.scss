@@ -304,6 +304,7 @@ ______________________________*/
           display: inline-block;
           transform: scale(1);
           @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+          // Pour ne pas tronquer le picto
           min-height: em(33px);
         }
         //Pas de hover possible sur before
