@@ -32,7 +32,7 @@ body .conteneur {
   }
 }
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-$typedecontenu: type-contenu-vdl,type-page-sortie ;
+$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets ;
 $zonesimg: zone-illustration;
 @each $zone in $zonesimg {
   @each $type in $typedecontenu {
@@ -47,7 +47,7 @@ $zonesimg: zone-illustration;
           transform: translate(0%,0%);
           @include adaptable-img();
         }
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+        @include breakpoint(($desktop,$desktopwide,$tablet,$tabletlandscape)) {
           min-height: 25vw;
           max-height: 30vw;
 
@@ -55,11 +55,19 @@ $zonesimg: zone-illustration;
             transform: translate(0%,-35%);
           }
         }
+        @include breakpoint(($mobilelandscape)) {
+          min-height: 25vw;
+          max-height: 35vw;
+
+          img {
+            transform: translate(0%,-30%);
+          }
+        }
       }
     }
   }
 }
-  $typedecontenu: type-contenu-vdl, type-page-sortie, type-page-partenaires ;
+  $typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -91,6 +99,7 @@ $zones: zone-1, zone-2, zone-3 ;
         }
         .champ-field-relatif-formation,
         .label-field-fichier-joint-vdl,
+        .label-field-fichier-joint,
         .label-field-passerelle-form {
           //Besoin de simuler un br pour avoir un saut de ligne entre chaque éléments.HTML en liste plus efficace
           @include clearfixsusy3;
@@ -165,7 +174,7 @@ h1.titre-contenu-vdl {
 }
 /*¤¤¤ STYLES COMMUNS ¤¤¤*/
 //Permet de créer facilement les styles communs à des IDs ou/et classes
-$typedecontenu: type-contenu-vdl,type-page-sortie ;
+$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -212,7 +221,7 @@ $zones: zone-1, zone-2, zone-3 ;
 /*------------------------------------
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
-$typedecontenu: type-contenu-vdl, type-page-sortie;
+$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets ;
 $zones: zone-1, zone-2, zone-3;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -220,6 +229,13 @@ $zones: zone-1, zone-2, zone-3;
       .bloc_docs_utiles_vdl {
         @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
         @include arrondis(1em);
+        ul {
+          li {
+            //suppression des puces
+            list-style-type: none;
+            padding: span(0.1) 0;
+            @include font-size(s); //utilisation de typey
+          }
 
         a {
           background: $gris-clair;
@@ -227,6 +243,11 @@ $zones: zone-1, zone-2, zone-3;
           text-decoration: none;
           padding: span(0.01) span(0.03);
           @include rollover-effect($vert); //Effet rollover CSS3 sur les liens
+          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+          //Pour ne pas tronquer le picto fichier - décommenter si nécessaire
+          //min-height: em(65px);
+          border: inherit;//Pour éviter BP vide
+        }
 
           &:hover{ //:not([href*="fiche"])
             color: $violet;
@@ -242,12 +263,16 @@ $zones: zone-1, zone-2, zone-3;
               background-size: contain;
               content: "";
               position: relative;
-              vertical-align: sub;
-              padding: em(10px);
+              vertical-align: middle;
+              padding: em(13px);
               margin: em(3px);
               transition: 0.5s all;
               display: inline-block;
               transform: scale(1);
+              @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+              // Pour ne pas tronquer le picto
+              min-height: em(33px);
+            }
             }
           }
 
@@ -275,13 +300,8 @@ $zones: zone-1, zone-2, zone-3;
           }
         }
 
-        ul {
-          li {
-            //suppression des puces
-            list-style-type: none;
-            @include font-size(s); //utilisation de typey
-          }
-        }
+
+      }// Fin bloc_docs_utiles_vdl
         //Style spécifique
         .champ-field-relatif-formation {
           max-width: 90%;
@@ -301,6 +321,7 @@ $zones: zone-1, zone-2, zone-3;
         }
 
         .label-field-fichier-joint-vdl,
+        .label-field-fichier-joint,
         .label-field-liens-vdl {
           font-weight: bold;
           color: $gris-clair;
@@ -312,7 +333,7 @@ $zones: zone-1, zone-2, zone-3;
     }
   }
 }
-$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-partenaires;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets;
 $zones: zone-1, zone-2, zone-3;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -329,7 +350,7 @@ $zones: zone-1, zone-2, zone-3;
     }
   }
 }
-$typedecontenu: type-contenu-vdl,type-page-sortie, type-page-partenaires;
+$typedecontenu: type-contenu-vdl,type-page-sortie, type-page-projets;
 $zones: zone-1, zone-2, zone-3;
 @each $zone in $zones {
   @each $type in $typedecontenu {
