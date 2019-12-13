@@ -75,18 +75,25 @@ $zones: zone-1, zone-2, zone-3 ;
       }
 
       .bloc_docs_utiles_vdl {
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+        @include breakpoint(($desktop,$desktopwide)) {
           float: right;
           margin: span(0.1);
           padding: span(0.02);
+          min-width: span(2);
           max-width: span(4);
-
-          .champ-field-relatif-formation,
-          .label-field-fichier-joint-vdl,
-          .label-field-passerelle-form {
-            //Besoin de simuler un br pour avoir un saut de ligne entre chaque éléments.HTML en liste plus efficace
-            @include clearfixsusy3;
-          }
+        }
+        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)) {
+          float: right;
+          margin: span(0.1);
+          padding: span(0.02);
+          min-width: span(3);
+          max-width: span(5);
+        }
+        .champ-field-relatif-formation,
+        .label-field-fichier-joint-vdl,
+        .label-field-passerelle-form {
+          //Besoin de simuler un br pour avoir un saut de ligne entre chaque éléments.HTML en liste plus efficace
+          @include clearfixsusy3;
         }
       }
     }
@@ -230,7 +237,8 @@ $zones: zone-1, zone-2, zone-3;
         a {
           &[href*=".pdf"] {
             &::before {
-              @include backgroundImage("PNG/Fichiers@3x.png");
+              //@include backgroundImage("PNG/Fichiers@3x.png");
+              @include maskImage(("PNG/Fichier-blanc@3x.png"),100%,alpha,$gris-clair-moyen);
               background-size: contain;
               content: "";
               position: relative;
@@ -252,7 +260,8 @@ $zones: zone-1, zone-2, zone-3;
           &[href*="vie-du-lycee/"]:not([href$=".pdf"]):not([href*="fiche"]) {
             //pour cibler les liens externes et internes, exclure les pdf et le lien interne
             &::before {
-              @include backgroundImage(("PNG/liens@3x.png"),transparent,no-repeat, top left);
+              //@include backgroundImage(("PNG/liens@3x.png"),transparent,no-repeat, top left);
+              @include maskImage(("PNG/liens-blanc@3x.png"),100%,alpha,$violet);
               background-size: contain;
               content: "";
               position: relative;
