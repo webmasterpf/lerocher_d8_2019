@@ -7,7 +7,7 @@ Override du style de galerie vignettes BaguetteBox
 //@include breakpoint(($desktop,$tablet)){}
 //définir ici les types de contenus qui appliqueront ce style & layout - code via boucle sass
 // Vignettes carrées à la suite
-$typedecontenu: type-contenu-vdl,type-contenu-actualites,type-page-sortie;
+$typedecontenu: type-contenu-vdl,type-contenu-actualites,type-page-sortie,type-page-projets;
 $zones: zone-illustration;
 @each $type in $typedecontenu {
   .#{$type} {
