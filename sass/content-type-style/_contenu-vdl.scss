@@ -32,7 +32,7 @@ body .conteneur {
   }
 }
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets ;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
 $zonesimg: zone-illustration;
 @each $zone in $zonesimg {
   @each $type in $typedecontenu {
@@ -67,7 +67,7 @@ $zonesimg: zone-illustration;
     }
   }
 }
-  $typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets ;
+  $typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -174,7 +174,7 @@ h1.titre-contenu-vdl {
 }
 /*¤¤¤ STYLES COMMUNS ¤¤¤*/
 //Permet de créer facilement les styles communs à des IDs ou/et classes
-$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets;
+$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets, type-page-intervenants ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -221,8 +221,8 @@ $zones: zone-1, zone-2, zone-3 ;
 /*------------------------------------
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
-$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets ;
-$zones: zone-1, zone-2, zone-3;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
+$zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
     ##{$zone}.#{$type} {
@@ -333,8 +333,8 @@ $zones: zone-1, zone-2, zone-3;
     }
   }
 }
-$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets;
-$zones: zone-1, zone-2, zone-3;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
+$zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
     ##{$zone}.#{$type} {
@@ -350,8 +350,8 @@ $zones: zone-1, zone-2, zone-3;
     }
   }
 }
-$typedecontenu: type-contenu-vdl,type-page-sortie, type-page-projets;
-$zones: zone-1, zone-2, zone-3;
+$typedecontenu: type-contenu-vdl,type-page-sortie, type-page-projets, type-page-intervenants ;
+$zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
     ##{$zone}.#{$type} {
@@ -362,6 +362,9 @@ $zones: zone-1, zone-2, zone-3;
         a {
           background: $gris-clair;
           @include rollover-effect($violet); //Effet rollover CSS3
+          &:hover{
+            color: $gris-clair;
+          }
         }
 
         h2 {
