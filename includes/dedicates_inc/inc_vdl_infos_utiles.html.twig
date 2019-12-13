@@ -13,6 +13,8 @@
 {% set champ4_attribute = create_attribute() %}
 {% set champ5_attribute = create_attribute() %}
 {% set champ6_attribute = create_attribute() %}
+{% set champ7_attribute = create_attribute() %}
+{% set champ8_attribute = create_attribute() %}
 
 {% set champ1_classes = [
 'champ-' ~ node.field_passerelle_form.fieldDefinition.name | replace({"_" : "-"}),
@@ -31,10 +33,17 @@
 'liste-' ~ node.field_liens_vdl.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {% set champ6_classes = [
-'label-' ~ node.field_liens_vdl.fieldDefinition.name | replace({"_" : "-"}),
+'label-' ~ node.field_fichier_joint.fieldDefinition.name | replace({"_" : "-"}),
+]%}
+{% set champ7_classes = [
+'liste-' ~ node.field_fichier_joint.fieldDefinition.name | replace({"_" : "-"}),
+'liste-' ~ node.field_fichier_joint_sortie.fieldDefinition.name | replace({"_" : "-"}),
+]%}
+{% set champ8_classes = [
+'liste-' ~ node.field_liens_vdl.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {# ---*** Le contenu de l'include ***--- #}
-{% if node.field_passerelle_form.value or node.field_fichier_joint_sortie.value or node.field_liens_vdl.value or node.field_fichier_audio_rp.value is not empty %}
+{% if node.field_passerelle_form.value or node.field_fichier_joint_sortie.value or node.field_liens_vdl.value or node.field_fichier_joint.value is not empty %}
   <div class="bloc_docs_utiles_vdl">
 
     {% if node.field_passerelle_form.value is not empty %}
@@ -48,32 +57,34 @@
 
     {% endif %}
 
-    {% if node.field_fichier_joint_sortie.value or node.field_fichier_audio_rp.value is not empty %}
+    {% if node.field_fichier_joint_sortie.value or node.field_fichier_joint.value is not empty %}
       {# Affichage des étiquettes des champs en tant que titres #}
       <ul>
-        <li {{ champ3_attribute.addClass(champ3_classes) }}>
+        <li {{ champ3_attribute.addClass(champ3_classes).addClass(champ6_classes) }}>
           {{ content.field_fichier_joint_sortie|field_label }}
-          {% if node.field_fichier_audio_rp is not empty %}
+          {% if node.field_fichier_joint is not empty %}
             //
-            {{ content.field_fichier_audio_rp|field_label }}
+            {{ content.field_fichier_joint|field_label }}
           {% endif %}
         </li>
       </ul>
 
-      <ul>
+      <ul {{ champ7_attribute.addClass(champ7_classes) }}>
         {# //Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
         {% for key, fichier in node.field_fichier_joint_sortie.value %}
           {# //Ne pas afficher les champs vides du tableau #}
           {% if node.field_fichier_joint_sortie.value is not empty %}
-            <li>{{ content.field_fichier_joint_sortie[key] }}</li>
+            <li>
+              {{ content.field_fichier_joint_sortie[key] }}
+            </li>
           {% endif %}
         {% endfor %}
 
         {# Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
-        {% for key, lien in node.field_fichier_audio_rp %}
+        {% for key, lien in node.field_fichier_joint %}
           {# Ne pas afficher les champs vides du tableau #}
-          {% if node.field_fichier_audio_rp is not empty %}
-            <li>{{ content.field_fichier_audio_rp[key] }}</li>
+          {% if node.field_fichier_joint is not empty %}
+            <li>{{ content.field_fichier_joint[key] }}</li>
           {% endif %}
         {% endfor %}
       </ul>
