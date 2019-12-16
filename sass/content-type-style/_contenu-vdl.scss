@@ -32,7 +32,7 @@ body .conteneur {
   }
 }
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants, type-page-foyer ;
 $zonesimg: zone-illustration;
 @each $zone in $zonesimg {
   @each $type in $typedecontenu {
@@ -47,7 +47,7 @@ $zonesimg: zone-illustration;
           transform: translate(0%,0%);
           @include adaptable-img();
         }
-        @include breakpoint(($desktop,$desktopwide,$tablet)) {
+        @include breakpoint(($desktop,$desktopwide)) {
           min-height: 25vw;
           max-height: 30vw;
 
@@ -56,6 +56,17 @@ $zonesimg: zone-illustration;
           }
           img[src*="defaut"]{//Position du visuel par défaut
             transform: translate(0%,-10%);
+          }
+        }
+        @include breakpoint(($tablet)) {
+          min-height: 25vw;
+          max-height: 30vw;
+
+          img:not([src*="defaut"]) {
+            transform: translate(0%,-35%);
+          }
+          img[src*="defaut"]{//Position du visuel par défaut
+            transform: translate(0%,-24%);
           }
         }
         @include breakpoint(($tabletlandscape)) {
@@ -84,7 +95,7 @@ $zonesimg: zone-illustration;
     }
   }
 }
-  $typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
+  $typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants, type-page-foyer ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -191,7 +202,7 @@ h1.titre-contenu-vdl {
 }
 /*¤¤¤ STYLES COMMUNS ¤¤¤*/
 //Permet de créer facilement les styles communs à des IDs ou/et classes
-$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets, type-page-intervenants ;
+$typedecontenu: type-contenu-vdl,type-page-sortie,type-page-projets, type-page-intervenants, type-page-foyer ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -238,7 +249,7 @@ $zones: zone-1, zone-2, zone-3 ;
 /*------------------------------------
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
-$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants, type-page-foyer ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -350,7 +361,7 @@ $zones: zone-1, zone-2, zone-3 ;
     }
   }
 }
-$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants ;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-intervenants, type-page-foyer ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -366,7 +377,7 @@ $zones: zone-1, zone-2, zone-3 ;
     }
   }
 }
-$typedecontenu: type-contenu-vdl,type-page-sortie, type-page-projets, type-page-intervenants ;
+$typedecontenu: type-contenu-vdl,type-page-sortie, type-page-projets, type-page-intervenants, type-page-foyer ;
 $zones: zone-1, zone-2, zone-3 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
