@@ -70,7 +70,7 @@ $zones: zone-1 ; //, zone-2, zone-3
               padding: span(0.1);
           }
       }
-      aside.liste-vdl,aside.liste-actu-presse{
+      aside.liste-vdl,aside.liste-actu-presse,aside.liste-info-admin{
 
           .bef-exposed-form{
               @include breakpoint(($desktop,$desktopwide)){
@@ -114,7 +114,8 @@ $zones: zone-1 ; //, zone-2, zone-3
             // Ne pas utiliser cette classe. Trop générique
 
               }
-          ul.liste-vdl-lycee{
+          ul.liste-vdl-lycee,ul.acces-info-admin{
+            //Classes ajoutées dans les affichages de la vue Acces Contenu Rubrique
                   @include breakpoint(($desktop,$desktopwide)){
                       //Flex pour avoir classement horizontal chronologique plutot que vertical
                       display: flex;
@@ -398,7 +399,7 @@ h1.titre-page-globale{
     }
     u{
         font-weight: bold;
-        color: $rose-fushia;
+        color: $vert;
 
     }
     h2{
@@ -415,7 +416,7 @@ h1.titre-page-globale{
         @include font-size(m);//utilisation de typey
       }
 
-        color: $rose-fushia;
+        color: $vert;
     }
     a{
         text-decoration: none;
@@ -425,7 +426,7 @@ h1.titre-page-globale{
         }
     }
     strong{
-        color: $rose-fushia;
+        color: $vert;
     }
 }
 
@@ -434,8 +435,8 @@ h1.titre-page-globale{
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
 #zone-1.type-page-vie-lycee{
-
-    aside.liste-vdl,aside.liste-actu-presse{
+    // Classes ajoutées via le TPL et twig conditionnel
+    aside.liste-vdl,aside.liste-actu-presse,aside.liste-info-admin{
         //Style du filtrage de la vue
         .bef-exposed-form{
             div.form-item{
@@ -597,11 +598,11 @@ ______________________________*/
 
         }// Fin UL.liste-vdl-lycee
         //Liste d'accès à la rubrique lycée
-        ul.acces-contenu-lycee {
+        ul.acces-contenu-lycee,ul.acces-info-admin {
           //Style général des éléments
               li {
                 list-style: none;
-                background: $rose-fushia;
+                background: $vert;
                 @include txt-cesure();
 
                 a {
