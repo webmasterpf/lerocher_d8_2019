@@ -52,7 +52,7 @@ $zonesimg: zone-illustration;
           max-height: 30vw;
 
           img:not([src*="defaut"]) {
-            transform: translate(0%,-35%);
+            transform: translate(0%,-9%);
           }
           img[src*="defaut"]{//Position du visuel par défaut
             transform: translate(0%,-10%);
@@ -63,7 +63,7 @@ $zonesimg: zone-illustration;
           max-height: 30vw;
 
           img:not([src*="defaut"]) {
-            transform: translate(0%,-35%);
+            transform: translate(0%,-25%);
           }
           img[src*="defaut"]{//Position du visuel par défaut
             transform: translate(0%,-24%);
@@ -74,7 +74,7 @@ $zonesimg: zone-illustration;
           max-height: 30vw;
 
           img:not([src*="defaut"]) {
-            transform: translate(0%,-35%);
+            transform: translate(0%,-20%);
           }
           img[src*="defaut"]{//Position du visuel par défaut
             transform: translate(0%,-18%);
