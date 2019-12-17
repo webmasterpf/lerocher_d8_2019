@@ -112,10 +112,14 @@ $zonesimg: zone-illustration;
         min-height: 60vh;
         min-width: 90vw;
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet)){
-            min-height: 30vh;
+            min-height: 60vh;
+            min-width: 30vw;
         }
         @include breakpoint(($tabletlandscape)){
             min-height: 75vh;
+        }
+        @include breakpoint(($tablet)){
+            min-height: 55vh;
         }
     }
     iframe,object{
