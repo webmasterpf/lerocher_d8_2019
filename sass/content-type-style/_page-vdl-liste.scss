@@ -303,7 +303,7 @@ $zones: zone-1 ; //, zone-2, zone-3
           }// Fin nav.pager
           //Layout pour Calendrier
           div.calendrier-vdl{
-            
+
             @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tabletlandscape)){
               width: span(11);
               margin-left: span(0.5 wide);//Push
@@ -316,6 +316,65 @@ $zones: zone-1 ; //, zone-2, zone-3
           }
           }//Fin .calendrier-vdl
       } //Fin Aside liste-vdl
+
+      aside.liste-archives{
+          //Mise en colonnes des pages archives - node 77
+          ul.pager__items{
+              li{
+                  @include horizontal-list-item();
+              }
+          }
+          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                  column-fill: balance;
+                  white-space: normal;
+                  padding: span(0.1);
+              @include clearfixsusy3;
+              nav.pager{
+                  @include clearfixsusy3;
+                    column-span: all;//la pagination utilise toute la largeur
+
+                  ul.pager__items{
+                    width: span(4);
+                    margin: 0 auto;
+                      padding: span(0.1);
+
+                  }
+              }
+          }
+          @include breakpoint(($mobilelandscape,$tabletlandscape)){
+            column-count: 4;
+          }
+          @include breakpoint(($tablet)){
+            column-count: 3;
+          }
+          @include breakpoint(($desktop,$desktopwide)){
+            column-count: 5;
+          }
+
+          .item-list{
+              @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                  @include txt-cesure;
+                  @include txt-colonnes;//évite cassure au milieu d'un élément pour FF et autres navigateurs
+                  @include hack-Firefox;
+                  @include hack-Edge;
+                  @include hack-IE;
+                  margin: 0;
+                  padding: 0;
+              }
+          }// Fin item-list
+
+          //Tailles typos selon BP MQ
+          li{
+            @include font-size(s); //utilisation de typey
+
+              @include breakpoint(($desktop,$desktopwide)){
+                @include font-size(l); //utilisation de typey
+              }
+              @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+                @include font-size(m); //utilisation de typey
+              }
+          }// Fin li taille typos
+      } // Fin liste-archives
 
     }// Fin Zone1 boucle SASS
   }// Fin Zone1 boucle SASS
@@ -581,6 +640,47 @@ ______________________________*/
                 }
               }}}//Fin nav.pager
     }// Fin Aside liste-vdl
+
+    aside.liste-archives{
+        //Style des blocs pour page archive
+        @include hack-Webkit();
+        @include hack-Firefox(table);
+        div.item-list{
+            border:0;
+            background: $violet;
+            min-width:100%;//pour chrome et FF
+        }
+        h3{
+            color: $blanc-casse;
+            font-weight: bold;
+            min-width: 100%;
+            display: block;
+            text-transform: capitalize;
+            text-align: center;
+        }
+        li:not(.pager__item){//ne pas styler les éléments de pagination
+             border-top: em(1px) dotted $blanc-casse;
+                padding:span(0.01);
+                list-style: none;
+        }
+        a:not(.pager__item){
+            color: $blanc-casse;
+            text-decoration: none;
+            padding: em(3px);
+            &:hover{
+                text-decoration: none;
+                background: $vert;
+            }
+        }
+        ul.pager__items{
+            li.is-active{
+                a{
+                    background: $vert;
+                    @include arrondis(0.35em);
+                }
+            }
+        }
+    } // Fin aside.liste-archives
 
 }
 #zone-2.type-page-vie-lycee{
