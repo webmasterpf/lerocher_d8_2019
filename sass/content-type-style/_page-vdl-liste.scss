@@ -367,12 +367,10 @@ $zones: zone-1 ; //, zone-2, zone-3
           li{
             @include font-size(s); //utilisation de typey
 
-              @include breakpoint(($desktop,$desktopwide)){
-                @include font-size(l); //utilisation de typey
-              }
-              @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+              @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                 @include font-size(m); //utilisation de typey
               }
+
           }// Fin li taille typos
       } // Fin liste-archives
 
