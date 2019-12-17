@@ -59,6 +59,11 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 'liste-vdl',
 'type-' ~ node.bundle|clean_class
 ]%}
+{% set vueBlocInfoAdmin_classes = [
+'liste-info-admin',
+'type-' ~ node.bundle|clean_class
+]%}
+
 {# BEM inspired class syntax: https://en.bem.info/
    Enable this code if you would like node classes like "article article--layout-teaser", where article is the content type and teaser is the view mode.
 {% set classes = classes|merge([
@@ -124,6 +129,11 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
     {# Change classe selon Nid - Ici nid de la page archives #}
     {% if node.field_inserer_liste_viewfield is not empty and node.id == 77 %}
       <aside {{ vuebloc_attribute.addClass(vueBlocArchives_classes) }}>
+        {{ content.field_inserer_liste_viewfield.0 }}
+      </aside>
+      {# Change classe selon le Nid - Ici nid de la page Info Admin #}
+    {% elseif node.field_inserer_liste_viewfield is not empty and node.id == 125 %}
+      <aside {{ vuebloc_attribute.addClass(vueBlocInfoAdmin_classes) }}>
         {{ content.field_inserer_liste_viewfield.0 }}
       </aside>
     {% else %}
