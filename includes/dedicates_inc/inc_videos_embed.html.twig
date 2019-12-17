@@ -20,13 +20,13 @@
 'label-' ~ node.field_inclure_video.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {% set champ3_classes = [
-'label-' ~ node.field_lien_internet_rp.fieldDefinition.name | replace({"_" : "-"}),
+'liste-' ~ node.field_inclure_video.fieldDefinition.name | replace({"_" : "-"}),
 ]%}
 {# ---*** Le contenu de l'include ***--- #}
 {% if node.field_inclure_video.value is not empty %}
   <div class="videos">
 
-    <ul>
+    <ul {{ champ3_attribute.addClass(champ1bis_classes) }}>
       {# //Parcourir le tableau field_NAME de l'objet $node pour lister le contenu clé/valeur #}
       {% for key, video in node.field_inclure_video %}
         {# //Ne pas afficher les champs vides du tableau #}
