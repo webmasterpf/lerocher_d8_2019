@@ -126,23 +126,24 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 
     </div>
     <!-- /.content -->
-    {# Change classe selon Nid - Ici nid de la page archives #}
-    {% if node.field_inserer_liste_viewfield is not empty and node.id == 77 %}
-      <aside {{ vuebloc_attribute.addClass(vueBlocArchives_classes) }}>
-        {{ content.field_inserer_liste_viewfield.0 }}
-      </aside>
-      {# Change classe selon le Nid - Ici nid de la page Info Admin #}
-    {% elseif node.field_inserer_liste_viewfield is not empty and node.id == 125 %}
-      <aside {{ vuebloc_attribute.addClass(vueBlocInfoAdmin_classes) }}>
-        {{ content.field_inserer_liste_viewfield.0 }}
-      </aside>
-    {% else %}
-      <aside {{ vuebloc_attribute.addClass(vuebloc_classes) }}>
-        {{ content.field_inserer_liste_viewfield.0 }}
-      </aside>
-    {% endif %}
-  </div>
-  <!-- /zone-1-->
+    {# % set finAside = content.field_inserer_liste_viewfield.0 | render | trim "</aside>" %#}
+    {% if node.field_inserer_liste_viewfield is not empty %}
+      {# Change classe selon Nid - Ici nid de la page archives #}
+      {% if node.field_inserer_liste_viewfield is not empty and node.id == 77 %}
+        <aside {{ vuebloc_attribute.addClass(vueBlocArchives_classes) }}>
 
-</article>
-<!-- /.node -->
+          {# Change classe selon le Nid - Ici nid de la page Info Admin #}
+        {% elseif node.field_inserer_liste_viewfield is not empty and node.id == 125 %}
+          <aside {{ vuebloc_attribute.addClass(vueBlocInfoAdmin_classes) }}>
+
+          {% else %}
+            <aside {{ vuebloc_attribute.addClass(vuebloc_classes) }}>
+            {% endif %}
+            {{ content.field_inserer_liste_viewfield.0 }}
+          </aside>
+        {% endif %}
+      </div>
+      <!-- /zone-1-->
+
+    </article>
+    <!-- /.node -->
