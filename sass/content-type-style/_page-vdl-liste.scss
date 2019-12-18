@@ -604,7 +604,9 @@ ______________________________*/
                 list-style: none;
                 background: $violet;
                 @include txt-cesure();
-
+                &:hover{
+                  background: $vert;
+                }
                 a {
                   color: $blanc-casse;
                   text-decoration: none;
