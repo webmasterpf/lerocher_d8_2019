@@ -126,7 +126,7 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 
     </div>
     <!-- /.content -->
-    {# % set finAside = content.field_inserer_liste_viewfield.value ~ "</aside>" %#}
+    {# % set finAside = content.field_inserer_liste_viewfield.0. value ~ "</aside>" %#}
     {% if node.field_inserer_liste_viewfield is not empty %}
       {# Change classe selon Nid - Ici nid de la page archives #}
       {% if node.field_inserer_liste_viewfield is not empty and node.id == 77 %}
