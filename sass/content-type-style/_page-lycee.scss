@@ -58,7 +58,7 @@ article.middle-content {
   //Empêche les flottants de sortir du conteneur
   @include clearfixsusy3;
 }
-$typedecontenu: type-page-lycee,type-annonce-accueil, type-page-erreur;
+$typedecontenu: type-page-lycee, type-annonce-accueil, type-contenu-info-admin, type-page-erreur ;
 $zonesimg: zone-illustration;
 @each $zone in $zonesimg {
   @each $type in $typedecontenu {
@@ -129,7 +129,7 @@ $zonesimg: zone-illustration;
   }
 }
 // Tableau initial des classes (TdC) et IDs (Zones) à créer.
-$typedecontenu: type-page-lycee,type-annonce-accueil, type-page-erreur;
+$typedecontenu: type-page-lycee, type-annonce-accueil, type-contenu-info-admin, type-page-erreur ;
 $zones: zone-1, zone-2, zone-3, zone-4 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
@@ -184,7 +184,7 @@ h1.titre_page {
 
       u {
         font-weight: bold;
-        color: $rose-fushia;
+        color: $vert;
       }
 
       h2 {
@@ -194,7 +194,7 @@ h1.titre_page {
 
       h3 {
         @include font-size(m); //utilisation de typey
-        color: $rose-fushia;
+        color: $vert;
       }
       h4{
         @include font-size(s); //utilisation de typey
@@ -213,7 +213,7 @@ h1.titre_page {
         }
       }
       em {//texte italique
-        color: $rose-fushia;
+        color: $vert;
       }
       strong {
         color: $violet;
@@ -256,7 +256,7 @@ ______________________________*/
     .entrefilet {
       @include backgroundImage('bg-merci.gif');
       display: block;
-      color: $rose-fushia;
+      color: $vert;
       @include font-size(l); //utilisation de typey
       text-transform: capitalize;
       font-weight: bold;
@@ -328,13 +328,13 @@ ______________________________*/
 
       a[href*=".pdf"] {
         &::before {
-          @include maskImage(("PNG/Fichier-blanc@3x.png"),100%,alpha,$rose-fushia);
+          @include maskImage(("PNG/Fichier-blanc@3x.png"),100%,alpha,$vert);
           background-size: contain;
           content: "";
           position: relative;
           vertical-align: middle;
           padding: em(13px);
-          margin: em(3px);
+          margin: em(3px) em(10px) em(3px) 0;
           transition: 0.5s all;
           display: inline-block;
           transform: scale(1);
@@ -360,7 +360,7 @@ ______________________________*/
           position: relative;
           vertical-align: sub;
           padding: em(10px);
-          margin: em(3px);
+          margin: em(3px) em(10px) em(3px) 0;
           transition: 0.5s all;
           display: inline-block;
           transform: scale(1.5);
@@ -410,7 +410,7 @@ ______________________________*/
   }
 
   h2 {
-    color: $rose-fushia;
+    color: $vert;
     padding: em(5px);
   }
 
@@ -444,7 +444,7 @@ ______________________________*/
 
     &:hover {
       color: white;
-      background: $rose-fushia;
+      background: $vert;
     }
   }
 
@@ -553,7 +553,7 @@ ______________________________*/
         font-size: small;
 
         &:hover {
-          background: $rose-fushia;
+          background: $vert;
           @include arrondis(em(10px));
           @include PIE;
           position: relative;
@@ -586,7 +586,7 @@ ______________________________*/
   div.entityqueue-plycee{
     background: $vert;
     h2{
-        color: $rose-fushia;
+        color: $vert;
 
       &::before {
         @include maskImage(("PNG/push-pin-blanc@3x.png"),100%,alpha,$violet, 0 0, no-repeat);
