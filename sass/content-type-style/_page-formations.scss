@@ -78,6 +78,7 @@ body .conteneur{
               column-fill: balance;
               white-space: normal;
               padding: span(0.02);
+
           }
           @include breakpoint(($tablet,$tabletlandscape)){
             //Diminue taille items sur Tablette selon réglage de display
@@ -104,6 +105,7 @@ body .conteneur{
                 @include hack-IE;
                 @include txt-colonnes();
                 padding: span(1);
+            
               }
               @include breakpoint(($tablet,$tabletlandscape)){
                 @include hack-Edge;
