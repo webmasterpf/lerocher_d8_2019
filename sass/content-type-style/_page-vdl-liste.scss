@@ -682,6 +682,14 @@ ______________________________*/
             }
         }
     } // Fin aside.liste-archives
+    aside.calendrier-vdl{
+      .fc-event-container > a {
+        color: $blanc-casse;
+        text-decoration: none;
+        font-style: italic;
+        @include font-size(s); //utilisation de typey
+      }
+    }
 
 }
 #zone-2.type-page-vie-lycee{

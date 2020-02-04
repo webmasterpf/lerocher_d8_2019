@@ -63,7 +63,10 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 'liste-info-admin',
 'type-' ~ node.bundle|clean_class
 ]%}
-
+{% set vueBlocCalendrier_classes = [
+'calendrier-vdl',
+'type-' ~ node.bundle|clean_class
+]%}
 {# BEM inspired class syntax: https://en.bem.info/
    Enable this code if you would like node classes like "article article--layout-teaser", where article is the content type and teaser is the view mode.
 {% set classes = classes|merge([
@@ -136,14 +139,18 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
         {% elseif node.field_inserer_liste_viewfield is not empty and node.id == 125 %}
           <aside {{ vuebloc_attribute.addClass(vueBlocInfoAdmin_classes) }}>
 
-          {% else %}
-            <aside {{ vuebloc_attribute.addClass(vuebloc_classes) }}>
-            {% endif %}
-            {{ content.field_inserer_liste_viewfield.0 }}
-          </aside>
-        {% endif %}
-      </div>
-      <!-- /zone-1-->
+            {# Change classe selon le Nid - Ici nid de la page Calendrier #}
+          {% elseif node.field_inserer_liste_viewfield is not empty and node.id == 505 %}
+            <aside {{ vuebloc_attribute.addClass(vueBlocCalendrier_classes) }}>
 
-    </article>
-    <!-- /.node -->
+            {% else %}
+              <aside {{ vuebloc_attribute.addClass(vuebloc_classes) }}>
+              {% endif %}
+              {{ content.field_inserer_liste_viewfield.0 }}
+            </aside>
+          {% endif %}
+        </div>
+        <!-- /zone-1-->
+
+      </article>
+      <!-- /.node -->
