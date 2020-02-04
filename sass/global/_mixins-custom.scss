@@ -679,7 +679,7 @@ https://www.creativejuiz.fr/blog/css-css3/controles-fin-des-cesures-css4-text
   }
 }
 @mixin hack-Edge() {
-  //ciblage de MS Edge
+  //ciblage de MS Edge <79 Chromium
   @supports (-ms-ime-align: auto) {
     display: inline-block;
     width: 100%;
