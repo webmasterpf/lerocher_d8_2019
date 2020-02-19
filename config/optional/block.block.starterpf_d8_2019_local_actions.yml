@@ -2,9 +2,9 @@ langcode: en
 status: true
 dependencies:
   theme:
-    - starterpf_d8_2019
-id: starterpf_d8_2019_local_actions
-theme: starterpf_d8_2019
+    - lerocher_d8_2019
+id: lerocher_d8_2019_local_actions
+theme: lerocher_d8_2019
 region: content
 weight: -20
 provider: null

@@ -6,9 +6,9 @@ dependencies:
   module:
     - system
   theme:
-    - starterpf_d8_2019
-id: starterpf_d8_2019_tools
-theme: starterpf_d8_2019
+    - lerocher_d8_2019
+id: lerocher_d8_2019_tools
+theme: lerocher_d8_2019
 region: sidebar_first
 weight: 0
 provider: null
