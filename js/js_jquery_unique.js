@@ -108,19 +108,19 @@
 
 
 
-    console.log('Chargement de Floatit.js pour jQuery>=1.12');
+/*    console.log('Chargement de Floatit.js pour jQuery>=1.12');
 jQuery('#block-service_links-service_links').floatit({
 		  limiter: 'footer',
 		preserve_width: true,
 		top_spacing: 40,
 		bottom_spacing: 10,
 		recalculate: true
-	  });
+	  });*/
 
 
 //// Script pour Masonry - Views casse les __ utiliser -- plutôt
 
-
+/*
         console.log('Chargement des paramètres Masonry.js');
         'use strict';
         var $masonryContainer = jQuery('.masonry');
@@ -142,7 +142,7 @@ jQuery('#block-service_links-service_links').floatit({
             wf.async = 'true';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(wf, s);
-        });
+        });*/
 
 
 
