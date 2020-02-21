@@ -59,7 +59,7 @@ npm.enquire:
   version: VERSION
   js:
     #Chargement des JS ajoutées via NPM ou externes
-    node_modules/enquire.js/dist/enquire.min.js: {}    
+    node_modules/enquire.js/dist/enquire.min.js: {}
 global-scripts:
     version: VERSION
     js:
@@ -73,7 +73,7 @@ global-scripts:
 
 #     chargement des plugins qui utilisent la version de jQuery par défaut du site - exD6
       js/jquery_plugin/selectnav.min.js: {}
-      js/jquery_plugin/jquery.sticky-kit.js: {}
+      #js/jquery_plugin/jquery.sticky-kit.js: {}
 #      chargement des scripts qui utilisent la version de jQuery par défaut du site - exD6
       #js/js_jquery_defaut.js: {}
 #     mise en place du noConflict pour utiliser plusieurs versions de jQuery   - exD6
@@ -81,18 +81,17 @@ global-scripts:
 #       chargement des plugins qui utilisent une version de jQuery plus récente - exD6
       js/jquery_plugin/jquery.flexslider.js: {}
       js/jquery_plugin/stacktable.min.js: {}
-      js/jquery_plugin/jquery.floatit.js: {}
-      js/jquery_plugin/stickUp.js: {}
-      js/jquery_plugin/jquery.masonry.min.js: {}
+      #js/jquery_plugin/jquery.floatit.js: {}
+      #js/jquery_plugin/stickUp.js: {}
+      #js/jquery_plugin/jquery.masonry.min.js: {}
       js/jquery_plugin/baguettebox/baguetteBox.min.js: {}
       js/jquery_plugin/chocolat/jquery.chocolat.min.js: {}
       js/jquery_plugin/responsiveslides/responsiveslides.min.js: {}
       js/jquery_plugin/lazyload/jquery.lazyloadxt.extra.min.js: {}
-      js/jquery_plugin/stacktable.min.js: {}
       js/jquery_plugin/vertical-align.min.js: {}
 
       3rdparty/bxslider/js/jquery.bxslider.js: {}
-      3rdparty/lightslider/js/lightslider.js: {}
+      #3rdparty/lightslider/js/lightslider.js: {}
      #  *** Utilisation des plugins Jquery  plus récents - Toujours terminer avec ce JS***
       #js/js_jquery_new.js: {}
       js/js_jquery_unique.js: {}
