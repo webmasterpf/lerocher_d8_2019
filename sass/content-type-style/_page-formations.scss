@@ -38,7 +38,7 @@ body .conteneur{
         overflow: hidden;
         position:relative;
         //image par défaut en BG comme secours
-        @include backgroundImage(("defaut/visuel-defaut-Actu-2019.jpg"),transparent,no-repeat, top left);
+        @include backgroundImage(("defaut/defaut-Actu-LR-2019.jpg"),transparent,no-repeat, top left);
         background-size: cover;
         img{
             transform: translate(0%,0%);
