@@ -16,6 +16,8 @@ libraries-remove:
 #Liste des librairies à charger (reprise du ficher MON_THEME.libraries.yml)
 #Transposition du chargement des CSS ou JS depuis le fichier info du D6
 # https://www.drupal.org/docs/8/theming/adding-stylesheets-css-and-javascript-js-to-a-drupal-8-theme
+libraries-override:
+libraries-extend:
 libraries:
   #Les fichiers (librairies) de style chargés pour toutes les pages. Utilise une Asset Library (bibliothèque) définie dans
   # le fichier NOM_THEME.libraries.yml
