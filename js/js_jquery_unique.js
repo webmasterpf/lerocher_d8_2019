@@ -108,16 +108,6 @@
 
 
 
-/*    console.log('Chargement de Floatit.js pour jQuery>=1.12');
-jQuery('#block-service_links-service_links').floatit({
-		  limiter: 'footer',
-		preserve_width: true,
-		top_spacing: 40,
-		bottom_spacing: 10,
-		recalculate: true
-	  });*/
-
-
 //// Script pour Masonry - Views casse les __ utiliser -- plutôt
 
 /*
@@ -159,6 +149,7 @@ jQuery('#block-service_links-service_links').floatit({
     //Menu Pleine Page Overlay
 
         jQuery(".icon").click(function () {
+          console.log('Menu pleine page actif');
             jQuery('.mobilenav').fadeToggle(500);
             jQuery('.top-menu').toggleClass('top-animate');
             jQuery('.mid-menu').toggleClass('mid-animate');
