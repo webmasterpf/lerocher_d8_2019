@@ -587,7 +587,7 @@ ______________________________*/
   div.entityqueue-plycee{
     background: $vert;
     h2{
-        color: $vert;
+        color: $gris-clair;
 
       &::before {
         @include maskImage(("PNG/push-pin-blanc@3x.png"),100%,alpha,$violet, 0 0, no-repeat);
