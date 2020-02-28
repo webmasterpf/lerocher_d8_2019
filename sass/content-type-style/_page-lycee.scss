@@ -129,7 +129,7 @@ $zonesimg: zone-illustration;
   }
 }
 
-.rocher-actus{
+div.rocher-actus{
   max-width: span(8);
   padding: span(0.02);
   margin: span(0.2);
@@ -386,8 +386,13 @@ ______________________________*/
     }
   }
   .rocher-actus{
-    @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
+    @include backgroundImage(("BG/stripe_vert_vert_pastel.png"),transparent,repeat, top left);
+    //@include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
     @include arrondis(1em);
+    h2{
+      @include backgroundRGBA($gris-clair,0.7);
+      text-align: center;
+    }
     ul.liste-autres-vdl {
       li {
         //suppression des puces
@@ -398,10 +403,10 @@ ______________________________*/
 
     a {
       background: $gris-clair;
-      color: $violet;
+    
       text-decoration: none;
       padding: span(0.01) span(0.03);
-      @include rollover-effect($vert); //Effet rollover CSS3 sur les liens
+      @include rollover-effect($violet); //Effet rollover CSS3 sur les liens
       @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
       //Pour ne pas tronquer le picto fichier - décommenter si nécessaire
       //min-height: em(65px);
@@ -409,8 +414,7 @@ ______________________________*/
     }
 
       &:hover{ //:not([href*="fiche"])
-        color: $violet;
-        background: $vert;
+        color: $gris-clair;
       }
     }
 
