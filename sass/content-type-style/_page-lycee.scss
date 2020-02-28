@@ -128,6 +128,12 @@ $zonesimg: zone-illustration;
     background-size: cover;
   }
 }
+
+.rocher-actus{
+  max-width: span(8);
+  padding: span(0.02);
+  margin: span(0.2);
+}
 // Tableau initial des classes (TdC) et IDs (Zones) à créer.
 $typedecontenu: type-page-lycee, type-annonce-accueil, type-contenu-info-admin, type-page-erreur ;
 $zones: zone-1, zone-2, zone-3, zone-4 ;
@@ -379,6 +385,39 @@ ______________________________*/
       margin: 0 0 0 span(0.2);
     }
   }
+  .rocher-actus{
+    @include backgroundImage(("BG/stripe_rose_violet_pastel.png"),transparent,repeat, top left);
+    @include arrondis(1em);
+    ul.liste-autres-vdl {
+      li {
+        //suppression des puces
+        list-style-type: none;
+        padding: span(0.1) 0;
+        @include font-size(s); //utilisation de typey
+      }
+
+    a {
+      background: $gris-clair;
+      color: $violet;
+      text-decoration: none;
+      padding: span(0.01) span(0.03);
+      @include rollover-effect($vert); //Effet rollover CSS3 sur les liens
+      @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+      //Pour ne pas tronquer le picto fichier - décommenter si nécessaire
+      //min-height: em(65px);
+      border: inherit;//Pour éviter BP vide
+    }
+
+      &:hover{ //:not([href*="fiche"])
+        color: $violet;
+        background: $vert;
+      }
+    }
+
+
+  }// Fin UL
+
+  }// Fin rocher-actus
   .videos {
     background: $violet;
     ul{
