@@ -105,7 +105,7 @@ body .conteneur{
                 @include hack-IE;
                 @include txt-colonnes();
                 padding: span(1);
-            
+
               }
               @include breakpoint(($tablet,$tabletlandscape)){
                 @include hack-Edge;
@@ -366,6 +366,9 @@ ______________________________*/
                     *{
                         color: $gris-anthracite;//cas particulier du fond clair
                     }
+                }
+                &.tid-17{//Filière Restauration
+                    background: $orange-fonce;
 
                 }
                 &.tid-25{ //Filiere Prépas
@@ -375,10 +378,7 @@ ______________________________*/
                 &.tid-101{
                     background: $rouge;
                 }
-                &.tid-102{
-                    background: $orange-fonce;
 
-                }
                 &.tid-103{
                     background: $rose-fushia;
                 }
