@@ -62,8 +62,43 @@ body .conteneur{
         }
 
 }
-
-
+//Position du visuel différente selon NiD
+#node-18{
+  #zone-diaporama.type-fiche-formations{
+      // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
+      #illustration-pleinepage{
+        @include breakpoint(($desktop,$desktopwide)){
+            img{
+                transform: translate(0%,-18%);
+            }
+        }
+      }
+    }
+}
+#node-73{
+  #zone-diaporama.type-fiche-formations{
+      // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
+      #illustration-pleinepage{
+        @include breakpoint(($desktop,$desktopwide)){
+            img{
+                transform: translate(0%,-27%);
+            }
+        }
+      }
+    }
+}
+#node-15{
+  #zone-diaporama.type-fiche-formations{
+      // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
+      #illustration-pleinepage{
+        @include breakpoint(($desktop,$desktopwide)){
+            img{
+                transform: translate(0%,-46%);
+            }
+        }
+      }
+    }
+}
 #zone-1.type-fiche-formations{
     .complement-titre-fiche{
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
