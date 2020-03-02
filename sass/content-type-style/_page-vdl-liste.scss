@@ -55,6 +55,20 @@ body .conteneur {
     }
 
 }
+//Position illustration selon NiD
+#node-527 {
+  //Page Calendrier
+
+  #zone-illustration.type-page-vie-lycee {
+    #illustration-pleinepage {
+      @include breakpoint(($desktop,$desktopwide)) {
+        img {
+          transform: translate(0%,-18%);
+        }
+      }
+    }
+  }
+}
 // Tableau initial des classes et IDs à créer.
 $typedecontenu: type-page-vie-lycee ;
 $zones: zone-1 ; //, zone-2, zone-3
