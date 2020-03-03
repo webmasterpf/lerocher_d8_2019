@@ -52,7 +52,7 @@
             scrollY = $window.scrollTop();
 
             var elmts = [];
-            for (var i=0, len=elements.length; i<len; i++) {          
+            for (var i=0, len=elements.length; i<len; i++) {
                 var $this = $(elements[i]),
                     data  = $this.data("pin");
 
@@ -60,16 +60,16 @@
                   continue;
                 }
 
-                elmts.push($this); 
-                  
+                elmts.push($this);
+
                 var from = data.from - data.pad.bottom,
                     to = data.to - data.pad.top;
-              
+
                 if (from + $this.outerHeight() > data.end) {
                     $this.css('position', '');
                     continue;
                 }
-              
+
                 if (from < scrollY && to > scrollY) {
                     !($this.css("position") == "fixed") && $this.css({
                         left: $this.offset().left,
@@ -93,7 +93,7 @@
         var update = function () { recalculateLimits(); onScroll(); };
 
         this.each(function () {
-            var $this = $(this), 
+            var $this = $(this),
                 data  = $(this).data('pin') || {};
 
             if (data && data.update) { return; }
@@ -107,7 +107,8 @@
         $window.resize(function () { recalculateLimits(); });
         recalculateLimits();
 
-        $window.load(update);
+        $(window).on("load", function (update);
+        //$window.load(update);
 
         return this;
       };
