@@ -104,10 +104,6 @@
                     pause: false        // Boolean: Pause on hover, true or false
                 });
 
-
-
-
-
 //// Script pour Masonry - Views casse les __ utiliser -- plutôt
 
 /*
@@ -266,6 +262,24 @@ jQuery('#block-menu-menu-menu-general').click(function() {
         });//enquire.register(tablet)
 /*** Fin Enquire.js ***/
 
+//Utilisation de SmartSticky pour le bloc de Partage RS
+/*console.log('Chargement des paramètres de SmartSticky');
+jQuery('#block-socialsimpleblock').sticky({
+top: 20, // Distance to the top of the page when it is fixed
+bottom: 20, // Distance to the bottom of the down element when stoped
+stopOn: '#footer', // Stand on this element (often footer)
+disableOn: 768 // Disable plugin on this screen width size (responsive themes)
+});*/
+
+console.log('Chargement des paramètres de Floatit');
+jQuery('#block-socialsimpleblock').floatit({
+    limiter: 'footer',
+    preserve_width: true,
+    top_spacing: 40,
+    bottom_spacing: 10,
+    recalculate: true
+   });
+
     //  Utilisation du Lazyload pour les éléments contenus dans certains conteneurs
         jQuery('.conteneur').find('img').lazyLoadXT();
         jQuery('.conteneur').find('iframe').lazyLoadXT();
@@ -322,14 +336,7 @@ jQuery( window ).on("load", function() {
               sync: "#carousel"
           });
 
-      //Utilisation de SmartSticky pour le bloc de Partage RS
-      console.log('Chargement des paramètres de SmartSticky');
-      $('.partage-rs').sticky({
-    	top: 20, // Distance to the top of the page when it is fixed
-    	bottom: 20, // Distance to the bottom of the down element when stoped
-    	stopOn: '#footer', // Stand on this element (often footer)
-    	disableOn: 768 // Disable plugin on this screen width size (responsive themes)
-      });
+
 
           //Pour stacktable (tableaux RWD)
           console.log('Chargement des paramètres de Stacktable.js');
