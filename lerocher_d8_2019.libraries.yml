@@ -81,10 +81,10 @@ global-scripts:
 #       chargement des plugins qui utilisent une version de jQuery plus récente - exD6
       js/jquery_plugin/jquery.flexslider.js: {}
       js/jquery_plugin/stacktable.min.js: {}
-      #js/jquery_plugin/jquery.floatit.js: {}
+      js/jquery_plugin/jquery.floatit.js: {}
       #js/jquery_plugin/stickUp.js: {}
       #js/jquery_plugin/jquery.masonry.min.js: {}
-      js/jquery_plugin/jquery.smartsticky.min.js: {}
+      #js/jquery_plugin/jquery.smartsticky.min.js: {}
       js/jquery_plugin/baguettebox/baguetteBox.min.js: {}
       js/jquery_plugin/chocolat/jquery.chocolat.min.js: {}
       js/jquery_plugin/responsiveslides/responsiveslides.min.js: {}
