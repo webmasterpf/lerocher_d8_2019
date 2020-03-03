@@ -238,12 +238,14 @@ $('#block-menu-menu-menu-general').click(function() {
 /*** Fin Enquire.js ***/
 
 //Utilisation de Pin.js pour le bloc de Partage RS
-console.log('Chargement des paramètres de Pin.js');
- $("aside.partage-rs").pin({
-      minWidth: 940,
-      containerSelector: ".conteneur",
-      padding: {top: 10, bottom: 10}
-})
+console.log('Appel du script pour Partage RS');
+ $("aside.partage-rs").sticky({
+       stopOn: '#footer',
+       top: 20,
+       bottom: 20,
+       disableOn: 768
+     });
+   
 
     //  Utilisation du Lazyload pour les éléments contenus dans certains conteneurs
         $('.conteneur').find('img').lazyLoadXT();
