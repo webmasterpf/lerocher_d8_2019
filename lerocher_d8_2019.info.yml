@@ -12,6 +12,7 @@ libraries-remove:
   - core/modules/system/css/system.module.css
   - core/modules/system/css/system.theme.css
   - core/modules/views/css/views.module.css
+  - lerocher_d8_2019/npm.enquire
 
 #Liste des librairies à charger (reprise du ficher MON_THEME.libraries.yml)
 #Transposition du chargement des CSS ou JS depuis le fichier info du D6
