@@ -20,12 +20,12 @@ body .conteneur {
   //Bloc de partage RS avec social simple
   aside.partage-rs {
     max-width: $blocRS-width;
-    max-height: $blocRS-height;
-    position: absolute;
-    width: $blocRS-width;
-    left: $blocRS-left;
-    top: 50em;//position de départ
-    bottom: 0;
+    //max-height: $blocRS-height;
+    //position: absolute;
+    //width: $blocRS-width;
+    //left: $blocRS-left;
+    //top: 50em;//position de départ
+    //bottom: 0;
     height: auto;//limite la hauteur du bloc
     margin-left: span(1 wide);//push;
 
