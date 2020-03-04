@@ -5,34 +5,38 @@
  * http://sundropsoftware.com/how-to-use-jquery-noconflict-the-right-way/
  */
 
-//function ($) {
-///*************  Fonctions déclenchées sur  $(document).ready(function () *****///
-    jQuery( document ).ready(function($) {
+//(function ($) {
+///*************  Fonctions déclenchées sur  jQuery(document).ready(function () *****///
+    jQuery( document ).ready(function() {
 
+
+        //<!--Pour utiliser selectnav en RWD-->
+        console.log('Chargement du script pour selectnav');
+        selectnav('subnav', {label: '- Accès rapide -'});
 
         //Pour surcharger éléments des diaporama de views
-        $('.diapo_fiche div.views_slideshow_cycle_teaser_section').css('width', 'auto'),
-        $('.diapo_fiche .views_slideshow_cycle_teaser_section').css('height', 'auto'),
-        $('.diapo_fiche  .views_slideshow_cycle_teaser_section').css('max-width', '100%');
-        $('.views_slideshow_cycle_slide').css('position', 'relative', 'important');
-        $('.views_slideshow_cycle_hidden').css('position', 'relative', 'important');
-        $('#views_slideshow_cycle_div_Diapo_illustration-block_1_0').css('position', 'relative', 'important');
-        $('#views_slideshow_cycle_div_Diapo_illustration-block_1_1').css('position', 'relative', 'important');
-        $('.views_slideshow_cycle_slide').not(':visible').css('position', 'absolute', 'important');
+        jQuery('.diapo_fiche div.views_slideshow_cycle_teaser_section').css('width', 'auto'),
+        jQuery('.diapo_fiche .views_slideshow_cycle_teaser_section').css('height', 'auto'),
+        jQuery('.diapo_fiche  .views_slideshow_cycle_teaser_section').css('max-width', '100%');
+        jQuery('.views_slideshow_cycle_slide').css('position', 'relative', 'important');
+        jQuery('.views_slideshow_cycle_hidden').css('position', 'relative', 'important');
+        jQuery('#views_slideshow_cycle_div_Diapo_illustration-block_1_0').css('position', 'relative', 'important');
+        jQuery('#views_slideshow_cycle_div_Diapo_illustration-block_1_1').css('position', 'relative', 'important');
+        jQuery('.views_slideshow_cycle_slide').not(':visible').css('position', 'absolute', 'important');
 
 
 
 
 //OffCanvas avec fonction anonyme
         console.log('Chargement du script pour volet coulissant');
-        var $transformer = $('.transformer'),
-                $menuToggle = $('.menu-toggle');
-        $('.menu-toggle').on('click', function (event) {
+        var $transformer = jQuery('.transformer'),
+                $menuToggle = jQuery('.menu-toggle');
+        jQuery('.menu-toggle').on('click', function (event) {
             event.preventDefault();
             $transformer.toggleClass('is-open');
         });
 
-        $('.close-btn').on('click', function (event) {
+        jQuery('.close-btn').on('click', function (event) {
             event.preventDefault();
             console.log('bouton referme volet fonctionne !');
             $transformer.removeClass('is-open');
@@ -45,13 +49,13 @@
 
     //Pour le BxSlider - Ajouter la classe dans views au niveau des paramètres d'affichage > classe de la liste
           console.log('Chargement des paramètres de BxSlider');
-//  $('.bxslider').bxSlider({
+//  jQuery('.bxslider').bxSlider({
 //      pagerCustom: "#bx-pager",
 //   captions: true
 //  });
 
         console.log('Chargement des paramètres de BxSlider Illus');
-        $('.bxslider-illus').bxSlider({
+        jQuery('.bxslider-illus').bxSlider({
             mode: 'fade',
             controls: true,
             captions: false,
@@ -62,7 +66,7 @@
         });
 
         console.log('Chargement des paramètres de BxSlider HP');
-        $('.bxslider-hp').bxSlider({
+        jQuery('.bxslider-hp').bxSlider({
             mode: 'fade',
             controls: true,
             captions: true,
@@ -76,9 +80,9 @@
 
 
 //Pour Galerie Chocolat.js
-//    $(document).ready(function(){
+//    jQuery(document).ready(function(){
 //        console.log('Appel du script Chocolat.js');
-//    $('.chocolat-parent').Chocolat();
+//    jQuery('.chocolat-parent').Chocolat();
 //});
 
 //Pour Galerie BaguetteBox.js
@@ -90,7 +94,7 @@
 
         //Pour Responsive Slides
         console.log('Appel du script ResponsiveSlides.js');
-        $(".rslides").responsiveSlides
+        jQuery(".rslides").responsiveSlides
 
                 ({
 // Custom options
@@ -100,7 +104,36 @@
                     pause: false        // Boolean: Pause on hover, true or false
                 });
 
+
+
+
+
 //// Script pour Masonry - Views casse les __ utiliser -- plutôt
+
+/*
+        console.log('Chargement des paramètres Masonry.js');
+        'use strict';
+        var $masonryContainer = jQuery('.masonry');
+        //$masonryContainer.imagesLoaded(function () {
+        $masonryContainer.masonry({
+            itemSelector: '.masonry--item',
+            columnWidth: '.masonry--column',
+            gutter: '.masonry--gutter',
+            //percentPosition: true
+
+        });
+
+        //GoogleFont cause un problème avec Masonry
+        (function () {
+            var wf = document.createElement('script');
+            wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1.4.2/webfont.js';
+            wf.type = 'text/javascript';
+            wf.async = 'true';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(wf, s);
+        });*/
+
 
 
 //Changer la taille de l'iframe dans les contenus
@@ -108,24 +141,24 @@
     obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
   }
   //Ajout d'un évènement onLoad sur l'iframe concernée
-  $("p.external-content iframe").on( "load", function() {
+  jQuery("p.external-content iframe").on( "load", function() {
             resizeIframe(this);
-  console.log( $( this ).text() );
+  console.log( jQuery( this ).text() );
 });
 
     //Menu Pleine Page Overlay
 
-        $(".icon").click(function () {
+        jQuery(".icon").click(function () {
           console.log('Menu pleine page actif');
-            $('.mobilenav').fadeToggle(500);
-            $('.top-menu').toggleClass('top-animate');
-            $('.mid-menu').toggleClass('mid-animate');
-            $('.bottom-menu').toggleClass('bottom-animate');
+            jQuery('.mobilenav').fadeToggle(500);
+            jQuery('.top-menu').toggleClass('top-animate');
+            jQuery('.mid-menu').toggleClass('mid-animate');
+            jQuery('.bottom-menu').toggleClass('bottom-animate');
         });
 
         //Cache / Affiche les enfants dans le menu overlay - Pas fonctionnel
-$('#block-menu-menu-menu-general').click(function() {
-  $('.collapsed').toggle( "slow", function() {
+jQuery('#block-menu-menu-menu-general').click(function() {
+  jQuery('.collapsed').toggle( "slow", function() {
     // Animation complete.
   });
 });
@@ -155,18 +188,18 @@ $('#block-menu-menu-menu-general').click(function() {
     enquire.register(desktop, {
     	match : function() {
         console.log('Enquire.js : MediaQueries pour:'+desktop);
-        $("#zone-1 #media-vimeo-1 iframe").height('23vw').width('100vw');
-        $("#zone-2 #media-vimeo-1 iframe").height('23vw').width('100vw');
-        $("#zone-1 #media-youtube-1").height('23vw').width('100vw');
-        $("#zone-2 #media-youtube-1").height('23vw').width('100vw');
+        jQuery("#zone-1 #media-vimeo-1 iframe").height('23vw').width('100vw');
+        jQuery("#zone-2 #media-vimeo-1 iframe").height('23vw').width('100vw');
+        jQuery("#zone-1 #media-youtube-1").height('23vw').width('100vw');
+        jQuery("#zone-2 #media-youtube-1").height('23vw').width('100vw');
 
         //Video sur HP
-        /*$(".acces_rubriques iframe").each(function () {
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-            $(this).removeAttr('align');
+        /*jQuery(".acces_rubriques iframe").each(function () {
+            jQuery(this).removeAttr('width');
+            jQuery(this).removeAttr('height');
+            jQuery(this).removeAttr('align');
         });*/
-        $(".acces_rubriques iframe").height('95vh').width('60vw');//Video Gde Taille HP
+        jQuery(".acces_rubriques iframe").height('95vh').width('60vw');//Video Gde Taille HP
     	},
     	unmatch : function() {
     		example.unmatch();
@@ -175,18 +208,18 @@ $('#block-menu-menu-menu-general').click(function() {
     enquire.register(tabletlandscape, {
       deferSetup : true,
       	setup : function() {
-      	$(".acces_rubriques iframe").height('55vh').width('45vw');//Video Gde Taille HP
+      	jQuery(".acces_rubriques iframe").height('55vh').width('45vw');//Video Gde Taille HP
       	},
       match : function() {
         console.log('Enquire.js : BP pour:'+tabletlandscape);
 
         //Video sur HP
-        /*$(".acces_rubriques iframe").each(function () {
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-            $(this).removeAttr('align');
+        /*jQuery(".acces_rubriques iframe").each(function () {
+            jQuery(this).removeAttr('width');
+            jQuery(this).removeAttr('height');
+            jQuery(this).removeAttr('align');
         });*/
-        $(".acces_rubriques iframe").height('55vh').width('65vw');//Video Gde Taille HP
+        jQuery(".acces_rubriques iframe").height('55vh').width('65vw');//Video Gde Taille HP
     	},
     	unmatch : function() {
     		example.unmatch();
@@ -196,18 +229,18 @@ $('#block-menu-menu-menu-general').click(function() {
     enquire.register(tablet, {
       deferSetup : true,
         setup : function() {
-        $(".acces_rubriques iframe").height('55vh').width('45vw');//Video Gde Taille HP
+        jQuery(".acces_rubriques iframe").height('55vh').width('45vw');//Video Gde Taille HP
         },
       match : function() {
         console.log('Enquire.js : BP pour:'+tablet);
 
         //Video sur HP
-        /*$(".acces_rubriques iframe").each(function () {
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-            $(this).removeAttr('align');
+        /*jQuery(".acces_rubriques iframe").each(function () {
+            jQuery(this).removeAttr('width');
+            jQuery(this).removeAttr('height');
+            jQuery(this).removeAttr('align');
         });*/
-        $(".acces_rubriques iframe").height('45vh').width('95vw');//Video Gde Taille HP
+        jQuery(".acces_rubriques iframe").height('45vh').width('95vw');//Video Gde Taille HP
       },
       unmatch : function() {
         example.unmatch();
@@ -217,55 +250,49 @@ $('#block-menu-menu-menu-general').click(function() {
     enquire.register(mobile, {
       deferSetup : true,
         setup : function() {
-        $(".acces_rubriques iframe").height('55vh').width('45vw');//Video Gde Taille HP
+        jQuery(".acces_rubriques iframe").height('55vh').width('45vw');//Video Gde Taille HP
         },
       match : function() {
         console.log('Enquire.js : BP pour:'+mobile);
 
         //Video sur HP
-        /*$(".acces_rubriques iframe").each(function () {
-            $(this).removeAttr('width');
-            $(this).removeAttr('height');
-            $(this).removeAttr('align');
+        /*jQuery(".acces_rubriques iframe").each(function () {
+            jQuery(this).removeAttr('width');
+            jQuery(this).removeAttr('height');
+            jQuery(this).removeAttr('align');
         });*/
-        $(".acces_rubriques iframe").height('45vh').width('95vw');//Video Gde Taille HP
+        jQuery(".acces_rubriques iframe").height('45vh').width('95vw');//Video Gde Taille HP
       },
         });//enquire.register(tablet)
 /*** Fin Enquire.js ***/
 
-//Utilisation de Pin.js pour le bloc de Partage RS
-console.log('Chargement des paramètres de Pin.js');
-
-
     //  Utilisation du Lazyload pour les éléments contenus dans certains conteneurs
-        $('.conteneur').find('img').lazyLoadXT();
-        $('.conteneur').find('iframe').lazyLoadXT();
-
-
+        jQuery('.conteneur').find('img').lazyLoadXT();
+        jQuery('.conteneur').find('iframe').lazyLoadXT();
 
   });//Fin document.ready
 
-///*************  Fonctions déclenchées sur   $(window).load(function () *****///
+///*************  Fonctions déclenchées sur   jQuery(window).load(function () *****///
 
 jQuery( window ).on("load", function() {
-  //$(window).load(function () { déprécie avec Jquery 3.0
+  //jQuery(window).load(function () { déprécie avec Jquery 3.0
   //Pour une galerie standard : Flexslider
 
           console.log('Chargement des paramètres de Flexslider');
-          $('.flexslider-classic').flexslider({
+          jQuery('.flexslider-classic').flexslider({
               //animation: "slide",
               directionNav: true,
               controlNav: false,
               start: function (slider) {
-                  $('body').removeClass('loading');
-                  $('.flexslider-classic').resize();
+                  jQuery('body').removeClass('loading');
+                  jQuery('.flexslider-classic').resize();
 
               }
 
           });
 
           //Flexslider pour HP (avec caption)
-          $('.flexslider-hp').flexslider({
+          jQuery('.flexslider-hp').flexslider({
               animation: "slide"
           });
 
@@ -273,7 +300,7 @@ jQuery( window ).on("load", function() {
       //Pour une galerie avec des vignettes : Flexslider thumbs
 
           console.log('Chargement des paramètres de FlexsliderThumbs');
-          $('#carousel').flexslider({
+          jQuery('#carousel').flexslider({
               animation: "slide",
               controlNav: false,
               directionNav: false,
@@ -284,7 +311,7 @@ jQuery( window ).on("load", function() {
               asNavFor: '#slider'
           });
 
-          $('#slider').flexslider({
+          jQuery('#slider').flexslider({
               animation: "slide",
               controlNav: true,
               directionNav: false,
@@ -293,108 +320,106 @@ jQuery( window ).on("load", function() {
               sync: "#carousel"
           });
 
-
-
           //Pour stacktable (tableaux RWD)
           console.log('Chargement des paramètres de Stacktable.js');
               //Ajouter l'ID de la table à rendre RWD
               //Cible toutes les tables contenues dans la div.content (colonne-2)
-          $('div.content').children('table').stacktable({});
+          jQuery('div.content').children('table').stacktable({});
 
 
                   //<!-- Pour ajouter classes sur éléments du tableau -->
                   console.log('Actions sur divers éléments : tableaux, images...');
                   //Ajout des classes pour styler les tableaux
-                  $('table tr:odd').addClass('odd');
-                  $('table tr:even').addClass('even');
+                  jQuery('table tr:odd').addClass('odd');
+                  jQuery('table tr:even').addClass('even');
           //Ajout d'attributs pour mur image JS
-                  $('#liste-vdl ul.wookmark').attr("id", "wookmark-id");
-                  $('#liste-vdl div.view-content').attr("id", "grid");
-                  $('#liste-vdl div.view-content').attr("data-columns", "");
+                  jQuery('#liste-vdl ul.wookmark').attr("id", "wookmark-id");
+                  jQuery('#liste-vdl div.view-content').attr("id", "grid");
+                  jQuery('#liste-vdl div.view-content').attr("data-columns", "");
 
 
               //Retrait Taille des images sur les pages espace Entreprise et Partenaires
-                  $(".nav-espace-entreprise li img").removeAttr("style");
-                  $(".nav-espace-partenaire li img").removeAttr("style");
+                  jQuery(".nav-espace-entreprise li img").removeAttr("style");
+                  jQuery(".nav-espace-partenaire li img").removeAttr("style");
 
 
                 //Retrait position:absolute sur le Views Slideshow
-$('.views_slideshow_cycle_slide:visible').css('position', 'relative', 'important');
-$('.views_slideshow_cycle_slide').not(':visible').css('position', 'absolute', 'important');
+jQuery('.views_slideshow_cycle_slide:visible').css('position', 'relative', 'important');
+jQuery('.views_slideshow_cycle_slide').not(':visible').css('position', 'absolute', 'important');
 
 //Style pour les iframes contenus dans des § pour le RWD - ajout de classe pour traitement CSS+JS
-$(".contenu-vdl p:has(iframe)").addClass('external-content');
-$(".page-lycee p:has(iframe)").addClass('external-content');
-$(".page-contact p:has(iframe)").addClass('external-content');
-$(".contenu-international p:has(iframe)").addClass('external-content');
+jQuery(".contenu-vdl p:has(iframe)").addClass('external-content');
+jQuery(".page-lycee p:has(iframe)").addClass('external-content');
+jQuery(".page-contact p:has(iframe)").addClass('external-content');
+jQuery(".contenu-international p:has(iframe)").addClass('external-content');
 
 //Action sur style du backoffice
-$('body.role--authenticated').removeAttr('style');
+jQuery('body.role--authenticated').removeAttr('style');
 
 
           //Action sur taille des images : retrait de toutes les tailles en dur (HTML) de manière ciblée
-                  //$('img').each(function(){
+                  //jQuery('img').each(function(){
                   console.log('Nettoyage sur divers éléments : objets,iframe,....');
 
-                  $('.fiche-formation img').each(function () {
-                      $(this).removeAttr('width');
-                      $(this).removeAttr('height');
+                  jQuery('.fiche-formation img').each(function () {
+                      jQuery(this).removeAttr('width');
+                      jQuery(this).removeAttr('height');
                   });
 
           //Changer la casse des titres H1 qui sont en Majuscules
-                  $('h1').css('text-transform', 'capitalize');
-          //        $('.liste-vdl-lycee .titre-vdl a').css('text-transform', 'lowercase');
-                  $('#liste-vdl span.titre-vdl > a').css('text-transform', 'lowercase');
+                  jQuery('h1').css('text-transform', 'capitalize');
+          //        jQuery('.liste-vdl-lycee .titre-vdl a').css('text-transform', 'lowercase');
+                  jQuery('#liste-vdl span.titre-vdl > a').css('text-transform', 'lowercase');
 
                   //Retirer les style en ligne issus de copier/coller
-                  $("#zone-2 span").removeAttr("style");
-                  $("#zone-2 p").removeAttr("style");
-                  $("#zone-2 ul").removeAttr("style");
-                  $(".masonry-brick").removeAttr("style");//pas d'effet
-                  $("img.filefield-icon").removeAttr("style");
+                  jQuery("#zone-2 span").removeAttr("style");
+                  jQuery("#zone-2 p").removeAttr("style");
+                  jQuery("#zone-2 ul").removeAttr("style");
+                  jQuery(".masonry-brick").removeAttr("style");//pas d'effet
+                  jQuery("img.filefield-icon").removeAttr("style");
 
 
                   //Retrait du style des objets imbriqués comme object,iframe,etc...
-                  $("#media-youtube-default-external-object-1").removeAttr("style");
-                  $("#media-youtube-1").remove();
+                  jQuery("#media-youtube-default-external-object-1").removeAttr("style");
+                  jQuery("#media-youtube-1").remove();
 
 
                   //Reset des attributs de l'iframe puis réglage des nouvelles valeurs des attributs, alignement avec plugin JQuery
-                /*  $(".acces_rubriques iframe").each(function () {
-                      $(this).removeAttr('width');
-                      $(this).removeAttr('height');
-                      $(this).removeAttr('align');
+                /*  jQuery(".acces_rubriques iframe").each(function () {
+                      jQuery(this).removeAttr('width');
+                      jQuery(this).removeAttr('height');
+                      jQuery(this).removeAttr('align');
                   });*/
 
 
 
           // Taille auto pour les images des logos partenaires sur accueil
-                  $(".logo_partenaires img").height('auto').width('auto');
-                  $(".acces-lycees #media-vimeo-1 iframe").height('11.5vw').width('20vw');
+                  jQuery(".logo_partenaires img").height('auto').width('auto');
+                  jQuery(".acces-lycees #media-vimeo-1 iframe").height('11.5vw').width('20vw');
 
           //Taille auto des images sur les pages espace
-                  $('.page-espace li img').each(function () {
-                      $(this).removeAttr('width');
-                      $(this).removeAttr('height');
+                  jQuery('.page-espace li img').each(function () {
+                      jQuery(this).removeAttr('width');
+                      jQuery(this).removeAttr('height');
                         });
                         // StickUp pour barre de partage social
-                        //    $(window).load(function () {
+                        //    jQuery(window).load(function () {
                         //    console.log('Chargement de StickUp.js pour jQuery>=1.11');
-                        //$('.service-links').stickUp();
+                        //jQuery('.service-links').stickUp();
                         //});
                         // Pour MixItUp plugin: voir le fichier ajout.classes.mixitup.js
                         // Calling the MixItUp plugin for this View.
-                        //    $(window).load(function () {
+                        //    jQuery(window).load(function () {
                         //        console.log('Chargement de Mixitup');
-                        //        $('.mixitup').mixItUp();
+                        //        jQuery('.mixitup').mixItUp();
                         //    });
 
-      });// Fin   $(window).load(function ()
+      });// Fin   jQuery(window).load(function ()
       //Views Slideshow Cycle RWD
 
-      $(window).resize(function () {
-          $('.views_slideshow_cycle_main').each(function () {
-              var cycleMain = $(this);
+      jQuery(window).resize(function () {
+          jQuery('.views_slideshow_cycle_main').each(function () {
+              var cycleMain = jQuery(this);
               var img_width = 0,
                       img_height = 0;
               var clearCSS = {width: "auto", height: "auto"};
@@ -402,21 +427,21 @@ $('body.role--authenticated').removeAttr('style');
               cycleElements = cycle.data("cycle.opts");
               cycle.css(clearCSS);
               cycleMain.find('.views-slideshow-cycle-main-frame-row').each(function (i) {
-                  $(this).css(clearCSS);
-                  var tmp_img_width = $(this).width();
-                  var tmp_img_height = $(this).height();
+                  jQuery(this).css(clearCSS);
+                  var tmp_img_width = jQuery(this).width();
+                  var tmp_img_height = jQuery(this).height();
                   if (tmp_img_width > img_width)
                       img_width = tmp_img_width;
                   if (tmp_img_height > img_height)
                       img_height = tmp_img_height;
                   cycleElements.elements[i].cycleW = tmp_img_width;
                   cycleElements.elements[i].cycleH = tmp_img_height;
-                  $(this).css({width: tmp_img_width, height: tmp_img_height});
+                  jQuery(this).css({width: tmp_img_width, height: tmp_img_height});
               });
               cycleMain.height(img_height);
               cycle.css({width: img_width, height: img_height});
               cycle.data("cycle.opts.elements", cycleElements);
           });
-      });// Fin de $(window).resize(function)
+      });// Fin de jQuery(window).resize(function)
 
 //}); //Fin de function ($)
