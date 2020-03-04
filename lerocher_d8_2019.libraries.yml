@@ -72,7 +72,7 @@ global-scripts:
       #https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js: {type: external, minified: true}
 
 #     chargement des plugins qui utilisent la version de jQuery par défaut du site - exD6
-      #js/jquery_plugin/selectnav.min.js: {}
+      js/jquery_plugin/selectnav.min.js: {}
       #js/jquery_plugin/jquery.sticky-kit.js: {}
 #      chargement des scripts qui utilisent la version de jQuery par défaut du site - exD6
       #js/js_jquery_defaut.js: {}
@@ -81,18 +81,14 @@ global-scripts:
 #       chargement des plugins qui utilisent une version de jQuery plus récente - exD6
       js/jquery_plugin/jquery.flexslider.js: {}
       js/jquery_plugin/stacktable.min.js: {}
+      #js/jquery_plugin/jquery.floatit.js: {}
+      #js/jquery_plugin/stickUp.js: {}
       #js/jquery_plugin/jquery.masonry.min.js: {}
       js/jquery_plugin/baguettebox/baguetteBox.min.js: {}
       js/jquery_plugin/chocolat/jquery.chocolat.min.js: {}
       js/jquery_plugin/responsiveslides/responsiveslides.min.js: {}
       js/jquery_plugin/lazyload/jquery.lazyloadxt.extra.min.js: {}
       js/jquery_plugin/vertical-align.min.js: {}
-      #js/jquery_plugin/jquery.floatit.js: {}
-      #js/jquery_plugin/stickUp.js: {}
-      #js/jquery_plugin/jquery.smartsticky.min.js: {}
-      #js/jquery_plugin/jquery.sticky.js: {}
-      js/jquery_plugin/jquery.pin.js: {}
-      js/jquery_plugin/jquery.lockfixed.min.js: {}
 
       3rdparty/bxslider/js/jquery.bxslider.js: {}
       #3rdparty/lightslider/js/lightslider.js: {}
