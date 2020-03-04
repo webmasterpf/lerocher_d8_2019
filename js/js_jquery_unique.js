@@ -238,6 +238,7 @@ $('#block-menu-menu-menu-general').click(function() {
 /*** Fin Enquire.js ***/
 
 //Utilisation de Pin.js pour le bloc de Partage RS
+/*
 console.log('Appel du script pour Partage RS');
  $("aside.partage-rs").sticky({
        stopOn: '#footer',
@@ -245,8 +246,8 @@ console.log('Appel du script pour Partage RS');
        bottom: 20,
        disableOn: 768
      });
-   
 
+*/
     //  Utilisation du Lazyload pour les éléments contenus dans certains conteneurs
         $('.conteneur').find('img').lazyLoadXT();
         $('.conteneur').find('iframe').lazyLoadXT();
