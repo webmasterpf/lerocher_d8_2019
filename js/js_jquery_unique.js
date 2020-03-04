@@ -7,7 +7,7 @@
 
 //function ($) {
 ///*************  Fonctions déclenchées sur  $(document).ready(function () *****///
-    jQuery( document ).ready(function() {
+    jQuery( document ).ready(function($) {
 
 
         //Pour surcharger éléments des diaporama de views
