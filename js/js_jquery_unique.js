@@ -5,14 +5,10 @@
  * http://sundropsoftware.com/how-to-use-jquery-noconflict-the-right-way/
  */
 
-//(function ($) {
+//function ($) {
 ///*************  Fonctions déclenchées sur  $(document).ready(function () *****///
-    jQuery(document).ready(function($) {
+    jQuery( document ).ready(function() {
 
-
-        //<!--Pour utiliser selectnav en RWD-->
-        console.log('Chargement du script pour selectnav');
-        selectnav('subnav', {label: '- Accès rapide -'});
 
         //Pour surcharger éléments des diaporama de views
         $('.diapo_fiche div.views_slideshow_cycle_teaser_section').css('width', 'auto'),
@@ -238,16 +234,9 @@ $('#block-menu-menu-menu-general').click(function() {
 /*** Fin Enquire.js ***/
 
 //Utilisation de Pin.js pour le bloc de Partage RS
-/*
-console.log('Appel du script pour Partage RS');
- $("aside.partage-rs").sticky({
-       stopOn: '#footer',
-       top: 20,
-       bottom: 20,
-       disableOn: 768
-     });
+console.log('Chargement des paramètres de Pin.js');
 
-*/
+
     //  Utilisation du Lazyload pour les éléments contenus dans certains conteneurs
         $('.conteneur').find('img').lazyLoadXT();
         $('.conteneur').find('iframe').lazyLoadXT();
@@ -258,7 +247,7 @@ console.log('Appel du script pour Partage RS');
 
 ///*************  Fonctions déclenchées sur   $(window).load(function () *****///
 
-$( window ).on("load", function() {
+jQuery( window ).on("load", function() {
   //$(window).load(function () { déprécie avec Jquery 3.0
   //Pour une galerie standard : Flexslider
 
