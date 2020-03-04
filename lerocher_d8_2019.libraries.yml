@@ -72,7 +72,7 @@ global-scripts:
       #https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js: {type: external, minified: true}
 
 #     chargement des plugins qui utilisent la version de jQuery par défaut du site - exD6
-      js/jquery_plugin/selectnav.min.js: {}
+      #js/jquery_plugin/selectnav.min.js: {}
       #js/jquery_plugin/jquery.sticky-kit.js: {}
 #      chargement des scripts qui utilisent la version de jQuery par défaut du site - exD6
       #js/js_jquery_defaut.js: {}
@@ -91,7 +91,8 @@ global-scripts:
       #js/jquery_plugin/stickUp.js: {}
       #js/jquery_plugin/jquery.smartsticky.min.js: {}
       #js/jquery_plugin/jquery.sticky.js: {}
-      #js/jquery_plugin/jquery.pin.js: {}
+      js/jquery_plugin/jquery.pin.js: {}
+      js/jquery_plugin/jquery.lockfixed.min.js: {}
 
       3rdparty/bxslider/js/jquery.bxslider.js: {}
       #3rdparty/lightslider/js/lightslider.js: {}
