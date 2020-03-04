@@ -89,7 +89,7 @@ global-scripts:
       js/jquery_plugin/vertical-align.min.js: {}
       #js/jquery_plugin/jquery.floatit.js: {}
       #js/jquery_plugin/stickUp.js: {}
-      js/jquery_plugin/jquery.smartsticky.min.js: {}
+      #js/jquery_plugin/jquery.smartsticky.min.js: {}
       #js/jquery_plugin/jquery.sticky.js: {}
       #js/jquery_plugin/jquery.pin.js: {}
 
