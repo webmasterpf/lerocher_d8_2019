@@ -7,10 +7,12 @@ Mise à jour Mars 2020 - Exemple Basic Theme
 https://git.drupalcode.org/project/basic/blob/8.x-2.x/js/source/scripts.js
 
  */
- // JavaScript should be made compatible with libraries other than jQuery by
- // wrapping it with an "anonymous closure". See:
- // - https://drupal.org/node/1446420
- // - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
+ /* JavaScript should be made compatible with libraries other than jQuery by
+ wrapping it with an "anonymous closure". See:
+ - https://drupal.org/node/1446420
+  - http://www.adequatelygood.com/2010/3/JavaScript-Module-Pattern-In-Depth
+Librairie externes et D8: https://www.drupal.org/project/documentation/issues/2605130
+ */
  (function (Drupal, $) {
    'use strict';
 
@@ -416,7 +418,7 @@ https://git.drupalcode.org/project/basic/blob/8.x-2.x/js/source/scripts.js
                              $(this).removeAttr('height');
                                });
 //Partage RS - Bloc fixe au scroll
-console.log('Action sur Bloc Partage RS');
+//console.log('Action sur Bloc Partage RS');
 //$("aside.partage-rs").pin({padding: {top: 10, bottom: 10}})
 /*$("aside#block-socialsimpleblock").fixit({
   topMargin:10, addClassAfter:"classToAdd", sameDimension:true, zIndex : 50
