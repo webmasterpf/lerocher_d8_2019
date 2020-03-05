@@ -15,7 +15,10 @@ https://git.drupalcode.org/project/basic/blob/8.x-2.x/js/source/scripts.js
    'use strict';
 
    // To understand behaviors, see https://www.drupal.org/node/2269515
-   Drupal.behaviors.lerocher_d8_2019 = {
+   //https://sqndr.github.io/d8-theming-guide/javascript/behaviors.html
+   //https://stackoverflow.com/questions/39439576/how-do-i-use-jquery-code-through-a-drupal-8-module
+   //Nom indépendant du nom du thème mais doit être unique
+   Drupal.behaviors.proform2020 = {
      attach: function (context, settings) {
 
        // Execute code once the DOM is ready. $(handler) not required
@@ -412,18 +415,17 @@ https://git.drupalcode.org/project/basic/blob/8.x-2.x/js/source/scripts.js
                              $(this).removeAttr('width');
                              $(this).removeAttr('height');
                                });
-                               // StickUp pour barre de partage social
-                               //    $(window).load(function () {
-                               //    console.log('Chargement de StickUp.js pour jQuery>=1.11');
-                               //$('.service-links').stickUp();
-                               //});
-                               // Pour MixItUp plugin: voir le fichier ajout.classes.mixitup.js
-                               // Calling the MixItUp plugin for this View.
-                               //    $(window).load(function () {
-                               //        console.log('Chargement de Mixitup');
-                               //        $('.mixitup').mixItUp();
-                               //    });
-       });
+//Partage RS - Bloc fixe au scroll
+console.log('Action sur Bloc Partage RS');
+//$("aside.partage-rs").pin({padding: {top: 10, bottom: 10}})
+/*$("aside#block-socialsimpleblock").fixit({
+  topMargin:10, addClassAfter:"classToAdd", sameDimension:true, zIndex : 50
+  //alert("Chargement du JS pour Bloc Partage RS");
+});*/
+
+
+
+       }); //Fin on.load
 
        $(window).on('resize', function () {
          // Execute code when the window is resized.
