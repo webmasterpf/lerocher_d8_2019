@@ -210,13 +210,16 @@ Librairie externes et D8: https://www.drupal.org/project/documentation/issues/26
                $("#zone-1 #media-youtube-1").height('23vw').width('100vw');
                $("#zone-2 #media-youtube-1").height('23vw').width('100vw');
 
-               //Video sur HP
-               /*$(".acces_rubriques iframe").each(function () {
+
+               //Nettoyage des tailles sur iframe
+               $(".acces_rubriques iframe").once('proform2020').each(function () {
                    $(this).removeAttr('width');
                    $(this).removeAttr('height');
                    $(this).removeAttr('align');
-               });*/
-               $(".acces_rubriques iframe").height('95vh').width('60vw');//Video Gde Taille HP
+               });
+               //Taille Likebox FB
+               $("aside#pageFacebook iframe").height('45vh').width('50vw');
+               $("aside.block-videopresentationdulyceefxb iframe").height('95vh').width('60vw');//Video Gde Taille HP
            	},
            	unmatch : function() {
            		example.unmatch();
@@ -257,6 +260,7 @@ Librairie externes et D8: https://www.drupal.org/project/documentation/issues/26
                    $(this).removeAttr('height');
                    $(this).removeAttr('align');
                });*/
+               $("aside#pageFacebook iframe").height('45vh').width('75vw');
                $(".acces_rubriques iframe").height('45vh').width('95vw');//Video Gde Taille HP
              },
              unmatch : function() {
