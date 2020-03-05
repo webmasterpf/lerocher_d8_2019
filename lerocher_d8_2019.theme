@@ -224,7 +224,7 @@ function lerocher_d8_2019_theme_suggestions_block_alter(array &$suggestions, arr
 function lerocher_d8_2019_theme_registry_alter(&$theme_registry) {
   if (isset($theme_registry['item_list__search_results'])) {
     $theme_registry['item_list__search_results']['template'] = 'custom-search-results';
-    $theme_registry['item_list__search_results']['path'] = drupal_get_path('theme', 'gasquet_d8_2019') . '/templates';
+    $theme_registry['item_list__search_results']['path'] = drupal_get_path('theme', 'lerocher_d8_2019') . '/templates';
     $theme_registry['item_list__search_results']['variables']['filter_position'] = FALSE;
     $theme_registry['item_list__search_results']['variables']['filter'] = '';
   }
