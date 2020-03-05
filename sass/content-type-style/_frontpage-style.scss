@@ -201,6 +201,17 @@ ul.rubriques-speciales{
             width: 75%;
         }
     }
+    aside.pageFacebook{
+      //Likebox FB classe via BlockClass
+      @include breakpoint(($desktop,$desktopwide,
+      $tablet-hd,$tabletlandscape-hd
+      )){
+      max-width: span(11);
+      margin: span(0.5)  span(4);
+    }
+    @include breakpoint($tablet){}
+    @include breakpoint(($mobilelandscape,$tabletlandscape)){}
+    }
 //Bloc de partage RS avec social simple. Voir scss dédié _layout-partage-rs
 /*######-------- ||| STYLE ||| --------######*/
 
