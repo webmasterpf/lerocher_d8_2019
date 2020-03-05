@@ -89,6 +89,9 @@ global-scripts:
       js/jquery_plugin/responsiveslides/responsiveslides.min.js: {}
       js/jquery_plugin/lazyload/jquery.lazyloadxt.extra.min.js: {}
       js/jquery_plugin/vertical-align.min.js: {}
+      #js/jquery_plugin/jquery.pin.js: {}
+      #js/jquery_plugin/jquery.smartsticky.min.js: {}
+      js/jquery_plugin/jquery.fixit.js: {}
 
       3rdparty/bxslider/js/jquery.bxslider.js: {}
       #3rdparty/lightslider/js/lightslider.js: {}
