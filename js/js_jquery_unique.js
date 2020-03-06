@@ -387,11 +387,7 @@ Librairie externes et D8: https://www.drupal.org/project/documentation/issues/26
 
                  //Changer la casse des titres H1 qui sont en Majuscules
                  // PAs effet sur titres en capitales complet sur LR
-                 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-                         $('h1').capitalizeFirstLetter(this);
-                         $('h1').css('text-transform', 'capitalize');
+                       $('h1').css('text-transform', 'capitalize');
                  //        $('.liste-vdl-lycee .titre-vdl a').css('text-transform', 'lowercase');
                          $('#liste-vdl span.titre-vdl > a').css('text-transform', 'lowercase');
 
