@@ -71,7 +71,9 @@ body .conteneur{
         }
     }
     aside.liste-formations-initiales{
-      .bef-exposed-form{
+      //.bef-exposed-form
+      fieldset.form-wrapper
+      {
           @include breakpoint(($desktop,$desktopwide)){
               display:inline-block;
               column-count: 6;
