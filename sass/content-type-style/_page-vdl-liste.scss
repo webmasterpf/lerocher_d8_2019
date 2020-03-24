@@ -23,7 +23,7 @@ body .conteneur .conteneur-flex{
 /*######-------- ||| BORDURES ||| --------######*/
 body .conteneur {
     @include breakpoint ($desktop){
-        #zone-2.type-page-vie-lycee{}
+        #zone-2.type-page-vie-lycee{/**/}
     }
 
 }
