@@ -120,6 +120,20 @@ $zonesimg: zone-illustration;
       }//Fin illustration-pleinepage
     }
   }
+}// Fin zone-illustration
+
+//Position du visuel différente selon NiD
+#node-XX{
+  #zone-illustration.type-page-lycee{
+      // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
+      #illustration-pleinepage{
+        @include breakpoint(($desktop,$desktopwide)){
+            img{
+                transform: translate(0%, -53%);
+            }
+        }
+      }
+    }
 }
 #zone-illustration.type-page-erreur{
   #illustration-pleinepage{
@@ -403,7 +417,7 @@ ______________________________*/
 
     a {
       background: $gris-clair;
-    
+
       text-decoration: none;
       padding: span(0.01) span(0.03);
       @include rollover-effect($violet); //Effet rollover CSS3 sur les liens
