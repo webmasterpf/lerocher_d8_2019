@@ -68,6 +68,18 @@ body .conteneur {
       }
     }
   }
+} //Fin node-527
+#node-526{
+  #zone-illustration.type-page-vie-lycee{
+      // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
+      #illustration-pleinepage{
+        @include breakpoint(($desktop,$desktopwide)){
+            img{
+                transform: translate(0%, -53%);
+            }
+        }
+      }
+    }
 }
 // Tableau initial des classes et IDs à créer.
 $typedecontenu: type-page-vie-lycee ;
