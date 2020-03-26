@@ -72,8 +72,8 @@ body .conteneur{
     }
     aside.liste-formations-initiales{
       // 1 classe pour Webkit, 1 pour FF
-      .bef-exposed-form,
-      fieldset.form-wrapper
+      .bef-exposed-form
+      //fieldset.form-wrapper
       {
           @include breakpoint(($desktop,$desktopwide)){
               display:inline-block;
