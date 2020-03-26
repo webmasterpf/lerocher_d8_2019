@@ -209,9 +209,9 @@ gulp.task('clearCache', function (done) {
      onLast: true
    }));
 });
-//Tâche de surveillance et d'automatisation
-gulp.task('default', ['browser-sync'], function(){
-//    gulp.task('default', function(){
+//Tâche de surveillance et d'automatisation - Option1 bureau Option2 Télétravail
+//gulp.task('default', ['browser-sync'], function(){
+gulp.task('default', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
   //gulp.watch(basePaths.project, ['clearCache']);
   //gulp.watch(folderPaths.templates.d8nodestpl,['clearCache'],bs_reload);

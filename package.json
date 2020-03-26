@@ -4,14 +4,16 @@
   "description": " Thème D8 pour LR",
   "main": "gulpfile.js",
   "dependencies": {
+    "enquire.js": "^2.1.6",
     "npm": "^6.12.1"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.1",
+    "autoprefixer": "^9.7.5",
     "breakpoint": "^0.1.6",
     "browser-sync": "^2.26.7",
     "event-stream": "^4.0.1",
     "gulp": "^3.9.1",
+    "gulp-cache": "^1.1.3",
     "gulp-load-plugins": "^2.0.1",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.1",
