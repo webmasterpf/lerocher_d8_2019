@@ -94,7 +94,7 @@ body .conteneur {
         }
       }
     }
-} // Fin node-8 
+} // Fin node-8
 // Tableau initial des classes et IDs à créer.
 $typedecontenu: type-page-vie-lycee ;
 $zones: zone-1 ; //, zone-2, zone-3
@@ -152,7 +152,6 @@ $zones: zone-1 ; //, zone-2, zone-3
           .item-list{
               @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
             // Ne pas utiliser cette classe. Trop générique
-
               }
           ul.liste-vdl-lycee,ul.acces-info-admin{
             //Classes ajoutées dans les affichages de la vue Acces Contenu Rubrique
