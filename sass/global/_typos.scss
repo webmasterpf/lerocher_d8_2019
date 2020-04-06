@@ -38,7 +38,7 @@ $FontRaleway : 'Raleway',Trebuchet MS, Verdana, sans-serif;
 @mixin titre-page ($margin : 0.1em){
      font-size : x-large;
      margin: $margin;
-         
+
 }
 @mixin decotitre-formation ($margin : 0.1em, $paddingTop : 0.1em){
      font-size : x-large;
@@ -85,7 +85,6 @@ $typey-debug-color: red;
     }
 }
 
-
 /*====================================|
 ==             VALEURS PAR DEFAUT             ==|
 =====================================*/
@@ -100,7 +99,7 @@ html {
  @include define-type-sizing;
 }
 
-body {	
+body {
     font-family: $FontRaleway;//Typo globale du site
     color: $gris-anthracite;//Couleur de § globale site
 /*@include font-size(m);*/
@@ -131,9 +130,9 @@ h1, .h1 {
         text-transform: capitalize;
     }
 }
-  
+
 h2, .h2 {
-    
+
 	@include font-size(m);
 	/*font-size: em(18px);*/
 }
@@ -152,7 +151,7 @@ h3, .h3{
         /*	font-size: em(16px);*/
 }
 h4, .h4{
-	
+
 	@include font-size(s);
         /*	font-size: em(14px);*/
 }
@@ -161,7 +160,7 @@ h5, .h5 {
 /*	font-size: em(12px);*/
 }
 h6, .h6 {
-    
+
     @include font-size(xs);
 	/*font-size: em(10px);*/
 }
