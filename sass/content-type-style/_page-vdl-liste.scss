@@ -70,6 +70,7 @@ body .conteneur {
   }
 } //Fin node-527
 #node-526{
+  //Page Rubrique Le Lycée
   #zone-illustration.type-page-vie-lycee{
       // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
       #illustration-pleinepage{
@@ -80,7 +81,20 @@ body .conteneur {
         }
       }
     }
-}
+} // Fin node-526
+#node-8{
+  //Page Rubrique VDL
+  #zone-illustration.type-page-vie-lycee{
+      // utiliser bxslider-cyrano.scss" pour régler le bx-viewport ou bx-caption
+      #illustration-pleinepage{
+        @include breakpoint(($desktop,$desktopwide)){
+            img{
+                transform: translate(0%, -41%);
+            }
+        }
+      }
+    }
+} // Fin node-8
 // Tableau initial des classes et IDs à créer.
 $typedecontenu: type-page-vie-lycee ;
 $zones: zone-1 ; //, zone-2, zone-3
