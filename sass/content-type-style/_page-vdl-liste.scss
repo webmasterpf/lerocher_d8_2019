@@ -16,7 +16,7 @@ body .conteneur .conteneur-flex{
     #zone-2.type-page-vie-lycee{order:1;}
     #zone-3.type-page-vie-lycee{order:3;}
     @include breakpoint ($desktop){
-
+    //A remplir si besoin 
     }
 }
 
@@ -278,8 +278,7 @@ $zones: zone-1 ; //, zone-2, zone-3
                           max-width: 70%;
                           float: left;
                           content: "";
-
-                          img {
+                        img {
                             transform: scale(1.1);
                           }
                         }
