@@ -49,7 +49,8 @@ body .conteneur #header {
             //Voir plus bas
         }
         nav.menuOver{
-    margin: 0 span(0.3) 0 0;
+          //Rien sur mobile sinon marge visible sur header
+    //margin: 0 span(0.3) 0 0;
     @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
         margin: 0;
     }
@@ -137,7 +138,7 @@ body .conteneur #header {
 
     }
     }
-    
+
 }
 
 .site-slogan,.objectif {
