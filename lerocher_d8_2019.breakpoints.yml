@@ -1,0 +1,30 @@
+lerocher_d8_2019.small:
+  label: mobile
+  mediaQuery: '(min-width: 30em)'
+  weight: 0
+  multipliers:
+    - 1x
+lerocher_d8_2019.tablet:
+  label: wide
+  mediaQuery: 'screen and (min-width: 48em)'
+  weight: 1
+  multipliers:
+    - 1x
+lerocher_d8_2019.desktop:
+  label: wide
+  mediaQuery: 'screen and (min-width: 62em)'
+  weight: 1
+  multipliers:
+    - 1x
+lerocher_d8_2019.large:
+  label: wide
+  mediaQuery: 'screen and (min-width: 76.5em)'
+  weight: 1
+  multipliers:
+    - 1x
+lerocher_d8_2019.xlarge:
+  label: wide
+  mediaQuery: 'screen and (min-width: 114em)'
+  weight: 1
+  multipliers:
+    - 1x
