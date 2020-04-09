@@ -1,30 +1,30 @@
 lerocher_d8_2019.small:
   label: mobile
-  mediaQuery: '(min-width: 30em)'
+  mediaQuery: 'only screen and (max-device-width 667px)'
   weight: 0
   multipliers:
     - 1x
-lerocher_d8_2019.tablet:
+lerocher_d8_2019.tabletportrait:
   label: wide
-  mediaQuery: 'screen and (min-width: 48em)'
+  mediaQuery: 'screen and (device-width 768px 1024px) and (orientation portrait) and (min-resolution 1dppx)'
   weight: 1
   multipliers:
     - 1x
 lerocher_d8_2019.desktop:
   label: wide
-  mediaQuery: 'screen and (min-width: 62em)'
+  mediaQuery: 'screen and (min-device-width 1024px)'
   weight: 1
   multipliers:
     - 1x
-lerocher_d8_2019.large:
+lerocher_d8_2019.desktoplarge:
   label: wide
-  mediaQuery: 'screen and (min-width: 76.5em)'
+  mediaQuery: 'screen and (min-device-width 1200px)'
   weight: 1
   multipliers:
     - 1x
 lerocher_d8_2019.xlarge:
   label: wide
-  mediaQuery: 'screen and (min-width: 114em)'
+  mediaQuery: 'screen and (min-device-width 1440px) and (min-resolution 1dppx)'
   weight: 1
   multipliers:
     - 1x
