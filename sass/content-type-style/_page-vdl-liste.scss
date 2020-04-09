@@ -272,6 +272,7 @@ $zones: zone-1 ; //, zone-2, zone-3
                         padding: 0;
                         img {
                           transform: scale(1);
+                          @include adaptable-img();//Evite que taille image casse layout
                         }
                         @include breakpoint(($desktop,$desktopwide)){
                           max-width: 70%;
