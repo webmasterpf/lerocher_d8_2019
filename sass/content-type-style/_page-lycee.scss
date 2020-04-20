@@ -78,7 +78,7 @@ $zonesimg: zone-illustration;
           max-height: 30vw;
 
           img:not([src*="defaut"]) {
-            transform: translate(0%,-9%);
+            transform: translate(0%,-17%);
           }
           img[src*="defaut"]{//Position du visuel par défaut
             transform: translate(0%,-10%);
