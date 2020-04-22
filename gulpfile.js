@@ -144,7 +144,16 @@ gulp.task('sasscompil', function () {
         .pipe(plugins.plumber(function(error) {
         gutil.log(gutil.colors.red(error.message));
         this.emit('end');
-    }))
+        }))
+        .pipe(plumber({ errorHandler: function(err) {
+            notify.onError({
+                title: "Gulp error in " + err.plugin,
+                message:  err.toString()
+            })(err);
+
+            // play a sound once
+            gutil.beep();
+        }}))
             .pipe(plugins.sourcemaps.init()) // Création du sourcemaps
             .pipe(plugins.sass({
                 noCache: true,
