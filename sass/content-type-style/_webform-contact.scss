@@ -136,7 +136,7 @@ $zonesimg: zone-illustration;
     }
 
 }
-#zone-2.type-webform{
+#zone-2.type-webform, #zone-1.type-page-lycee{
 
     aside.formulaire{
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
@@ -156,8 +156,9 @@ $zonesimg: zone-illustration;
         }
         textarea{
             @include arrondis(1em);
+
         }
-    }
+    }// Fin aside.formulaire
 
 }
 /*######-------- ||| STYLE ||| --------######*/
@@ -177,7 +178,7 @@ $zones: zone-1, zone-2;//1ere boucle
             }
             u{
                 font-weight: bold;
-                color: $rose-fushia;
+                color: $vert;
 
             }
             h2{
@@ -186,7 +187,7 @@ $zones: zone-1, zone-2;//1ere boucle
             }
             h3{
                 @include font-size(m);//utilisation de typey
-                color: $rose-fushia;
+                color: $vert;
             }
             a{
                 text-decoration: none;
@@ -196,7 +197,7 @@ $zones: zone-1, zone-2;//1ere boucle
                 }
             }
             strong{
-                color: $rose-fushia;
+                color: $vert;
             }
         }
     }
@@ -212,10 +213,9 @@ ______________________________*/
         border: em(2px) solid $violet;
         padding: span(0.01);
         @include img-centered;
-
     }
 }
-#zone-2.type-webform{
+#zone-2.type-webform, #zone-1.type-page-lycee{
     aside.formulaire{
 
         input[type="text"],input[type="email"],textarea{
