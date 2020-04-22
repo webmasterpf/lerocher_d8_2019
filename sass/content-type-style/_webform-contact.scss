@@ -217,10 +217,10 @@ ______________________________*/
 }
 #zone-2.type-webform, #zone-1.type-page-lycee{
     aside.formulaire{
-
+  //Fond couleur des cellules du formulaire
         input[type="text"],input[type="email"],textarea{
-            background: $blanc-casse;
-            color: $gris-anthracite;
+            background: $violet;
+            color: $blanc-casse;
             padding: span(0.01);
         }
     }
