@@ -145,7 +145,8 @@ gulp.task('sasscompil', function () {
         gutil.log(gutil.colors.red(error.message));
         this.emit('end');
         }))
-        .pipe(plumber({ errorHandler: function(err) {
+        //Notification d'erreur
+        .pipe(plugins.plumber({ errorHandler: function(err) {
             notify.onError({
                 title: "Gulp error in " + err.plugin,
                 message:  err.toString()
@@ -219,8 +220,8 @@ gulp.task('clearCache', function (done) {
    }));
 });
 //Tâche de surveillance et d'automatisation - Option1 bureau Option2 Télétravail
-//gulp.task('default', ['browser-sync'], function(){
-gulp.task('default', function(){
+gulp.task('default', ['browser-sync'], function(){
+//gulp.task('default', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
   //gulp.watch(basePaths.project, ['clearCache']);
   //gulp.watch(folderPaths.templates.d8nodestpl,['clearCache'],bs_reload);
