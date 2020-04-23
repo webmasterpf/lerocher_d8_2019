@@ -9,8 +9,7 @@ var basePaths = {
     project:  './',
     projectsourcemap:  '../',
     src: './sass/**/*.scss', // fichiers scss à surveiller
-    dest:  './css/', // dossier CSS à livrer du Projet
-    destvmdev: '//10.100.3.57/partage.dg.adm/Internet_et_Communication/04_Sites/Sites_Lycees/Le Rocher/#SITE/theme_drupal/lerocher_d8_2019/', // dossier CSS sur serveur LAMP VM dev
+    dest:  './css/', // dossier CSS à livrer du projet    
     tpl: '**/*.tpl.php',
     node_modules: './node_modules/',
     gems:'/home/webmaster/vendor/bundle/gems/',
@@ -23,8 +22,7 @@ var basePaths = {
 var folderPaths = {
     styles: {
         src: basePaths.projectsourcemap + 'sass/',
-        dest: basePaths.theme + 'css/',
-        destvmdev: basePaths.destvmdev + 'css/'
+        dest: basePaths.theme + 'css/'
     },
     images: {
         src: basePaths.project + 'images/',
@@ -124,7 +122,7 @@ var processors = [
 //var displayError = function(error) {
 //    // Initial building up of the error
 //    var errorString = '[' + error.plugin + ']';
-//    errorString += ' ' + error.message.replace("/n",''); // Removes new line at the end
+//    errorString += ' ' + error.message.replace("\n",''); // Removes new line at the end
 //    // If the error contains the filename or line number add it to the string
 //    if(error.fileName)
 //        errorString += ' in ' + error.fileName;
@@ -203,6 +201,25 @@ gulp.task('drush', function() {
     }));
 });
 
+//Synchro de fichiers ou dossiers
+gulp.task('sync', function(done) {
+    return merge(
+        // Master directory one, we take all files except those
+        // starting with two underscores
+        //gulp.src(['./one/**/*', '!./one/**/__*'])
+        gulp.src(basePaths.dest)
+        // check if those files are newer than the same named
+        // files in the destination directory
+            .pipe(newer('./two'))
+        // and if so, copy them
+            .pipe(gulp.dest('./two')),
+        // Slave directory, same procedure here
+        gulp.src(['./two/**/*', '!./two/**/__*'])
+            .pipe(newer('./one'))
+            .pipe(gulp.dest('./one'))
+    );
+});
+
 //Initialisation de la tâche de browser-sync
 gulp.task('browser-sync', function() {
 browserSync.init({
@@ -223,26 +240,6 @@ gulp.task('clearCache', function (done) {
      onLast: true
    }));
 });
-
-//Synchro de fichiers ou dossiers
-gulp.task('sync', function(done) {
-    return merge(
-        // Master directory one, we take all files except those
-        // starting with two underscores
-        //gulp.src(['./one/**/*', '!./one/**/__*'])
-        gulp.src(basePaths.styles.dest)
-        // check if those files are newer than the same named
-        // files in the destination directory
-            .pipe(newer(basePaths.styles.destvmdev))
-        // and if so, copy them
-            .pipe(gulp.dest(basePaths.styles.destvmdev)),
-        // Slave directory, same procedure here
-        //gulp.src(['./two/**/*', '!./two/**/__*'])
-        //    .pipe(newer('./one'))
-        //    .pipe(gulp.dest('./one'))
-    );
-});
-
 //Tâche de surveillance et d'automatisation - Option1 Serveur LAMP Option2 Compilation Locale
 // Default pour compilation et BS sur même machine
 gulp.task('default', ['browser-sync'], function(){
@@ -263,9 +260,8 @@ gulp.task('default', ['browser-sync'], function(){
 });
 
 //Compilation Poste Locale Sans BS + Surveillance
-gulp.task('localcompile', ['browser-sync'], function(){
+gulp.task('localcompile', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
-  gulp.watch(basePaths.src, ['sync']);
   //gulp.watch(basePaths.project, ['clearCache']);
   //gulp.watch(folderPaths.templates.d8nodestpl,['clearCache'],bs_reload);
   gulp.watch(folderPaths.images.src, bs_reload);
