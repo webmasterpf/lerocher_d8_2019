@@ -9,7 +9,8 @@ var basePaths = {
     project:  './',
     projectsourcemap:  '../',
     src: './sass/**/*.scss', // fichiers scss à surveiller
-    dest:  './css/', // dossier à livrer
+    dest:  './css/', // dossier CSS à livrer du Projet
+    destvmdev: '//10.100.3.57/partage.dg.adm/Internet_et_Communication/04_Sites/Sites_Lycees/Le Rocher/#SITE/theme_drupal/lerocher_d8_2019/', // dossier CSS sur serveur LAMP VM dev
     tpl: '**/*.tpl.php',
     node_modules: './node_modules/',
     gems:'/home/webmaster/vendor/bundle/gems/',
@@ -22,7 +23,8 @@ var basePaths = {
 var folderPaths = {
     styles: {
         src: basePaths.projectsourcemap + 'sass/',
-        dest: basePaths.theme + 'css/'
+        dest: basePaths.theme + 'css/',
+        destvmdev: basePaths.destvmdev + 'css/'
     },
     images: {
         src: basePaths.project + 'images/',
@@ -81,6 +83,9 @@ var gcache = require('gulp-cache');
 //Plugins de PostCSS
 var autoprefixer = require('autoprefixer');
 
+//Synchro des fichiers CSS compilés pour BS qd compilation locale
+var gnewer = require('gulp-newer');
+var merge = require('merge2');
 
 
 // Autoprefixer : Navigateurs à cibler pour le préfixage CSS
@@ -119,7 +124,7 @@ var processors = [
 //var displayError = function(error) {
 //    // Initial building up of the error
 //    var errorString = '[' + error.plugin + ']';
-//    errorString += ' ' + error.message.replace("\n",''); // Removes new line at the end
+//    errorString += ' ' + error.message.replace("/n",''); // Removes new line at the end
 //    // If the error contains the filename or line number add it to the string
 //    if(error.fileName)
 //        errorString += ' in ' + error.fileName;
@@ -198,7 +203,6 @@ gulp.task('drush', function() {
     }));
 });
 
-
 //Initialisation de la tâche de browser-sync
 gulp.task('browser-sync', function() {
 browserSync.init({
@@ -219,10 +223,66 @@ gulp.task('clearCache', function (done) {
      onLast: true
    }));
 });
-//Tâche de surveillance et d'automatisation - Option1 bureau Option2 Télétravail
+
+//Synchro de fichiers ou dossiers
+gulp.task('sync', function(done) {
+    return merge(
+        // Master directory one, we take all files except those
+        // starting with two underscores
+        //gulp.src(['./one/**/*', '!./one/**/__*'])
+        gulp.src(basePaths.styles.dest)
+        // check if those files are newer than the same named
+        // files in the destination directory
+            .pipe(newer(basePaths.styles.destvmdev))
+        // and if so, copy them
+            .pipe(gulp.dest(basePaths.styles.destvmdev)),
+        // Slave directory, same procedure here
+        //gulp.src(['./two/**/*', '!./two/**/__*'])
+        //    .pipe(newer('./one'))
+        //    .pipe(gulp.dest('./one'))
+    );
+});
+
+//Tâche de surveillance et d'automatisation - Option1 Serveur LAMP Option2 Compilation Locale
+// Default pour compilation et BS sur même machine
 gulp.task('default', ['browser-sync'], function(){
-//gulp.task('default', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
+  //gulp.watch(basePaths.project, ['clearCache']);
+  //gulp.watch(folderPaths.templates.d8nodestpl,['clearCache'],bs_reload);
+  gulp.watch(folderPaths.images.src, bs_reload);
+  gulp.watch(folderPaths.images.dest, bs_reload);
+  gulp.watch(folderPaths.styles.src, bs_reload);
+  gulp.watch(folderPaths.templates.d8, bs_reload);
+//  gulp.watch(folderPaths.templates.d6nodestpl, bs_reload);
+  gulp.watch(folderPaths.settings.d8, bs_reload);
+  gulp.watch(folderPaths.js.jsd68, bs_reload);
+  gulp.watch(folderPaths.ymlsettings.d8yml, bs_reload);
+//  gulp.watch(basePaths.src, ['drush']);
+//  gulp.watch(folderPaths.templates.d6, ['drush']);
+//  gulp.watch(folderPaths.js.jsd68, ['drush']);
+});
+
+//Compilation Poste Locale Sans BS + Surveillance
+gulp.task('localcompile', ['browser-sync'], function(){
+  gulp.watch(basePaths.src, ['sasscompil']);
+  gulp.watch(basePaths.src, ['sync']);
+  //gulp.watch(basePaths.project, ['clearCache']);
+  //gulp.watch(folderPaths.templates.d8nodestpl,['clearCache'],bs_reload);
+  gulp.watch(folderPaths.images.src, bs_reload);
+  gulp.watch(folderPaths.images.dest, bs_reload);
+  gulp.watch(folderPaths.styles.src, bs_reload);
+  gulp.watch(folderPaths.templates.d8, bs_reload);
+//  gulp.watch(folderPaths.templates.d6nodestpl, bs_reload);
+  gulp.watch(folderPaths.settings.d8, bs_reload);
+  gulp.watch(folderPaths.js.jsd68, bs_reload);
+  gulp.watch(folderPaths.ymlsettings.d8yml, bs_reload);
+//  gulp.watch(basePaths.src, ['drush']);
+//  gulp.watch(folderPaths.templates.d6, ['drush']);
+//  gulp.watch(folderPaths.js.jsd68, ['drush']);
+});
+
+//BS seul avec Surveillance - Pas de compilation
+gulp.task('browser-sync', function(){
   //gulp.watch(basePaths.project, ['clearCache']);
   //gulp.watch(folderPaths.templates.d8nodestpl,['clearCache'],bs_reload);
   gulp.watch(folderPaths.images.src, bs_reload);
