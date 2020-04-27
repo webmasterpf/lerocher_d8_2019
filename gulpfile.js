@@ -9,7 +9,7 @@ var basePaths = {
     project:  './',
     projectsourcemap:  '../',
     src: './sass/**/*.scss', // fichiers scss à surveiller
-    dest:  './css/', // dossier CSS à livrer du projet    
+    dest:  './css/', // dossier CSS à livrer du projet
     tpl: '**/*.tpl.php',
     node_modules: './node_modules/',
     gems:'/home/webmaster/vendor/bundle/gems/',
@@ -82,8 +82,8 @@ var gcache = require('gulp-cache');
 var autoprefixer = require('autoprefixer');
 
 //Synchro des fichiers CSS compilés pour BS qd compilation locale
-var gnewer = require('gulp-newer');
-var merge = require('merge2');
+//var gnewer = require('gulp-newer');
+//var merge = require('merge2');
 
 
 // Autoprefixer : Navigateurs à cibler pour le préfixage CSS
