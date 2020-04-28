@@ -68,7 +68,6 @@ $zonesimg: zone-illustration;
         max-height: 90vw;
         overflow: hidden;
         position: relative;
-
         img {
           transform: translate(0%,0%);
           @include adaptable-img();
