@@ -21,9 +21,11 @@ Plugin pour Gulp (permet de charger tous les plugins)
 :/var/www/drupal-8/themes/custom/dossier_projet$ npm install gulp-load-plugins --save-dev
 
 Plugin pour Sass:
-npm install --save-dev  event-stream gulp-util node-sass-import-once gulp-sass gulp-size gulp-shell gulp-notify notify-send gulp-sourcemaps typey susy node-normalize-scss gulp-plumber gulp-postcss autoprefixer breakpoint
+npm install --save-dev  event-stream node-sass-import-once gulp-sass gulp-size gulp-shell gulp-notify notify-send gulp-sourcemaps typey susy node-normalize-scss gulp-plumber gulp-postcss autoprefixer breakpoint
 gulp-cache
 
+Périmé:
+gulp-util
 Vérifier versions des npm:
 npm-check
 
