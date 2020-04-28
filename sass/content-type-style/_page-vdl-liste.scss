@@ -16,7 +16,7 @@ body .conteneur .conteneur-flex{
     #zone-2.type-page-vie-lycee{order:1;}
     #zone-3.type-page-vie-lycee{order:3;}
     @include breakpoint ($desktop){
-    //A remplir si besoin 
+    //A remplir si besoin
     }
 }
 
@@ -299,7 +299,7 @@ $zones: zone-1 ; //, zone-2, zone-3
                           //max-width: 40vw;
                         }
                         @include breakpoint($desktop) {
-                          max-width: 7vw;
+                          max-width: 11vw;//correction petits ecrans
                           float: left;
                         }
                         @include breakpoint($desktopwide) {
