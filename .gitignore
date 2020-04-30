@@ -8,3 +8,4 @@ node_modules
 symfony-2.8
 private
 .db
+.ftpconfig
