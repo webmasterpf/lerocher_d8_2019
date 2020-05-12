@@ -8,4 +8,10 @@ node_modules
 symfony-2.8
 private
 .db
+<<<<<<< Updated upstream
+=======
+.ftp*
+Thumbs.db
+*.json
+>>>>>>> Stashed changes
 .ftpconfig
