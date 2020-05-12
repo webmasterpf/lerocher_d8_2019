@@ -23,7 +23,9 @@ $tabletlandscape-hd:
 
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
 .annonce_2{
+
     ul.badnews{
+
         li{
             width: 95%;
             margin: 0 auto;
@@ -33,6 +35,7 @@ $tabletlandscape-hd:
 
                 float: none;
             }
+
 
 
         }
@@ -765,4 +768,31 @@ body .conteneur {
         .acces_rubriques{}
         .logo_partenaires{}
     }
+}//body.container
+body{
+  div#colorbox{
+    //Style contenu splashify
+    h2{
+      @include font-size(m);//utilisation de typey
+      @include breakpoint(($desktop,$desktopwide,$mobilelandscape,
+      $tablet,$tabletlandscape)){
+        @include font-size(l);//utilisation de typey
+      }
+    }
+    h3{
+      @include font-size(s);//utilisation de typey
+      @include breakpoint(($desktop,$desktopwide,$mobilelandscape,
+      $tablet,$tabletlandscape)){
+        @include font-size(m);//utilisation de typey
+      }
+    }
+    a{
+        @include font-size(m);//utilisation de typey
+        color: $gris-anthracite;
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,
+        $tablet,$tabletlandscape)){
+            @include font-size(l);//utilisation de typey
+        }
+    }
+  }
 }
