@@ -5,6 +5,10 @@ node_js:
   #Version de NodeJS à utiliser
   - "8"
 
+install:
+  #Installation de npm et modules selon package.json
+  - npm install
+  
 before_script:
   # Installation des modules avec npm
   - npm install -g gulp-cli
