@@ -72,7 +72,9 @@ var browserSync = require('browser-sync').create(); // create a browser sync ins
 var bs_reload = browserSync.reload;
 var bs_stream = browserSync.stream();
 
-// Include plugins
+/******************************************************************************
+| >   PLUGINS
+  ******************************************************************************/
 // tous les plugins de package.json
 var postcss = require('gulp-postcss');
 var plugins = require('gulp-load-plugins')();
@@ -240,6 +242,9 @@ gulp.task('clearCache', function (done) {
      onLast: true
    }));
 });
+/******************************************************************************
+| >   SURVEILLANCE
+******************************************************************************/
 //Tâche de surveillance et d'automatisation - Option1 Serveur LAMP Option2 Compilation Locale
 // Default pour compilation et BS sur même machine
 gulp.task('default', ['browser-sync'], function(){
