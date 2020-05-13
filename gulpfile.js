@@ -264,7 +264,7 @@ gulp.task('default', ['browser-sync'], function(){
 //  gulp.watch(folderPaths.js.jsd68, ['drush']);
 });
 
-//Compilation Poste Locale Sans BS + Surveillance
+//Compilation Poste Local Sans BS + Surveillance
 gulp.task('localcompile', function(){
   gulp.watch(basePaths.src, ['sasscompil']);
   //gulp.watch(basePaths.project, ['clearCache']);
