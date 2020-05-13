@@ -1,13 +1,18 @@
+#Fichier de configuration de Travis CI - Mai 2020
 language: node_js
 
 node_js:
-  - 0.10
-  - 0.11
+  #Version de NodeJS à utiliser
+  - "8"
 
 before_script:
   # Installation des modules avec npm
   - npm install -g gulp-cli
   - npm install gulp@^3.0.0 --save-dev
+  - npm install gulp-load-plugins --save-dev
+  - npm install enquire.js
+  - npm install browser-sync --save-dev
+  - npm install
 
 script:
   #lancement de la tache par défaut pour compiler
