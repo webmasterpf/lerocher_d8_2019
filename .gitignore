@@ -13,3 +13,5 @@ css
 symfony-2.8
 private
 node_modules
+*.sqlite
+*.suo
