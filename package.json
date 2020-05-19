@@ -21,9 +21,14 @@
   },
   "homepage": "https://github.com/webmasterpf/lerocher_d8_2019#readme",
   "devDependencies": {
+    "breakpoint": "^0.1.6",
+    "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.26.7",
     "gulp": "^3.9.1",
     "gulp-load-plugins": "^2.0.3",
-    "gulp-plumber": "^1.2.1"
+    "gulp-plumber": "^1.2.1",
+    "node-normalize-scss": "^8.0.1",
+    "susy": "^3.0.5",
+    "typey": "^1.1.2"
   }
 }
