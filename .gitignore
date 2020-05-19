@@ -17,3 +17,5 @@ node_modules
 *.suo
 3rdparty/font-awesome/scss/font-awesome.css
 3rdparty/font-awesome/css/font-awesome.css
+css/application.css
+css/application.css.map
