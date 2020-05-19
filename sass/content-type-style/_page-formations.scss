@@ -14,220 +14,266 @@
 //@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
 
 /*######-------- ||| ORDRE FLEXBOX ||| --------######*/
-body .conteneur .conteneur-flex{
-    #zone-1.type-page-formations{order:1;}
-    #zone-2.type-page-formations{order:2;}
-    #zone-3.type-page-formations{order:3;}
-    #zone-4.type-page-formations{}
-    #zone-5.type-page-formations{}
-    @include breakpoint ($desktop){}
+body .conteneur .conteneur-flex {
+    #zone-1.type-page-formations {
+        order: 1;
+    }
+
+    #zone-2.type-page-formations {
+        order: 2;
+    }
+
+    #zone-3.type-page-formations {
+        order: 3;
+    }
+
+    #zone-4.type-page-formations {}
+
+    #zone-5.type-page-formations {}
+
+    @include breakpoint ($desktop) {}
 }
 
 /*######-------- ||| BORDURES ||| --------######*/
 body .conteneur .conteneur-flex,
-body .conteneur{
-
-
-}
+body .conteneur {}
 
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-#zone-illustration.type-page-formations{
-    #illustration-pleinepage{
+#zone-illustration.type-page-formations {
+    #illustration-pleinepage {
         min-height: 35vw;
         max-height: 90vw;
         overflow: hidden;
-        position:relative;
+        position: relative;
         //image par défaut en BG comme secours
-        @include backgroundImage(("defaut/defaut-Actu-LR-2019.jpg"),transparent,no-repeat, top left);
+        @include backgroundImage(("defaut/defaut-Actu-LR-2019.jpg"), transparent, no-repeat, top left);
         background-size: cover;
-        img{
-            transform: translate(0%,0%);
+
+        img {
+            transform: translate(0%, 0%);
             @include adaptable-img();
         }
-        @include breakpoint(($desktop,$desktopwide)){
+
+        @include breakpoint(($desktop, $desktopwide)) {
             min-height: 25vw;
             max-height: 30vw;
-            img{
-                transform: translate(0%,-11%);
+
+            img {
+                transform: translate(0%, -11%);
             }
         }
-        @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+
+        @include breakpoint(($mobilelandscape, $tablet, $tabletlandscape)) {
             min-height: 25vw;
             max-height: 40vw;
-            img{
-                transform: translate(0%,-20%);
+
+            img {
+                transform: translate(0%, -20%);
             }
         }
     }
 }
-#zone-1.type-page-formations{
-    >.content{
+
+#zone-1.type-page-formations {
+    >.content {
         column-count: 0;
-        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+
+        @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
             column-count: 0;
             column-fill: balance;
             white-space: normal;
             padding: span(0.1);
         }
     }
-    aside.liste-formations-initiales{
-      // 1 classe pour Webkit, 1 pour FF
-      //.bef-exposed-form
-      div.fieldset-wrapper
-      //fieldset.form-wrapper
-      {
-          @include breakpoint(($desktop,$desktopwide)){
-              display:inline-block;
-              column-count: 6;
-              column-fill: balance;
-              white-space: normal;
-              padding: span(0.02);
 
-          }
-          @include breakpoint(($tablet,$tabletlandscape)){
-            //Diminue taille items sur Tablette selon réglage de display
-            //display:inherit;
-            column-count: 1;// Tablette S3: Edge & FF OK
-            column-fill: balance;
-            white-space: normal;
-            padding: span(0.02);
-          }
-          @include breakpoint(($mobilelandscape)){
-            //Diminue taille items sur Tablette selon réglage de display
-            //display:inherit;
-            column-count: 2;// Mobile Paysage
-            column-fill: balance;
-            white-space: normal;
-            padding: span(0.02);
-          }
-          div.form-item{
-              margin: 0 0 span(0.01) 0;
-              min-height: 7vh;
-              padding: span(0.15);
-              @include breakpoint(($desktop,$desktopwide)){
-                @include hack-Edge;
-                @include hack-IE;
-                @include txt-colonnes();
-                padding: span(1);
+    aside.liste-formations-initiales {
+        // 1 classe pour Webkit, 1 pour FF
+        //.bef-exposed-form
+        div.fieldset-wrapper //fieldset.form-wrapper
 
-              }
-              @include breakpoint(($tablet,$tabletlandscape)){
-                @include hack-Edge;
-                @include hack-IE;
-                @include txt-colonnes();
-                //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
-                // Régler column-count: sur 1 au niveau de l'UL
+            {
+            @include breakpoint(($desktop, $desktopwide)) {
                 display: inline-block;
-                width: span(5.5);
-                padding: span(0.35);
-                //Garder le margin par défaut
-              }
-              @include breakpoint(($mobilelandscape)){
-                @include hack-Edge;
-                @include hack-IE;
-                @include txt-colonnes();
-                //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
-                // Régler column-count: sur 1 au niveau de l'UL
-                display: block;
-                min-height: 19vh;
-                padding: span(0.15);
-                //Garder le margin par défaut
-              }
-          }
-      }
-        ul.formations-initiales{
-          padding: 0;
-          @include breakpoint(($tablet-hd,$tablet,$mobilelandscape,$tabletlandscape)){
-            //Layout différent pour tablette, 2 colonnes
-            column-count: 2;//adapter selon taille des blocs / images
-            column-fill: balance;//bug FF en colonne résolu
-            white-space: normal;
-            padding: span(0.1);
-          }
-          @include breakpoint(($desktop,$desktopwide)){
-              column-count: 4;//adapter selon taille des blocs / images
-              column-fill: balance;//bug FF en colonne résolu
-              white-space: normal;
-              padding: span(0.1);
-          }
-            li{
-              padding: 0;
-            margin: span(0.1) 0;
-            overflow: hidden;
-            img{
-              @include adaptable-img();//Evite que taille image casse layout
+                column-count: 6;
+                column-fill: balance;
+                white-space: normal;
+                padding: span(0.02);
+
             }
 
-            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-            @include hack-Edge;
-            @include hack-IE;
-            @include txt-colonnes();
-            margin: 0 0 span(0.1) 0;
+            @include breakpoint(($tablet, $tabletlandscape)) {
+                //Diminue taille items sur Tablette selon réglage de display
+                //display:inherit;
+                column-count: 1; // Tablette S3: Edge & FF OK
+                column-fill: balance;
+                white-space: normal;
+                padding: span(0.02);
+            }
 
-                  :not(img):not(a):not(.complement){
-                      //*padding: span(0.1);
-                  }
-                  span.illustration {
-                      overflow: hidden;
-                      img{
+            @include breakpoint(($mobilelandscape)) {
+                //Diminue taille items sur Tablette selon réglage de display
+                //display:inherit;
+                column-count: 2; // Mobile Paysage
+                column-fill: balance;
+                white-space: normal;
+                padding: span(0.02);
+            }
 
-                          transform: scale(1);
-                      }
-                  }
+            div.form-item {
+                margin: 0 0 span(0.01) 0;
+                min-height: 7vh;
+                padding: span(0.15);
 
-                  span.complement{}
-              }
-              @include breakpoint(($tabletlandscape)){
-                span.illustration {
-                  img{
-                    //Pour éviter vide autour image sur écran HD comme TabS3 - paysage
-                    transform: scale(2.1);
-                  }
+                @include breakpoint(($desktop, $desktopwide)) {
+                    @include hack-Edge;
+                    @include hack-IE;
+                    @include txt-colonnes();
+                    padding: span(1);
+
                 }
-              }
-              @include breakpoint(($tablet)){
-                span.illustration {
-                  img{
-                    //Pour éviter vide autour image sur écran HD comme TabS3 - portrait
-                    transform: scale(1.3);
-                  }
-                }
-              }
-              //Padding pour tous supports
-              span.titre-fiche, span.complement{
-                  padding: span(0.1);
-              }
-              a{
-                  display: block;
-              }
-            } //Fin li
-        }// Fin ul.formations-initiales
 
-        nav.pager{
+                @include breakpoint(($tablet, $tabletlandscape)) {
+                    @include hack-Edge;
+                    @include hack-IE;
+                    @include txt-colonnes();
+                    //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
+                    // Régler column-count: sur 1 au niveau de l'UL
+                    display: inline-block;
+                    width: span(5.5);
+                    padding: span(0.35);
+                    //Garder le margin par défaut
+                }
+
+                @include breakpoint(($mobilelandscape)) {
+                    @include hack-Edge;
+                    @include hack-IE;
+                    @include txt-colonnes();
+                    //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
+                    // Régler column-count: sur 1 au niveau de l'UL
+                    display: block;
+                    min-height: 19vh;
+                    padding: span(0.15);
+                    //Garder le margin par défaut
+                }
+            }
+        }
+
+        ul.formations-initiales {
+            padding: 0;
+
+            @include breakpoint(($tablet-hd, $tablet, $mobilelandscape, $tabletlandscape)) {
+                //Layout différent pour tablette, 2 colonnes
+                column-count: 2; //adapter selon taille des blocs / images
+                column-fill: balance; //bug FF en colonne résolu
+                white-space: normal;
+                padding: span(0.1);
+            }
+
+            @include breakpoint(($desktop, $desktopwide)) {
+                column-count: 4; //adapter selon taille des blocs / images
+                column-fill: balance; //bug FF en colonne résolu
+                white-space: normal;
+                padding: span(0.1);
+            }
+
+            li {
+                padding: 0;
+                margin: span(0.1) 0;
+                overflow: hidden;
+
+                img {
+                    @include adaptable-img(); //Evite que taille image casse layout
+                }
+
+                @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+                    @include hack-Edge;
+                    @include hack-IE;
+                    @include txt-colonnes();
+                    margin: 0 0 span(0.1) 0;
+
+                    :not(img):not(a):not(.complement) {
+                        //*padding: span(0.1);
+                    }
+
+                    span.illustration {
+                        overflow: hidden;
+
+                        img {
+
+                            transform: scale(1);
+                        }
+                    }
+
+                    span.complement {}
+                }
+
+                @include breakpoint(($tabletlandscape)) {
+                    span.illustration {
+                        img {
+                            //Pour éviter vide autour image sur écran HD comme TabS3 - paysage
+                            transform: scale(2.1);
+                        }
+                    }
+                }
+
+                @include breakpoint(($tablet)) {
+                    span.illustration {
+                        img {
+                            //Pour éviter vide autour image sur écran HD comme TabS3 - portrait
+                            transform: scale(1.3);
+                        }
+                    }
+                }
+
+                //Padding pour tous supports
+                span.titre-fiche,
+                span.complement {
+                    padding: span(0.1);
+                }
+
+                a {
+                    display: block;
+                }
+            }
+
+            //Fin li
+        }
+
+        // Fin ul.formations-initiales
+
+        nav.pager {
             @include clearfixsusy3;
-              column-span: all;//la pagination utilise toute la largeur
+            column-span: all; //la pagination utilise toute la largeur
 
-            ul.pager__items{
-              width: span(4);
-              margin: 0 auto;
-              padding: span(0.1);
-              li{
-                  @include horizontal-list-item();
-              }
-            }// Fin ul.pager__items
-        }// Fin nav.pager
-    }//Fin aside.liste-formations-initiales
+            ul.pager__items {
+                width: span(4);
+                margin: 0 auto;
+                padding: span(0.1);
+
+                li {
+                    @include horizontal-list-item();
+                }
+            }
+
+            // Fin ul.pager__items
+        }
+
+        // Fin nav.pager
+    }
+
+    //Fin aside.liste-formations-initiales
 }
+
 /*######-------- ||| STYLE ||| --------######*/
 
 /*¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 ¤¤¤µ STYLES COMMUNS µ¤¤¤
 ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤*/
 //Pour H1 voir _page-lycee.scss
-h1.titre-page-pole{
-    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-    top: em(10px);
-    left: em(20px);
+h1.titre-page-pole {
+    @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+        top: em(10px);
+        left: em(20px);
     }
 }
 
@@ -235,164 +281,195 @@ h1.titre-page-pole{
 #zone-2.type-page-formations,
 #zone-3.type-page-formations,
 #zone-4.type-page-formations,
-#zone-5.type-page-formations
-{}
+#zone-5.type-page-formations {}
 
 /*------------------------------------
         ¤¤¤ STYLES PROPRES ¤¤¤
 ______________________________*/
 
-#zone-1.type-page-formations{
-    aside.liste-formations-initiales{
+#zone-1.type-page-formations {
+    aside.liste-formations-initiales {
+
         //Style du filtrage de la vue
-       .bef-exposed-form{
-            div.form-item{
+        .bef-exposed-form {
+            div.form-item {
                 background: $violet;
                 color: $blanc-casse;
                 text-align: center;
                 cursor: pointer;
-                label{
+
+                label {
                     cursor: pointer;
-                    &:after{
-              /*       content: "PôLE";
+
+                    &:after {
+                        /*       content: "PôLE";
                         color:$rose-fushia;
                         @include font-size(l);//utilisation de typey
                         font-family: $FontRaleway;*/
                     }
                 }
+
                 //&:hover:not(#edit-term-node-tid-depth-limited-All-wrapper)
                 // Exclusion du hover pour le choix Tout - Fonctionnel
-                &:hover:not(:first-child)
-                {
-                  //Utilisation de l'unité vw plus universelle, évite usage de BP
-                  @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -9vw , no-repeat );
-                  background-size:70%;
-                  background-color: $vert;
-
-                  label{
-                      @include opacity(0.45);
-                  }
+                &:hover:not(:first-child) {
+                    //Utilisation de l'unité vw plus universelle, évite usage de BP - Retrait suite demande 05/2020
+                    /* @include backgroundImage(('BG/BG_Filtres_Exposes.png'), transparent, center -9vw , no-repeat );
+                  background-size:70%;*/
+                    background-color: $vert;
+                    label {
+                        @include opacity(0.45);
+                    }
                 }
             }
         }
-        .views-exposed-form{
+
+        .views-exposed-form {
+
             //Masquer la roue bleue de drupal
             .ajax-progress-throbber {
                 display: none;
             }
-            .views-exposed-widget{
+
+            .views-exposed-widget {
                 padding: 0;
                 margin: 0;
                 float: none;
             }
+
             //Style du bouton de filtrage
-            .views-submit-button{
+            .views-submit-button {
                 float: none;
                 margin: 0 auto;
-                width:25vw;
-                padding:0;
-                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-                width: 10vw;
+                width: 25vw;
+                padding: 0;
+
+                @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+                    width: 10vw;
                 }
+
                 input[type="submit"] {
                     background: $orange-fonce;
                     border: em(1px) dashed $gris-anthracite;
                     color: $blanc-casse;
-                    @include font-size(l);//utilisation de typey
+                    @include font-size(l); //utilisation de typey
                     font-family: $FontArvo;
                 }
             }
         }
+
         //Masquage du module additionnel du module (bug peut être corrigé via patch)
-        .view-filters{
-            #edit-children-of-wrapper{
+        .view-filters {
+            #edit-children-of-wrapper {
                 display: none;
                 visibility: hidden;
             }
         }
 
         //Style des éléments de la vue
-        ul.formations-initiales{
-            li{
+        ul.formations-initiales {
+            li {
                 list-style: none;
                 color: $blanc-casse;
-                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-                    @include ombrage-bloc(0em,0em,0.5em,$gris-anthracite);
+
+                @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+                    @include ombrage-bloc(0em, 0em, 0.5em, $gris-anthracite);
 
                 }
-                span{
+
+                span {
                     font-weight: bold;
                     /*-webkit-text-stroke:em(1px) $gris-anthracite;//Contour de texte*/
                 }
-                span.section-euro{
+
+                span.section-euro {
                     //classe ajoutée dans la vue - réécriture du champ
-                    border: em(1px) dashed;//couleur héritée du LI parent
+                    border: em(1px) dashed; //couleur héritée du LI parent
                 }
+
                 span.complement {
                     //classe ajoutée dans la vue - réécriture du champ
-                    font-weight:initial; /*we revert back the inherited style*/
-                    @include font-size(s);//utilisation de typey
-                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-                    @include font-size(l);//utilisation de typey
+                    font-weight: initial;
+                    /*we revert back the inherited style*/
+                    @include font-size(s); //utilisation de typey
+
+                    @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+                        @include font-size(l); //utilisation de typey
 
                     }
                 }
+
                 /*                    &:matches(.complement){
                                         font-weight: initial;
                                     }*/
-                a{
+                a {
                     color: $blanc-casse;
                     text-decoration: none;
                     font-weight: bold;
-                    @include font-size(s);//utilisation de typey
-                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
-                    @include font-size(l);//utilisation de typey
+                    @include font-size(s); //utilisation de typey
+
+                    @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+                        @include font-size(l); //utilisation de typey
 
                     }
 
                 }
-                span.illustration >a {//uniquement les "a" sur l'image
-                   position:relative;//pour overlay image
-                   &:before{
-                       @include image-overlay('motif_img_overlay.png', 0 0, repeat);
 
-                   }
+                span.illustration>a {
+                    //uniquement les "a" sur l'image
+                    position: relative; //pour overlay image
+
+                    &:before {
+                        @include image-overlay('motif_img_overlay.png', 0 0, repeat);
+
+                    }
                 }
-                &.tid-18{ //Filiere industrie
+
+                &.tid-18 {
+                    //Filiere industrie
                     background: $vert;
                 }
-                &.tid-19{ //Filiere Service Personne
+
+                &.tid-19 {
+                    //Filiere Service Personne
                     background: $violet;
                 }
-                &.tid-20{ //Filiere BTS
+
+                &.tid-20 {
+                    //Filiere BTS
                     background: $jaune;
-                    *{
-                        color: $gris-anthracite;//cas particulier du fond clair
+
+                    * {
+                        color: $gris-anthracite; //cas particulier du fond clair
                     }
                 }
-                &.tid-17{//Filière Restauration
+
+                &.tid-17 {
+                    //Filière Restauration
                     background: $orange-fonce;
 
                 }
-                &.tid-25{ //Filiere Prépas
+
+                &.tid-25 {
+                    //Filiere Prépas
                     background: $bleu-turquoise;
                 }
+
                 // Inutilisés >>
-                &.tid-101{
+                &.tid-101 {
                     background: $rouge;
                 }
 
-                &.tid-103{
+                &.tid-103 {
                     background: $rose-fushia;
                 }
-                &.tid-106{
+
+                &.tid-106 {
                     background: $gris-clair-moyen;
                 }
 
-                img{
+                img {}
 
-                }
-                span{
+                span {
                     display: block;
 
                 }
@@ -400,7 +477,11 @@ ______________________________*/
         }
     }
 }
-#zone-2.type-page-formations{}
-#zone-3.type-page-formations{}
-#zone-4.type-page-formations{}
-#zone-5.type-page-formations{}
+
+#zone-2.type-page-formations {}
+
+#zone-3.type-page-formations {}
+
+#zone-4.type-page-formations {}
+
+#zone-5.type-page-formations {}
