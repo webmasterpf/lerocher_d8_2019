@@ -41,11 +41,18 @@ Voir fichier @html.html.twig
     <div class="acces_rubriques">{{page.RubriquesHP2}}</div>
   {% endif %}
 
-  <!-- ______________________ ACCES RUBRIQUES 3 _______________________ -->
-
   {#
 Voir fichier @html.html.twig pour inclusion de la zone Accès contact
 #}
+  <!-- ______________________ ACCES RUBRIQUES 3 _______________________ -->
+  {# Ne pas afficher le bloc Contact en bas de page sur HP si besoin de le placer ailleurs
+variable is_front ajoutée dans le fichier .theme via preprocess.html
+05/2020: placement différent des autres pages
+#}
+  {% if page.RubriquesHP3 is not empty and is_front %}
+    <div class="acces_rubriques">{{page.RubriquesHP3}}</div>
+  {% endif %}
+  <!-- _____ /ACCES RUBRIQUES 3 ____ -->
 
   <!-- ______________________ ACCES LYCEES / VIDEO LYCEE _______________________ -->
   {% if page.AccesLycees is not empty %}
