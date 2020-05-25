@@ -408,8 +408,7 @@ ______________________________*/
                     @include font-size(s); //utilisation de typey
 
                     @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
-                        @include font-size(l); //utilisation de typey
-
+                        @include font-size(m); //utilisation de typey
                     }
 
                 }
