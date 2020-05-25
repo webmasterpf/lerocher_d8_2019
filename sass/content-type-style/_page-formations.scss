@@ -1,3 +1,4 @@
+// main: ../application.scss
 // Regroupe le style pour le contenu des node.tpl custom
 // créer des fichiers _CONTENT-TYPE.scss et les importer dans application.scss
 
@@ -26,7 +27,6 @@ body .conteneur .conteneur-flex {
     #zone-3.type-page-formations {
         order: 3;
     }
-
     #zone-4.type-page-formations {}
 
     #zone-5.type-page-formations {}

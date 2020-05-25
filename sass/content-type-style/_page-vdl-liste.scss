@@ -1,3 +1,4 @@
+// main: ../application.scss
 // Regroupe le style pour le contenu des node.tpl custom
 // créer des fichiers _node-TYPE.scss et les importer dans application.scss
 
@@ -5,6 +6,7 @@
 |       CONTENU CUSTOM NODE.TPL        |
 |       PAGE GLOBALE VDL  LISTE      |
 |--------------------------------------*/
+
 
 //@include breakpoint ($mobile){}
 //@include breakpoint ($desktop){}
@@ -26,6 +28,8 @@ body .conteneur {
         #zone-2.type-page-vie-lycee{}
     }
 }
+
+
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
 #zone-illustration.type-page-vie-lycee{
     #illustration-pleinepage{
@@ -197,7 +201,6 @@ $zones: zone-1 ; //, zone-2, zone-3
                           :not(img):not(a):not(.complement){
                               padding: span(0.1);
                             }
-
                       }
                       @include breakpoint(($mobilelandscape,$tabletlandscape)){
                         /* Définir le nombre de colonnes via flex*/
@@ -331,10 +334,10 @@ $zones: zone-1 ; //, zone-2, zone-3
                 li{
                   @include font-size(s); //utilisation de typey
                     @include horizontal-list-item();
-                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                    @include breakpoint(($desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                       @include font-size(l); //utilisation de typey
                     }
-                    @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
+                    @include breakpoint(($desktop,$mobilelandscape,$tablet,$tabletlandscape)){
                       @include font-size(m); //utilisation de typey
                     }
                 }
