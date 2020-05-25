@@ -11,7 +11,6 @@
 //@include breakpoint ($tablet){}
 
 
-
 .vdl-galerie-image .gallery-slides
 {
     img{@include adaptable-img;}
@@ -32,9 +31,9 @@ body .conteneur .conteneur-flex{
 /*######-------- ||| BORDURES ||| --------######*/
 body .conteneur{
     @include breakpoint ($desktop){
-        
+
     }
-    
+
 }
 /*######-------- ||| STYLE ||| --------######*/
 h1.page-pole{
@@ -56,7 +55,7 @@ _______________________________________*/
 }
 aside.filiere-techno,aside.filiere-pro,aside.filiere-bts
 {
-    
+
     table{
         @include ombrage-bas(0px,3px,1px,#564E4E);
         background: $gris-clair;
@@ -66,7 +65,7 @@ aside.filiere-techno,aside.filiere-pro,aside.filiere-bts
             tr.even,tr.odd{
                 border: 0;
             }
-                  
+
     h3{
         margin: em(5px);
         text-align: center;
