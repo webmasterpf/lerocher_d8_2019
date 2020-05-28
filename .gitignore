@@ -3,7 +3,10 @@
 *.sassc
 .sass-cache
 *.map
+node_modules
 .DS_Store
+symfony-2.8
+private
 .db
 .ftp*
 Thumbs.db
