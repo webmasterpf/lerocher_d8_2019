@@ -58,7 +58,15 @@
     {{ page_bottom }}
 
     <!-- ______________________ ACCES RUBRIQUES 3 _______________________ -->
+<<<<<<< HEAD
     {% if page.RubriquesHP3 is not empty %}
+=======
+    {# Ne pas afficher le bloc Contact en bas de page sur HP si besoin de le placer ailleurs
+    variable is_front ajoutée dans le fichier .theme via preprocess.html
+    05/2020: déplacement région sur HP, voir page--front.html.twig
+    #}
+    {% if page.RubriquesHP3 is not empty and not is_front %}
+>>>>>>> 3cb7cb5... Bloc Contact déplacé pour HP
       <div class="acces_rubriques">{{page.RubriquesHP3}}</div>
     {% endif %}
     <!-- _____ /ACCES RUBRIQUES 3 ____ -->
