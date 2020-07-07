@@ -87,6 +87,20 @@ function lerocher_d8_2019_theme_suggestions_page_alter(&$suggestions, $variables
     $suggestions[] = 'page__'.$content_type;
   }
 }
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ * https://drupal.stackexchange.com/questions/227709/adding-theme-suggestions-programmatically-for-views-rows-fields
+ * Suggestion de Template pour les Vues/Views , indispo via UI dans D8.7
+ */
+function lerocher_d8_2019_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+       // If you want you can add a template suggestion for all views
+       // based on their ID:
+       $suggestions[] = sprintf('views_view__%s', $variables['view']->id());
+
+       // Or you can check the ID, add suggestions, do whatever you want
+       // ...
+   }
+
 
 /** https://atendesigngroup.com/blog/making-region-content-available-node-templates-drupal-8
  */
