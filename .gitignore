@@ -1,20 +1,24 @@
-**/Import_Taxo_Termes.csv
-*.scssc
-*.sassc
-.sass-cache
+## Fichiers suivis dans tous les cas
+!package.json
+package-lock.json
+
+## Fichiers ignorés
+/Import_Taxo_Termes.csv
+**.scssc
+**.sassc
+**.sass-cache
 **.db
 **.ftp*
-**.json
-**.cson
+**Thumbs.db
 **.sqlite
 **.suo
-3rdparty/font-awesome/scss/font-awesome.css
-3rdparty/font-awesome/css/font-awesome.css
 **/Thumbs.db
-
-## Dossiers ignorés
-css
+**.cson
+## Dossiers ignorés - évite conflits
 symfony-2.8
 private
 node_modules
-.DS_Store
+config
+## Exclusion des css compilées pour éviter conflits - inutile si compilation sur LAMP
+!css/*
+!**css/*
