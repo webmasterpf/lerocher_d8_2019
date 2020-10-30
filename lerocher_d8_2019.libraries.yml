@@ -72,7 +72,7 @@ global-scripts:
       #https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js: {type: external, minified: true}
 
 #     chargement des plugins qui utilisent la version de jQuery par défaut du site - exD6
-      js/jquery_plugin/selectnav.min.js: {}
+      #js/jquery_plugin/selectnav.min.js: {}
       #js/jquery_plugin/jquery.sticky-kit.js: {}
 #      chargement des scripts qui utilisent la version de jQuery par défaut du site - exD6
       #js/js_jquery_defaut.js: {}
