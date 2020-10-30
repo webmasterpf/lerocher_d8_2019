@@ -233,8 +233,7 @@ body .conteneur {}
                 }
 
                 //Padding pour tous supports
-                span.titre-fiche,
-                span.complement {
+                span.titre-fiche, span.complement, span.modalite-alternance{
                     padding: span(0.1);
                 }
 
@@ -396,7 +395,7 @@ ______________________________*/
                     @include font-size(s); //utilisation de typey
 
                     @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
-                        @include font-size(l); //utilisation de typey
+                        @include font-size(m); //utilisation de typey
 
                     }
                 }
@@ -411,7 +410,7 @@ ______________________________*/
                     @include font-size(s); //utilisation de typey
 
                     @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
-                        @include font-size(m); //utilisation de typey
+                        @include font-size(l); //utilisation de typey
                     }
 
                 }
