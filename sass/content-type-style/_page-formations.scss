@@ -186,25 +186,32 @@ body .conteneur {}
                 }
 
                 @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
-                    @include hack-Edge;
-                    @include hack-IE;
-                    @include txt-colonnes();
-                    margin: 0 0 span(0.1) 0;
+                  @include hack-Edge;
+          @include hack-IE;
+          @include txt-colonnes();
+          margin: 0 0 span(0.1) 0;
 
-                    :not(img):not(a):not(.complement) {
-                        //*padding: span(0.1);
+                :not(img):not(a):not(.complement){
+                    /*padding: span(0.1);*/
+
+                }
+                span.illustration {
+                    overflow: hidden;
+                    img{
+                      @include adaptable-img();
+                      //transform: scale(1.5);
+                      //taillle de l'image sur la liste, évite marge due au format.Inutile si utilise mixin adaptable-img
                     }
-
-                    span.illustration {
-                        overflow: hidden;
-
-                        img {
-
-                            transform: scale(1);
-                        }
-                    }
-
-                    span.complement {}
+                }
+                span.titre-fiche, span.complement{
+                    padding: span(0.1);
+                }
+                span.modalite-alternance{
+                  //classe ajoutée dans la vue - réécriture du champ
+                  border: em(1px) dashed;//couleur héritée du LI parent
+                  margin: span(0.1);
+                  text-align: center;
+                }
                 }
 
                 @include breakpoint(($tabletlandscape)) {
@@ -234,12 +241,8 @@ body .conteneur {}
                 a {
                     display: block;
                 }
-            }
-
-            //Fin li
-        }
-
-        // Fin ul.formations-initiales
+            }           //Fin li
+        }   // Fin ul.formations-initiales
 
         nav.pager {
             @include clearfixsusy3;
