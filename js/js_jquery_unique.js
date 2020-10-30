@@ -28,8 +28,8 @@ Librairie externes et D8: https://www.drupal.org/project/documentation/issues/26
 
       ///*************  Fonctions déclenchées sur  $(document).ready(function () *****///
                //<!--Pour utiliser selectnav en RWD-->
-               console.log('Chargement du script pour selectnav');
-               selectnav('subnav', {label: '- Accès rapide -'});
+               //console.log('Chargement du script pour selectnav');
+               //selectnav('subnav', {label: '- Accès rapide -'});
 
                //Pour surcharger éléments des diaporama de views
                $('.diapo_fiche div.views_slideshow_cycle_teaser_section').css('width', 'auto'),
