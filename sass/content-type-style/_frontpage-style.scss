@@ -599,6 +599,8 @@ body .conteneur {
                     list-style: none;
                     width: 95%;
                     margin: 0 0 span(0.2) span(0.2);
+                    // Pas de param display:flex pour mobile sinon bug affichage
+                    display: block;
 
                     @include breakpoint(($desktop, $desktopwide, $mobilelandscape,
                             $tablet, $tabletlandscape, $tablet-hd, $tabletlandscape-hd)) {
@@ -608,10 +610,12 @@ body .conteneur {
                         @include hack-IE;
                         margin: 0;
                         padding: 0 span(0.9);
+                        display: flex;//Résoud bug FF
                     }
 
                     @include breakpoint(($tablet, $tabletlandscape, $tablet-hd, $tabletlandscape-hd)) {
                         padding: span(0.9);
+                        display: flex;//Résoud bug FF
                     }
 
                     span.titre-admin {
