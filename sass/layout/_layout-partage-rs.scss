@@ -55,8 +55,8 @@ aside.block-rrssb {
 // Fin .conteneur
 /*######-------- ||| STYLE ||| --------######*/
 //Boucle pour englober tous les TdC concernés
-$typedecontenu: type-contenu-vdl, type-contenu-sortie-action, type-contenu-projet, type-contenu-mini-stage, type-contenu-innovation, type-contenu-intervenants, type-contenu-entreprise, type-contenu-actualites,
-type-contenu-admin ,type-fiche-formation, type-page-lycee;
+$typedecontenu: type-contenu-vdl, type-page-sortie, type-page-projets, type-page-innovation, type-page-intervenants, type-page-entreprise, type-article-revue-presse,
+type-contenu-info-admin ,type-fiche-formations, type-page-lycee;
 $zones: zone-1, zone-2, zone-3;
 @each $zone in $zones {
 @each $type in $typedecontenu {
