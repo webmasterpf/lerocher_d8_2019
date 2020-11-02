@@ -43,3 +43,38 @@ body .conteneur {
     }
   }
 }
+// Fin aside partage-rs
+
+aside.block-rrssb {
+  margin: span(0.4);
+  ul.rrssb-buttons {
+    max-width: 100%;
+  }
+}// Fin .partage-rs.block-rrssb
+
+// Fin .conteneur
+/*######-------- ||| STYLE ||| --------######*/
+//Boucle pour englober tous les TdC concernés
+$typedecontenu: type-contenu-vdl, type-contenu-sortie-action, type-contenu-projet, type-contenu-mini-stage, type-contenu-innovation, type-contenu-intervenants, type-contenu-entreprise, type-contenu-actualites,
+type-contenu-admin ,type-fiche-formation, type-page-lycee;
+$zones: zone-1, zone-2, zone-3;
+@each $zone in $zones {
+@each $type in $typedecontenu {
+  ##{$zone}.#{$type} {
+    aside.block-rrssb {
+      ul.rrssb-buttons {
+        $borders: em(1px) dotted $gris-anthracite;
+        border-top: $borders;
+        border-bottom: $borders;
+
+        li {
+          a {
+            @include rollover-effect($violet); //Effet rollover CSS3
+            padding: 0; // Annule effet hover autres liens de la page
+          }
+        }
+      }
+    }      // Fin .partage-rs.block-rrssb
+  }    // Fin ##{$zone}.#{$type}
+}  // Fin @each $type in $typedecontenu
+}// Fin @each $zone in $zones
