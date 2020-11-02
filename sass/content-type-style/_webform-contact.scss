@@ -142,7 +142,7 @@ $zonesimg: zone-illustration;
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
             padding: span(0.2);
         }
-        table,tbody,tr,td,form,input[type="text"],input[type="email"]{
+        table,tbody,tr,td,form,input[type="text"],input[type="email"],select{
             width: 95%;
             margin: 0 auto;
             @include arrondis(1.5em);
