@@ -127,6 +127,9 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
         {{ content.field_complement_info_formation.0 }}
       </span>
       {{ content.field_intro_ficheform.0}}
+
+      {{ content.field_pre_content_ficheform.0}}
+
       {# Affichage conditionnel du terme si alternance #}
       {% if content.field_modalite_alternance | render is not empty %}
         <span {{ taxo2_attribute.addClass(taxo2_classes) }}>
@@ -135,7 +138,6 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
         </span>
       {% endif %}
 
-      {{ content.field_pre_content_ficheform.0}}
       {{ content.body }}
 
     </div>
