@@ -13,6 +13,10 @@ package-lock.json
 **.sqlite
 **.suo
 **/Thumbs.db
+
+##Config EDI ignoré
+**.vs**
+**netbeans**
 **.cson
 ## Dossiers ignorés - évite conflits
 symfony-2.8
