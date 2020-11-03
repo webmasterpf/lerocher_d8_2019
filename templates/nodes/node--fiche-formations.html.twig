@@ -8,6 +8,7 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 ] %}
 {% set titre_attribute = create_attribute() %}
 {% set taxo_attribute = create_attribute() %}
+{% set taxo2_attribute = create_attribute() %}
 {% set complement_attribute = create_attribute() %}
 {% set image_attribute = create_attribute() %}
 {% set imagecontainer_attribute = create_attribute() %}
@@ -30,7 +31,10 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
 {% set image_classes = [
 'illustration-'~ node.bundle|clean_class,
 'image--type-' ~ node.bundle|clean_class
-
+]%}
+{% set taxo2_classes = [
+'modalite-alternance',
+'terme-' ~ node.field_modalite_alternance[0]['#title'] | clean_class | replace({"^" : ""}),
 ]%}
 {% set imagecontainer_classes = [
 'imagecontainer',
@@ -122,6 +126,16 @@ Permet d'ajouter des classes dynamiques ou non aux éléments du markup
       <span {{ complement_attribute.addClass(complement_classes) }}>
         {{ content.field_complement_info_formation.0 }}
       </span>
+      {{ content.field_intro_ficheform.0}}
+      {# Affichage conditionnel du terme si alternance #}
+      {% if content.field_modalite_alternance | render is not empty %}
+        <span {{ taxo2_attribute.addClass(taxo2_classes) }}>
+          Possible
+          {{ content.field_modalite_alternance.0 }}
+        </span>
+      {% endif %}
+
+      {{ content.field_pre_content_ficheform.0}}
       {{ content.body }}
 
     </div>
