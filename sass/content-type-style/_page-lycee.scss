@@ -152,7 +152,68 @@ $typedecontenu: type-page-lycee, type-annonce-accueil, type-contenu-info-admin, 
 $zones: zone-1, zone-2, zone-3, zone-4 ;
 @each $zone in $zones {
   @each $type in $typedecontenu {
-    ##{$zone}.#{$type} {}
+    ##{$zone}.#{$type} {
+      //Layout pour le formulaire
+    aside.formulaire{
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+            padding: span(0.2);
+        }
+        table,tbody,tr,td,form,input[type="text"],input[type="email"],select{
+            width: 95%;
+            margin: 0 auto;
+            @include arrondis(1.5em);
+            @include backgroundImage(("motif_img_overlay.png"),transparent,repeat, top left);
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+                width: 75%;
+                margin: span(0.1) auto;
+                padding: span(0.1);
+
+              }
+          }
+        input[type="tel"]{
+          width: 95%;
+          margin: 0 auto;
+          @include arrondis(1.5em);
+
+          @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+              width: 75%;
+              margin: span(0.1) auto;
+              padding: em(5px) 0 em(5px) em(50px); //Corrige mauvais affichage sur bureau
+
+            }
+        }
+          textarea{
+              @include arrondis(1em);
+          }
+          div.webform-element-description{
+            //Texte d'aide pour les champs
+            @include font-size(s); //utilisation de typey
+          }
+          //Selecteur de temps: date/heure
+          td.webform-multiple-table--handle{
+            width: 10%;
+          }
+          div[class^='edit-creneau-horaire'][class$='time'],
+          div[id^='edit-creneau-horaire'][id$='time'],
+          input[id^='edit-creneau-horaire'][id*='time'],
+          input[id^='edit-creneau-horaire'][id*='date'],
+          input[id^='edit-creneau-horaire'][id$='date'].form-text,
+          input[id^='edit-creneau-horaire'][id$='date']{
+//https://www.antimath.info/css/css-target-elements-by-partial-class-or-id-name/
+//Cible les IDs démarrant et se terminant par le texte indiqué (^ ou $), ou qui contient le texte (*)
+            width: 50%;
+          }
+          .select2-selection__choice{
+            width: 88%;
+            @include font-size(s); //utilisation de typey
+@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
+  width: auto;
+  @include font-size(m); //utilisation de typey
+}
+          }
+
+      }// aside.formulaire
+    }
   }
 }
 /*######-------- ||| BORDURES ||| --------######*/
@@ -448,11 +509,37 @@ ______________________________*/
       padding: span(0.02);
       border: em(3px) solid $blanc-casse;
     }
+}
+} // Fin content
+aside.formulaire{
+  //Style pour formulaire
+     textarea,input[type="text"],input[type="email"],input[type="tel"]{
+          background: $violet; // Couleur fond des champs
+          color: $blanc-casse;
+
+
+      }
+      input:not([type='tel']) {
+      // Pas de padding:  pour le champ telephone
+    padding: span(0.01);
+  }
+  }// Fin aside.formulaire
+} // Fin ##{$zone}.#{$type}
+}// Fin @each $type in $typedecontenu
+} // Fin @each $zone in $zones
+#zone-1.type-page-lycee{
+  div.cartouche{
+    //Cartouche pour texte avec style différent ex: page JPO
+    background: $gris-clair;
+    border-style: dashed none;
+    border-color: $violet;
+    border-width: em(2px);
+    em {//texte italique
+      color: $gris-anthracite;
     }
     }
-}
-}
-}
+  }
+
 /*######-------- ZONE 2 --------######*/
 #zone-2.type-contenu-cdi,
 #zone-2.type-page-lycee {
