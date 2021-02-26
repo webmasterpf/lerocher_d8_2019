@@ -136,7 +136,7 @@ $zonesimg: zone-illustration;
     }
 
 }
-#zone-2.type-webform, #zone-1.type-page-lycee{
+#zone-2.type-webform{
 
     aside.formulaire{
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
@@ -214,7 +214,7 @@ ______________________________*/
         @include img-centered;
     }
 }
-#zone-2.type-webform, #zone-1.type-page-lycee{
+#zone-2.type-webform{
     aside.formulaire{
   //Fond couleur des cellules du formulaire
         input[type="text"],input[type="email"],textarea{
