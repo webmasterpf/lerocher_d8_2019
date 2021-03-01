@@ -170,7 +170,7 @@ $zones: zone-1, zone-2, zone-3, zone-4 ;
 
               }
           }
-        input[type="tel"]{
+        input[type="tel"]:not(input[type="image"]){
           width: 95%;
           margin: 0 auto;
           @include arrondis(1.5em);
