@@ -72,7 +72,7 @@ $zonesimg: zone-illustration;
           transform: translate(0%,0%);
           @include adaptable-img();
         }
-        @include breakpoint(($desktop,$desktopwide)) {
+        @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
           min-height: 25vw;
           max-height: 30vw;
 
@@ -158,7 +158,7 @@ $zones: zone-1, zone-2, zone-3, zone-4 ;
         @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
             padding: span(0.2);
         }
-        table,tbody,tr,td,form,input[type="text"],input[type="email"],select{
+        table,tbody,tr,td,form,input[type="text"],input[type="email"],select, textarea{
             width: 95%;
             margin: 0 auto;
             @include arrondis(1.5em);
@@ -736,9 +736,9 @@ aside.formulaire{
         @include maskImage(("PNG/push-pin-blanc@3x.png"),100%,alpha,$violet, 0 0, no-repeat);
         content: "";
         position: relative;
-        vertical-align: sub;
-        padding: em(10px);
-        margin: em(3px);
+        vertical-align: middle;
+        padding: em(13px);
+        margin: em(3px) em(10px) em(3px) 0;
         transition: 0.5s all;
         display: inline-block;
         transform: scale(1);
