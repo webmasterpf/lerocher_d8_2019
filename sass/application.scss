@@ -50,6 +50,10 @@ breakpoint-2.7.1-
 
 
 //@import "sassy-buttons";
+//Compilation LAMP
+//@import "breakpoint";
+
+//Compilation locale poste W10
 @import "../node_modules/breakpoint-sass/stylesheets/breakpoint";
 
 //Remplacement de Vertical Rhythm par Typey (Composant de node-sass) Gestion de la typographie
@@ -63,7 +67,11 @@ breakpoint-2.7.1-
 @import "./global/_mixins-custom.scss";
 @import "./global/_typos.scss";
 @import "./global/_style.scss";
+
+// Import des partiels pour la navigation
 @import "./global/_menu-fullpage.scss";
+/*@import "./global/_nav_megamenu.scss";*/
+@import "./global/_nav_superfish.scss";
 @import "./global/_stacktable.scss";
 /*@import "./global/_sub-nav.scss";*/
 
