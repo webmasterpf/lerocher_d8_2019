@@ -49,7 +49,7 @@ body .conteneur{
                 min-height: 25vw;
                 max-height: 30vw;
                 img{
-                    transform: translate(0%,-6%);
+                    transform: translate(0%,-10%);
                 }
             }
             @include breakpoint(($mobilelandscape,$tablet,$tabletlandscape)){
@@ -69,7 +69,7 @@ body .conteneur{
       #illustration-pleinepage{
         @include breakpoint(($desktop,$desktopwide)){
             img{
-                transform: translate(0%,-18%);
+                transform: translate(0%,-10%);
             }
         }
       }
@@ -93,7 +93,7 @@ body .conteneur{
       #illustration-pleinepage{
         @include breakpoint(($desktop,$desktopwide)){
             img{
-                transform: translate(0%,-46%);
+                transform: translate(0%,-10%);
             }
         }
       }
