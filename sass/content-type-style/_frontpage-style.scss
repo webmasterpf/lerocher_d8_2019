@@ -22,7 +22,21 @@ $tabletlandscape-hd:
 //@include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){}
 
 /*######-------- ||| LAYOUT SPECIFIQUE ||| --------######*/
-.annonce_2 {
+//Splash avec colorbox - hors body
+div#colorbox{
+  iframe.cboxIframe{
+    h2{
+      @include font-size(l); //utilisation de typey
+      color: $violet;
+    }
+    p{
+      @include font-size(m); //utilisation de typey
+      padding: em(5px);
+      line-height: 1.5em;
+    }
+  }
+}
+.annonce_2{
 
     ul.badnews {
 
@@ -33,11 +47,8 @@ $tabletlandscape-hd:
 
             @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
 
-
                 float: none;
             }
-
-
 
         }
     }
@@ -64,13 +75,11 @@ aside.DiapoHPFull {
         }
     }
 }
-
-.logo_partenaires {
-    .acces-partenaires {
-        ul {
-            display: initial; //conserve ordre des lignes : grid,inutile ici
-
-            @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+.logo_partenaires{
+    .acces-partenaires{
+        ul{
+            display: initial;//conserve ordre des lignes : grid,inutile ici
+            @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                 display: flex;
                 justify-content: center;
                 flex-wrap: wrap;
@@ -139,44 +148,96 @@ ul.rubriques-administratives {
     }
 }
 
-ul.rubriques-speciales {
-    //pas besoin de fixer un display en mobile, vertical automatique - mobile first
-    max-width: span(11);
-    margin: span(0.5) span(0.2);
-    $nb-elements: 5; //ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
-
-    @include breakpoint(($desktop, $desktopwide,
-            $tablet-hd, $tabletlandscape-hd)) {
-        display: inline-block;
-        column-count: $nb-elements;
-        column-fill: balance;
-        white-space: normal;
-        width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
-        margin-left: span(3.05 wide); //push - si 4 items alors 2; si 3 items alors 3.5
+ul.rubriques-speciales{
+        //pas besoin de fixer un display en mobile, vertical automatique - mobile first
+        max-width: span(11);
+        margin: span(0.5)  span(0.2);
+        $nb-elements:5;//ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
+        @include breakpoint(($desktop,$desktopwide,
+        $tablet-hd,$tabletlandscape-hd
+        )){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
+            margin-left: span(3.05 wide);//push - si 4 items alors 2; si 3 items alors 3.5
+        }
+        @include breakpoint($tablet){
+            margin: span(0.5) span(0.2);
+        }
+        @include breakpoint(($mobilelandscape,$tabletlandscape)){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 10vw;
+            max-width: 95%;
+        }
+        @include breakpoint(($tablet,$mobile-galaxyShd,$mobile-iphonehd)){
+            display:inline-block;
+            column-count: 1;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 5vw;
+            width: 95%;
+        }
     }
 
-    @include breakpoint($tablet) {
-        margin: span(0.5) span(0.2);
+    ul.rubriques-contact{
+        //pas besoin de fixer un display en mobile, vertical automatique - mobile first
+        max-width: span(11);
+        margin: span(0.5)  span(0.2);
+        $nb-elements:3;//ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
+        // si display: inline-flex;//Résoud bug FF sur titre des boutons,alors pas imperatif
+        @include breakpoint(($desktop,$desktopwide,
+        $tablet-hd,$tabletlandscape-hd
+        )){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
+            margin-left: span(3.05 wide);//push - si 4 items alors 2; si 3 items alors 3.5
+        }
+        @include breakpoint($tablet){
+          display:inline-block;
+          column-count: $nb-elements;//Selon nombre éléments à afficher
+          column-fill: balance;
+          white-space: normal;
+          margin-left: span(2 wide);//centrage des boutons sur tablette portrait
+        }
+        @include breakpoint(($mobilelandscape,$tabletlandscape)){
+            display:inline-block;
+            column-count: $nb-elements;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 10vw;
+            max-width: 95%;
+        }
+        @include breakpoint(($mobile-galaxyShd,$mobile-iphonehd)){
+            display:inline-block;
+            column-count: 1;
+            column-fill: balance;
+            white-space: normal;
+            //centrer le UL
+            margin: 0 5vw;
+            width: 75%;
+        }
     }
-
-    @include breakpoint(($mobilelandscape, $tabletlandscape)) {
-        display: inline-block;
-        column-count: $nb-elements;
-        column-fill: balance;
-        white-space: normal;
-        //centrer le UL
-        margin: 0 10vw;
-        max-width: 95%;
+    aside.pageFacebook{
+      //Likebox FB classe via BlockClass
+      @include breakpoint(($desktop,$desktopwide,
+      $tablet-hd,$tabletlandscape-hd
+      )){
+      max-width: span(11);
+      margin: span(0.5)  span(4);
     }
-
-    @include breakpoint(($tablet, $mobile-galaxyShd, $mobile-iphonehd)) {
-        display: inline-block;
-        column-count: 1;
-        column-fill: balance;
-        white-space: normal;
-        //centrer le UL
-        margin: 0 5vw;
-        width: 95%;
+    @include breakpoint($tablet){}
+    @include breakpoint(($mobilelandscape,$tabletlandscape)){}
     }
 }
 
@@ -245,7 +306,10 @@ aside.pageFacebook {
 //Code imbriqué à 100%
 body .conteneur {
 
-    .annonce_1 {}
+    //.annonce_1{  }
+    .annonce_alaUne{
+        h3{//ajout picto en place du titre h3
+           display: none;
 
     .annonce_alaUne {
         h3 {
@@ -267,8 +331,28 @@ body .conteneur {
 
         ul.actu-brulante {
             list-style: none;
-
-            li {
+            &::before {
+              //@include backgroundImage("PNG/Fichiers@3x.png");
+              @include maskImage(("PNG/notification-blanc@4x.png"),100%,alpha,$rouge);
+              background-size: contain;
+              content: "";
+              position: absolute;
+              vertical-align: middle;
+              padding: em(33px);
+              margin: em(10px) em(0px) em(0px) 0;
+              transition: 0.5s all;
+              display: inline-block;
+              transform: scale(1);
+              min-height: em(30px);
+              //Pas affiché sur mobile
+              display: none;
+              @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)) {
+              // Pour ne pas tronquer le picto
+              display: initial;
+              min-height: em(80px);
+            }
+            }
+            li{
                 list-style: none;
                 color: $gris-anthracite;
                 max-width: 95%;
@@ -297,9 +381,8 @@ body .conteneur {
                 }
 
             }
-
-            .breaking-news-element {
-
+            .breaking-news-element{
+              //Classe ajoutée dans la vue
                 border: em(3px) transparent solid;
                 background: $orange-fonce;
                 transition-property: background !important;
@@ -402,6 +485,7 @@ body .conteneur {
             a {
                 //                padding: 0 0 0 span(0.1);
                 display: block;
+                z-index: 60; //Résoudre pb lien sur images
             }
 
             .bx-caption {
@@ -500,7 +584,7 @@ body .conteneur {
 
                 span.titre-admin {
                     display: block;
-                    text-align: center;
+                    text-align:center;
                     font-weight: bold;
 
                     a {
@@ -509,13 +593,12 @@ body .conteneur {
 
                     }
                 }
-
-                span.accroche-admin {
-                    @include font-size(xs); //utilisation de typey
+                span.accroche-admin{
+                    @include font-size(xs);//utilisation de typey
                     padding: em(6px);
                     display: block;
                     word-break: break-word;
-                    font-weight: normal !important; //inclusion du span dans celui du titre pour lien (via views)
+                    font-weight: normal !important;//inclusion du span dans celui du titre pour lien (via views)
                 }
             }
         }
@@ -602,8 +685,9 @@ body .conteneur {
                     // Pas de param display:flex pour mobile sinon bug affichage
                     display: block;
 
-                    @include breakpoint(($desktop, $desktopwide, $mobilelandscape,
-                            $tablet, $tabletlandscape, $tablet-hd, $tabletlandscape-hd)) {
+
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,
+                    $tablet,$tabletlandscape,$tablet-hd,$tabletlandscape-hd)){
                         @include txt-cesure;
                         @include txt-colonnes;
                         @include hack-Edge;
@@ -612,8 +696,7 @@ body .conteneur {
                         padding: 0 span(0.9);
                         display: flex;//Résoud bug FF
                     }
-
-                    @include breakpoint(($tablet, $tabletlandscape, $tablet-hd, $tabletlandscape-hd)) {
+                    @include breakpoint(($tablet,$tabletlandscape,$tablet-hd,$tabletlandscape-hd)){
                         padding: span(0.9);
                         display: flex;//Résoud bug FF
                     }
@@ -629,23 +712,27 @@ body .conteneur {
                             max-width: 11vw;
                             max-height: 11vw;
                             vertical-align: middle;
+                            display: inline-flex;//Résoud bug FF
                         }
 
                         @include breakpoint(($tablet, $tabletlandscape)) {
                             max-width: 20vw;
                             min-height: 14vw;
+                            display: inline-flex;//Résoud bug FF
                         }
 
                         @include breakpoint($mobilelandscape) {
                             max-width: 20vw;
                             min-width: 12vw;
                             min-height: 20vw;
+                            display: inline-flex;//Résoud bug FF
                         }
 
                         @include breakpoint(($mobile-galaxyShd, $mobile-iphonehd)) {
                             max-width: 50vw;
                             max-height: 50vw;
                             margin: 0 auto;
+                            display: inline-flex;//Résoud bug FF
                         }
 
                         a {
@@ -655,13 +742,13 @@ body .conteneur {
                             text-transform: uppercase;
                             font-weight: bold;
                             color: $blanc-casse;
-                            @include font-size(xs); //utilisation de typey
+                            @include font-size(xs);//utilisation de typey
                             /*@include backgroundImage("SVG/bg_acces_contact.svg");*/
                             background-size: cover;
 
                             min-width: inherit;
-                            min-height: inherit;
-                            transition-duration: 0.0s; //Permet de jouer sur un effet de slide
+                            min-height:  inherit;
+                            transition-duration: 0.0s;//Permet de jouer sur un effet de slide
                             text-align: center;
                             @include txt-cesure(break-word);
                             /*  Forme arrondie pour les boutons - pb avec taille sur mobile
@@ -673,10 +760,10 @@ body .conteneur {
                             @include arrondis(4em);
                             background-color: $violet; //Couleur de fond des boutons acces-contact
 
-                            @include breakpoint(($desktop, $desktopwide)) {
+                            @include breakpoint(($desktop,$desktopwide)){
                                 max-width: 11vw;
                                 max-height: 11vw;
-                                @include font-size(m); //utilisation de typey
+                                @include font-size(m);//utilisation de typey
                                 word-spacing: em(3px);
 
                             }
@@ -742,31 +829,26 @@ body .conteneur {
 
             }
         }
+        aside.AccesLycees{
 
-        aside.AccesLycees {
-
-            ul.acces-lycees {
-                display: grid; //conserve ordre des lignes
-
-                @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+            ul.acces-lycees{
+                display: grid;//conserve ordre des lignes
+                @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                     display: flex;
                     justify-content: center;
                     flex-wrap: wrap;
                 }
-
-                li {
+                li{
                     list-style: none;
                     margin: 0;
-                    text-align: center;
-
-                    @include breakpoint(($desktop, $desktopwide, $mobilelandscape, $tablet, $tabletlandscape)) {
+                    text-align:center;
+                    @include breakpoint(($desktop,$desktopwide,$mobilelandscape,$tablet,$tabletlandscape)){
                         width: span(1 of 4);
                         margin: span(0.0001);
                     }
                 }
-
-                li.views-row-1 {
-                    order: 9;
+                li.views-row-1{
+                    order:9;
                     background: $orange-fonce;
                 }
 
