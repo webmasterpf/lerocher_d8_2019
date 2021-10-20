@@ -81,7 +81,7 @@ body .conteneur{
       #illustration-pleinepage{
         @include breakpoint(($desktop,$desktopwide)){
             img{
-                transform: translate(0%,-27%);
+                transform: translate(0%,-10%);//Correction avec images RWD
             }
         }
       }
