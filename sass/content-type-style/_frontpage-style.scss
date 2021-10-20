@@ -227,78 +227,17 @@ ul.rubriques-speciales{
             margin: 0 5vw;
             width: 75%;
         }
-    }
+    } // Fin rubriques-contact
     aside.pageFacebook{
       //Likebox FB classe via BlockClass
       @include breakpoint(($desktop,$desktopwide,
-      $tablet-hd,$tabletlandscape-hd
-      )){
+      $tablet-hd,$tabletlandscape-hd)){
       max-width: span(11);
       margin: span(0.5)  span(4);
     }
     @include breakpoint($tablet){}
     @include breakpoint(($mobilelandscape,$tabletlandscape)){}
-    
-}
-
-ul.rubriques-contact {
-    //pas besoin de fixer un display en mobile, vertical automatique - mobile first
-    max-width: span(11);
-    margin: span(0.5) span(0.2);
-    $nb-elements: 3; //ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
-
-    @include breakpoint(($desktop, $desktopwide,
-            $tablet-hd, $tabletlandscape-hd)) {
-        display: inline-block;
-        column-count: $nb-elements;
-        column-fill: balance;
-        white-space: normal;
-        width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
-        margin-left: span(3.05 wide); //push - si 4 items alors 2; si 3 items alors 3.5
-    }
-
-    @include breakpoint($tablet) {
-        display: inline-block;
-        column-count: 3; //Selon nombre éléments à afficher
-        column-fill: balance;
-        white-space: normal;
-        margin-left: span(2 wide); //centrage des boutons sur tablette portrait
-    }
-
-    @include breakpoint(($mobilelandscape, $tabletlandscape)) {
-        display: inline-block;
-        column-count: $nb-elements;
-        column-fill: balance;
-        white-space: normal;
-        //centrer le UL
-        margin: 0 10vw;
-        max-width: 95%;
-    }
-
-    @include breakpoint(($mobile-galaxyShd, $mobile-iphonehd)) {
-        display: inline-block;
-        column-count: 1;
-        column-fill: balance;
-        white-space: normal;
-        //centrer le UL
-        margin: 0 5vw;
-        width: 75%;
-    }
-}
-
-aside.pageFacebook {
-
-    //Likebox FB classe via BlockClass
-    @include breakpoint(($desktop, $desktopwide,
-            $tablet-hd, $tabletlandscape-hd)) {
-        max-width: span(11);
-        margin: span(0.5) span(4);
-    }
-
-    @include breakpoint($tablet) {}
-
-    @include breakpoint(($mobilelandscape, $tabletlandscape)) {}
-}
+  } // Fin pageFacebook
 
 //Bloc de partage RS avec social simple. Voir scss dédié _layout-partage-rs
 /*######-------- ||| STYLE ||| --------######*/
