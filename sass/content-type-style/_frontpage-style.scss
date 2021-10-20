@@ -238,7 +238,7 @@ ul.rubriques-speciales{
     }
     @include breakpoint($tablet){}
     @include breakpoint(($mobilelandscape,$tabletlandscape)){}
-    }
+    
 }
 
 ul.rubriques-contact {
