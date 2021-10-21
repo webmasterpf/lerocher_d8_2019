@@ -398,7 +398,7 @@ body .conteneur {
 
                 }
                 &:hover{
-                    background: $violet;//Couleur de fond hover des acces Rub Admin
+                    background: $vert;//Couleur de fond hover des acces Rub Admin
                 }
                 img{
                     object-fit: cover;//permet que l'image occupe tout l'espace mais il faut définir une taille
@@ -509,7 +509,7 @@ body .conteneur {
                             @include font-size(s);//utilisation de typey
                         }
                         &:hover{
-                            background: $violet;//Changer la couleur du BG hover ici
+                            background: $vert;//Changer la couleur du BG hover ici
                             color: $gris-clair;
                         }
                     }
