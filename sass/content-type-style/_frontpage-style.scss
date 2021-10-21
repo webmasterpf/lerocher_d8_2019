@@ -726,18 +726,14 @@ body .conteneur {
                         }
                     }
 
-                    &.nid-34 {
-
-                        //contact
+                    &.nid-34 {           //contact
                         a:hover {
                             @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'), $vert, -2% 72%, no-repeat);
                             background-size: 700%;
                         }
                     }
 
-                    &.nid-5 {
-
-                        //inscriptions
+                    &.nid-5 {              //inscriptions
                         a:hover {
                             @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'), $vert, 49% 58%, no-repeat);
                             //transform: scale(1);
@@ -745,18 +741,14 @@ body .conteneur {
                         }
                     }
 
-                    &.nid-39 {
-
-                        //actus
+                    &.nid-39 {     //actus
                         a:hover {
                             @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'), $vert, 108% 58%, no-repeat);
                             background-size: 700%;
                         }
                     }
 
-                    &.nid-527 {
-
-                        //calendrier
+                    &.nid-527 {                   //calendrier
                         a:hover {
                             @include backgroundImage(('SVG/bg_acces_contact_blanc_transp.svg'), $vert, 102% 58%, no-repeat);
                             background-size: 700%;
@@ -912,8 +904,9 @@ body .conteneur {
         .logo_partenaires {}
     }
 }
+}
+}//body.container
 
-//body.container
 body {
     div#colorbox {
         iframe.cboxIframe {
@@ -948,6 +941,4 @@ body {
             }
         } // Fin cboxIframe
     } // Fin colorbox
-}
-}
 } // Fin body .conteneur
