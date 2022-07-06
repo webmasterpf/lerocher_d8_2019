@@ -185,6 +185,19 @@ https://www.creativejuiz.fr/blog/css-css3/controles-fin-des-cesures-css4-text
   perspective: 1000;
 }
 /*-------- IMAGES ADAPTABLES -----------*/
+@mixin adaptable-img-contain {
+  max-width: 100%;
+  //height: auto; //proportions
+  max-height: 100%;
+  object-fit: contain; //variante avec contain: si Besoin
+  width: 100%;
+  @-moz-document url-prefix() {
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+}
 @mixin adaptable-img {
   max-width: 100%;
   //height: auto; //proportions
@@ -706,5 +719,12 @@ https://www.creativejuiz.fr/blog/css-css3/controles-fin-des-cesures-css4-text
   @supports (-ms-ime-align: auto) {
     display: inline-block;
     width: 100%;
+  }
+}
+@mixin hack-EdgeChromium($display:flex) {
+  //ciblage de MS Edge >79 Chromium - Change display
+  @supports (not (-webkit-hyphens:none)) and (not (-moz-appearance:none)) and (list-style-type:"*") {
+    display: $display;
+
   }
 }

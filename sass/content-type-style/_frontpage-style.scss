@@ -162,21 +162,24 @@ ul.rubriques-speciales{
     }
 
     ul.rubriques-contact{
-        //pas besoin de fixer un display en mobile, vertical automatique - mobile first
-        max-width: span(11);
-        margin: span(0.5)  span(0.2);
-        $nb-elements:3;//ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
-        // si display: inline-flex;//Résoud bug FF sur titre des boutons,alors pas imperatif
-        @include breakpoint(($desktop,$desktopwide,
-        $tablet-hd,$tabletlandscape-hd
-        )){
-            display:inline-block;
-            column-count: $nb-elements;
-            column-fill: balance;
-            white-space: normal;
-            width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
-            margin-left: span(3.05 wide);//push - si 4 items alors 2; si 3 items alors 3.5
-        }
+      //pas besoin de fixer un display en mobile, vertical automatique - mobile first
+  max-width: span(11);
+  margin: span(0.5) span(0.2);
+  $nb-elements: 3; //ajuster le nombre d'items réels pour éviter les bugs FF ou Edge - RAS Chrome
+  // si display: inline-flex;//Résoud bug FF sur titre des boutons,alors pas imperatif
+  @include breakpoint(($desktop,$desktopwide, $tablet-hd,$tabletlandscape-hd)) {
+    //Pour FF, autre que Edge
+    @supports not (-ms-ime-align: auto) {
+      display: inline-block;
+    }
+    //Pour Edge depuis Chrome v100, bug Affichage
+    @include hack-EdgeChromium (flex);
+    column-count: $nb-elements;
+    column-fill: balance;
+    white-space: normal;
+    width: span(6.75 of $desktopcol); //si 4 items alors 8; si 3 items alors 6.5
+    margin-left: span(3.05 wide); //push - si 4 items alors 2; si 3 items alors 3.5
+  }
         @include breakpoint($tablet){
           display:inline-block;
           column-count: $nb-elements;//Selon nombre éléments à afficher

@@ -87,76 +87,70 @@ body .conteneur {}
     }
 
     aside.liste-formations-initiales {
-        // 1 classe pour Webkit, 1 pour FF
-        //.bef-exposed-form
-        div.fieldset-wrapper //fieldset.form-wrapper
-
-            {
-            @include breakpoint(($desktop, $desktopwide)) {
-                display: inline-block;
-                column-count: 6;
-                column-fill: balance;
-                white-space: normal;
-                padding: span(0.02);
-
+      .bef-exposed-form{
+        @include breakpoint(($desktop,$desktopwide)){
+          //Pour FF, autre que Edge
+                    @supports not (-ms-ime-align: auto) {
+                     display:inline-block;
+                    }
+          //Pour Edge depuis Chrome v100, bug Affichage
+          @include hack-EdgeChromium (table-cell);
+            column-count: 4; //Adapter au nb de filtres
+            column-fill: balance;
+            white-space: normal;
+            padding: span(0.02);
+        }
+        @include breakpoint(($tablet,$tabletlandscape)){
+          //Diminue taille items sur Tablette selon réglage de display
+          //display:inherit;
+          column-count: 1;// Tablette S3: Edge & FF OK
+          column-fill: balance;
+          white-space: normal;
+          padding: span(0.02);
+        }
+        @include breakpoint(($mobilelandscape)){
+          //Diminue taille items sur Tablette selon réglage de display
+          //display:inherit;
+          column-count: 2;// Mobile Paysage
+          column-fill: balance;
+          white-space: normal;
+          padding: span(0.02);
+        }
+        div.form-item{
+            margin: 0 0 span(0.01) 0;
+            min-height: 7vh;
+            padding: span(0.15);
+            @include breakpoint(($desktop,$desktopwide)){
+              @include hack-Edge;
+              @include hack-IE;
+              @include txt-colonnes();
+              padding: span(1);
+              display: flex; // Pour chrome, flex (texte à G), block (texte centré mais pas fiable)
             }
-
-            @include breakpoint(($tablet, $tabletlandscape)) {
-                //Diminue taille items sur Tablette selon réglage de display
-                //display:inherit;
-                column-count: 1; // Tablette S3: Edge & FF OK
-                column-fill: balance;
-                white-space: normal;
-                padding: span(0.02);
+            @include breakpoint(($tablet,$tabletlandscape)){
+              @include hack-Edge;
+              @include hack-IE;
+              @include txt-colonnes();
+              //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
+              // Régler column-count: sur 1 au niveau de l'UL
+              display: inline-block;
+              width: span(5.5);
+              padding: span(0.35);
+              //Garder le margin par défaut
             }
-
-            @include breakpoint(($mobilelandscape)) {
-                //Diminue taille items sur Tablette selon réglage de display
-                //display:inherit;
-                column-count: 2; // Mobile Paysage
-                column-fill: balance;
-                white-space: normal;
-                padding: span(0.02);
-            }
-
-            div.form-item {
-                margin: 0 0 span(0.01) 0;
-                min-height: 7vh;
-                padding: span(0.15);
-
-                @include breakpoint(($desktop, $desktopwide)) {
-                    @include hack-Edge;
-                    @include hack-IE;
-                    @include txt-colonnes();
-                    padding: span(1);
-
-                }
-
-                @include breakpoint(($tablet, $tabletlandscape)) {
-                    @include hack-Edge;
-                    @include hack-IE;
-                    @include txt-colonnes();
-                    //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
-                    // Régler column-count: sur 1 au niveau de l'UL
-                    display: inline-block;
-                    width: span(5.5);
-                    padding: span(0.35);
-                    //Garder le margin par défaut
-                }
-
-                @include breakpoint(($mobilelandscape)) {
-                    @include hack-Edge;
-                    @include hack-IE;
-                    @include txt-colonnes();
-                    //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
-                    // Régler column-count: sur 1 au niveau de l'UL
-                    display: block;
-                    min-height: 19vh;
-                    padding: span(0.15);
-                    //Garder le margin par défaut
-                }
+            @include breakpoint(($mobilelandscape)){
+              @include hack-Edge;
+              @include hack-IE;
+              @include txt-colonnes();
+              //Tri horizontal plutot que vertical des éléments. Besoin d'une largeur
+              // Régler column-count: sur 1 au niveau de l'UL
+              display: block;
+              min-height: 19vh;
+              padding: span(0.15);
+              //Garder le margin par défaut
             }
         }
+    } // Fin bef-exposed-form
 
         ul.formations-initiales {
             padding: 0;
@@ -261,9 +255,7 @@ body .conteneur {}
         }
 
         // Fin nav.pager
-    }
-
-    //Fin aside.liste-formations-initiales
+    } //Fin aside.liste-formations-initiales
 }
 
 /*######-------- ||| STYLE ||| --------######*/
